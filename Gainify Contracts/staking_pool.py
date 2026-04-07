@@ -556,7 +556,7 @@ class GainifyStakingPool(ARC4Contract):
     @subroutine
     def _verify_gainify_nfd_ownership_pool(
         self,
-        nfdAppID: Application,
+        nfd_app_id: Application,
     ) -> None:
         '''Call The Gainify Master Contract & Request Verification that the user owns an NFD segment from the project'''
         user_address = Address(Txn.sender)
@@ -567,11 +567,11 @@ class GainifyStakingPool(ARC4Contract):
             fee = Global.min_txn_fee
         )
         
-        if nfdAppID.id != 0:
+        if nfd_app_id.id != 0:
             result, txn = abi_call[bool](
                 '_verify_gainify_nfd_ownership_master(address,application,pay)bool',
                 Address(Txn.sender),
-                nfdAppID,
+                nfd_app_id,
                 pass_tx_fee_payment,
                 app_id = self.MASTER_APP_ID,
                 fee=Global.min_txn_fee
@@ -830,7 +830,7 @@ class GainifyStakingPool(ARC4Contract):
                 ).submit()            
             
             new_user_stake_instance.reward_supplement = arc4UInt64(0)
-            
+
             total_transfers += 1
         
         assert fee_payment.amount >= (Global.min_txn_fee * total_transfers)
