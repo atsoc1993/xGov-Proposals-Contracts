@@ -1,0 +1,3606 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 2 8 330000 18446744073709551615
+    bytecblock "STAKE_ACTIVITY_COUNTER" "STAKED_ASSET_AMOUNT" 0x0000000000000000 "STAKE_ASSET" "SUPPLEMENTAL_REWARD_ASSET_AMOUNT" "REWARD_ASSET" "SUPPLEMENTAL_REWARD_ASSET" "POOL_START_TIME" "POOL_LENGTH" "REWARD_RATE_ASSET" "ASSET_SCALE_FACTOR" "SUPPLEMENTAL_REWARD_RATE" "SUPPLEMENTAL_ASSET_SCALE_FACTOR" "FEE_ADDRESS" "MASTER_APP_ID" "MASTER_APP_ADDRESS" 0x151f7c75 "REWARD_ASSET_AMOUNT" "WEBSITE_LINK" "DISCORD_LINK" "X_LINK" "BOOST_TOGGLED" 0x068101 0x0001
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // Gainify Contracts/staking_pool.py:50
+    // self.MASTER_APP_ID = Application()
+    bytec 14 // "MASTER_APP_ID"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:51
+    // self.MASTER_APP_ADDRESS = Account()
+    bytec 15 // "MASTER_APP_ADDRESS"
+    global ZeroAddress
+    app_global_put
+    // Gainify Contracts/staking_pool.py:52
+    // self.FEE_ADDRESS = Account()
+    bytec 13 // "FEE_ADDRESS"
+    global ZeroAddress
+    app_global_put
+    // Gainify Contracts/staking_pool.py:53
+    // self.STAKE_ASSET = UInt64()
+    bytec_3 // "STAKE_ASSET"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:55
+    // self.STAKED_ASSET_AMOUNT = UInt64(0)
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:57
+    // self.REWARD_ASSET = UInt64()
+    bytec 5 // "REWARD_ASSET"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:58
+    // self.REWARD_ASSET_AMOUNT = UInt64()
+    bytec 17 // "REWARD_ASSET_AMOUNT"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:59
+    // self.REWARD_RATE_ASSET = UInt64()
+    bytec 9 // "REWARD_RATE_ASSET"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:60
+    // self.ASSET_SCALE_FACTOR = UInt64()
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:62
+    // self.SUPPLEMENTAL_REWARD_ASSET = UInt64()
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:63
+    // self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT = UInt64()
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:64
+    // self.SUPPLEMENTAL_REWARD_RATE = UInt64()
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:65
+    // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR = UInt64()
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:67
+    // self.WEBSITE_LINK = String()
+    bytec 18 // "WEBSITE_LINK"
+    pushbytes ""
+    app_global_put
+    // Gainify Contracts/staking_pool.py:68
+    // self.DISCORD_LINK = String()
+    bytec 19 // "DISCORD_LINK"
+    pushbytes ""
+    app_global_put
+    // Gainify Contracts/staking_pool.py:69
+    // self.X_LINK = String()
+    bytec 20 // "X_LINK"
+    pushbytes ""
+    app_global_put
+    // Gainify Contracts/staking_pool.py:71
+    // self.BOOST_TOGGLED = bool()
+    bytec 21 // "BOOST_TOGGLED"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:72
+    // self.POOL_START_TIME = UInt64(0)
+    bytec 7 // "POOL_START_TIME"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:73
+    // self.POOL_LENGTH = UInt64(0)
+    bytec 8 // "POOL_LENGTH"
+    intc_0 // 0
+    app_global_put
+    // Gainify Contracts/staking_pool.py:76
+    // self.STAKE_ACTIVITY_COUNTER = arc4UInt64(0)
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    bytec_2 // 0x0000000000000000
+    app_global_put
+
+main_after_if_else@2:
+    // Gainify Contracts/staking_pool.py:47
+    // class GainifyStakingPool(ARC4Contract):
+    txn NumAppArgs
+    bz main___algopy_default_create@17
+    pushbytes 0xa0e81872 // method "update()void"
+    txna ApplicationArgs 0
+    match main_update_route@5
+
+main_switch_case_next@6:
+    // Gainify Contracts/staking_pool.py:47
+    // class GainifyStakingPool(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    assert
+    pushbytess 0x8312cedb 0xc5f90cdb 0xc4918534 0x79c552f0 0x58e660c5 0xd00d9c13 // method "opt_into_assets(uint64,uint64,uint64,uint64,pay)void", method "initialize_staking_pool(uint64,uint64,txn,txn,string,string,string,bool,address,uint64)void", method "calculate_user_current_earnings((uint64,uint64,uint64,uint64,uint64,bool,uint64))(uint64,uint64,uint64)", method "add_stake(axfer,pay,pay,uint64)void", method "claim_reward(pay,pay,uint64)(uint64,uint64)", method "claim_reward_and_unstake(pay,pay,uint64,uint64,uint64)void"
+    txna ApplicationArgs 0
+    match opt_into_assets initialize_staking_pool calculate_user_current_earnings add_stake claim_reward claim_reward_and_unstake
+    err
+
+main_update_route@5:
+    // Gainify Contracts/staking_pool.py:843
+    // @abimethod(allow_actions=['UpdateApplication'])
+    txn OnCompletion
+    pushint 4 // UpdateApplication
+    ==
+    txn ApplicationID
+    &&
+    assert
+    b update
+
+main___algopy_default_create@17:
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    return
+
+
+// _puya_lib.util.ensure_budget(required_budget: uint64, fee_source: uint64) -> void:
+ensure_budget:
+    proto 2 0
+    frame_dig -2
+    pushint 10
+    +
+
+ensure_budget_while_top@1:
+    frame_dig 0
+    global OpcodeBudget
+    >
+    bz ensure_budget_after_while@6
+    itxn_begin
+    pushint 6 // appl
+    itxn_field TypeEnum
+    pushint 5 // DeleteApplication
+    itxn_field OnCompletion
+    bytec 22 // 0x068101
+    itxn_field ApprovalProgram
+    bytec 22 // 0x068101
+    itxn_field ClearStateProgram
+    frame_dig -1
+    switch ensure_budget_switch_case_0@3 ensure_budget_switch_case_1@4
+
+ensure_budget_switch_case_next@5:
+    itxn_submit
+    b ensure_budget_while_top@1
+
+ensure_budget_switch_case_1@4:
+    global MinTxnFee
+    itxn_field Fee
+    b ensure_budget_switch_case_next@5
+
+ensure_budget_switch_case_0@3:
+    intc_0 // 0
+    itxn_field Fee
+    b ensure_budget_switch_case_next@5
+
+ensure_budget_after_while@6:
+    retsub
+
+
+// staking_pool.GainifyStakingPool.opt_into_assets[routing]() -> void:
+opt_into_assets:
+    // Gainify Contracts/staking_pool.py:90
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dup
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    swap
+    txna ApplicationArgs 3
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    swap
+    txna ApplicationArgs 4
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    swap
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // Gainify Contracts/staking_pool.py:103
+    // assert Txn.sender == Global.creator_address
+    txn Sender
+    global CreatorAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:104
+    // assert mbr_payment.amount >= 2000
+    gtxns Amount
+    pushint 2000
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:105
+    // assert STAKE_ASSET != 0 and STAKE_ASSET != 31566704
+    bz opt_into_assets_bool_false@4
+    dig 3
+    pushint 31566704
+    !=
+    bz opt_into_assets_bool_false@4
+    intc_1 // 1
+
+opt_into_assets_bool_merge@5:
+    // Gainify Contracts/staking_pool.py:105
+    // assert STAKE_ASSET != 0 and STAKE_ASSET != 31566704
+    assert
+    // Gainify Contracts/staking_pool.py:107-111
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=STAKE_ASSET,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:110
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:108
+    // asset_receiver=Global.current_application_address,
+    global CurrentApplicationAddress
+    dig 5
+    itxn_field XferAsset
+    itxn_field AssetReceiver
+    // Gainify Contracts/staking_pool.py:107
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:107-111
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=STAKE_ASSET,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    // Gainify Contracts/staking_pool.py:113
+    // if reward_asset != 0:
+    dig 2
+    bz opt_into_assets_after_if_else@9
+    // Gainify Contracts/staking_pool.py:114-118
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=reward_asset,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:117
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:115
+    // asset_receiver=Global.current_application_address,
+    global CurrentApplicationAddress
+    dig 4
+    itxn_field XferAsset
+    itxn_field AssetReceiver
+    // Gainify Contracts/staking_pool.py:114
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:114-118
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=reward_asset,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+opt_into_assets_after_if_else@9:
+    // Gainify Contracts/staking_pool.py:120
+    // if supplemental_asset !=0 and supplemental_asset_amount != 0:
+    dig 1
+    bz opt_into_assets_after_if_else@13
+    dup
+    bz opt_into_assets_after_if_else@13
+    // Gainify Contracts/staking_pool.py:121-125
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=supplemental_asset,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:124
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:122
+    // asset_receiver=Global.current_application_address,
+    global CurrentApplicationAddress
+    dig 3
+    itxn_field XferAsset
+    itxn_field AssetReceiver
+    // Gainify Contracts/staking_pool.py:121
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:121-125
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=supplemental_asset,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+opt_into_assets_after_if_else@13:
+    // Gainify Contracts/staking_pool.py:90
+    // @abimethod
+    intc_1 // 1
+    return
+
+opt_into_assets_bool_false@4:
+    intc_0 // 0
+    b opt_into_assets_bool_merge@5
+
+
+// staking_pool.GainifyStakingPool.initialize_staking_pool[routing]() -> void:
+initialize_staking_pool:
+    pushbytes ""
+    dupn 5
+    // Gainify Contracts/staking_pool.py:163
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dup
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    swap
+    txn GroupIndex
+    intc_2 // 2
+    -
+    swap
+    txn GroupIndex
+    intc_1 // 1
+    -
+    swap
+    txna ApplicationArgs 3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    swap
+    txna ApplicationArgs 4
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    swap
+    txna ApplicationArgs 5
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    swap
+    txna ApplicationArgs 6
+    dup
+    len
+    intc_1 // 1
+    ==
+    assert // invalid number of bytes for arc4.bool
+    intc_0 // 0
+    getbit
+    swap
+    txna ApplicationArgs 7
+    dup
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 8
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    cover 2
+    // Gainify Contracts/staking_pool.py:177
+    // self.POOL_LENGTH = pool_length
+    bytec 8 // "POOL_LENGTH"
+    dig 2
+    app_global_put
+    // Gainify Contracts/staking_pool.py:178
+    // self.POOL_START_TIME = Global.latest_timestamp
+    bytec 7 // "POOL_START_TIME"
+    global LatestTimestamp
+    app_global_put
+    // Gainify Contracts/staking_pool.py:179
+    // self.FEE_ADDRESS = FEE_ADDRESS
+    bytec 13 // "FEE_ADDRESS"
+    swap
+    app_global_put
+    // Gainify Contracts/staking_pool.py:180
+    // assert Txn.sender == Global.creator_address
+    txn Sender
+    global CreatorAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:181
+    // assert 259_200 <= pool_length <= 15_552_000
+    pushint 259200
+    >=
+    bz initialize_staking_pool_bool_false@4
+    dig 8
+    pushint 15552000
+    <=
+    bz initialize_staking_pool_bool_false@4
+    intc_1 // 1
+
+initialize_staking_pool_bool_merge@5:
+    // Gainify Contracts/staking_pool.py:181
+    // assert 259_200 <= pool_length <= 15_552_000
+    assert
+    // Gainify Contracts/staking_pool.py:135
+    // reward_asset = UInt64(0)
+    intc_0 // 0
+    bury 15
+    // Gainify Contracts/staking_pool.py:136
+    // reward_asset_amount = UInt64(0)
+    intc_0 // 0
+    bury 14
+    // Gainify Contracts/staking_pool.py:137
+    // supplemental_reward_asset = UInt64(0)
+    intc_0 // 0
+    bury 13
+    // Gainify Contracts/staking_pool.py:138
+    // supplemental_reward_asset_amount = UInt64(0)
+    intc_0 // 0
+    bury 12
+    // Gainify Contracts/staking_pool.py:140
+    // if reward_asset_payment.type == TransactionType.Payment:
+    dig 6
+    gtxns TypeEnum
+    dup
+    bury 12
+    intc_1 // pay
+    ==
+    bz initialize_staking_pool_else_body@11
+    // Gainify Contracts/staking_pool.py:141
+    // reward_asset = UInt64(0)
+    intc_0 // 0
+    bury 15
+    // Gainify Contracts/staking_pool.py:142
+    // reward_asset_amount = reward_asset_payment.amount
+    dig 6
+    dup
+    gtxns Amount
+    bury 15
+    // Gainify Contracts/staking_pool.py:143
+    // assert reward_asset_payment.receiver == Global.current_application_address
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+
+initialize_staking_pool_after_if_else@14:
+    // Gainify Contracts/staking_pool.py:150
+    // if supplemental_asset_payment.type == TransactionType.Payment:
+    dig 5
+    gtxns TypeEnum
+    dup
+    bury 11
+    intc_1 // pay
+    ==
+    bz initialize_staking_pool_else_body@16
+    // Gainify Contracts/staking_pool.py:151
+    // supplemental_reward_asset = UInt64(0)
+    intc_0 // 0
+    bury 13
+    // Gainify Contracts/staking_pool.py:152
+    // supplemental_reward_asset_amount = supplemental_asset_payment.amount
+    dig 5
+    dup
+    gtxns Amount
+    bury 13
+    // Gainify Contracts/staking_pool.py:153
+    // assert supplemental_asset_payment.receiver == Global.current_application_address
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+
+initialize_staking_pool_after_if_else@19:
+    // Gainify Contracts/staking_pool.py:188
+    // assert reward_asset != supplemental_reward_asset
+    dig 14
+    dup
+    dig 14
+    !=
+    assert
+    // Gainify Contracts/staking_pool.py:190
+    // self.MASTER_APP_ID = master_app
+    bytec 14 // "MASTER_APP_ID"
+    dig 2
+    dup
+    cover 2
+    app_global_put
+    // Gainify Contracts/staking_pool.py:191
+    // self.MASTER_APP_ADDRESS = master_app.address
+    app_params_get AppAddress
+    assert // application exists
+    bytec 15 // "MASTER_APP_ADDRESS"
+    swap
+    app_global_put
+    // Gainify Contracts/staking_pool.py:193
+    // self.STAKE_ASSET = STAKE_ASSET
+    bytec_3 // "STAKE_ASSET"
+    dig 9
+    app_global_put
+    // Gainify Contracts/staking_pool.py:195
+    // self.REWARD_ASSET = reward_asset
+    bytec 5 // "REWARD_ASSET"
+    swap
+    app_global_put
+    // Gainify Contracts/staking_pool.py:196
+    // self.REWARD_ASSET_AMOUNT = reward_asset_amount
+    bytec 17 // "REWARD_ASSET_AMOUNT"
+    dig 14
+    dup
+    cover 2
+    app_global_put
+    // Gainify Contracts/staking_pool.py:197
+    // self.ASSET_SCALE_FACTOR = UInt64((2**64) - 1) // reward_asset_amount
+    intc 5 // 18446744073709551615
+    dig 1
+    /
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    dig 1
+    app_global_put
+    // Gainify Contracts/staking_pool.py:198
+    // reward_rates = (op.mulw(reward_asset_amount, self.ASSET_SCALE_FACTOR))
+    mulw
+    // Gainify Contracts/staking_pool.py:199
+    // self.REWARD_RATE_ASSET =  (reward_rates[0] // pool_length) + (reward_rates[1] // pool_length)
+    swap
+    dig 10
+    dup
+    cover 2
+    /
+    cover 2
+    /
+    +
+    bytec 9 // "REWARD_RATE_ASSET"
+    swap
+    app_global_put
+    // Gainify Contracts/staking_pool.py:201
+    // if supplemental_reward_asset_amount != 0:
+    dig 11
+    bz initialize_staking_pool_else_body@7
+    // Gainify Contracts/staking_pool.py:202
+    // self.SUPPLEMENTAL_REWARD_ASSET = supplemental_reward_asset
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    dig 13
+    app_global_put
+    // Gainify Contracts/staking_pool.py:203
+    // self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT = supplemental_reward_asset_amount
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    dig 12
+    dup
+    cover 2
+    app_global_put
+    // Gainify Contracts/staking_pool.py:204
+    // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR = UInt64((2**64) - 1) // supplemental_reward_asset_amount
+    intc 5 // 18446744073709551615
+    dig 1
+    /
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    dig 1
+    app_global_put
+    // Gainify Contracts/staking_pool.py:205
+    // self.SUPPLEMENTAL_REWARD_RATE = ((supplemental_reward_asset_amount * self.SUPPLEMENTAL_ASSET_SCALE_FACTOR) // pool_length)
+    *
+    dig 9
+    /
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    swap
+    app_global_put
+
+initialize_staking_pool_after_if_else@8:
+    // Gainify Contracts/staking_pool.py:210
+    // self.WEBSITE_LINK = website_link
+    bytec 18 // "WEBSITE_LINK"
+    dig 5
+    app_global_put
+    // Gainify Contracts/staking_pool.py:211
+    // self.DISCORD_LINK = discord_link
+    bytec 19 // "DISCORD_LINK"
+    dig 4
+    app_global_put
+    // Gainify Contracts/staking_pool.py:212
+    // self.X_LINK = x_link
+    bytec 20 // "X_LINK"
+    dig 3
+    app_global_put
+    // Gainify Contracts/staking_pool.py:214
+    // self.BOOST_TOGGLED = boost_toggled
+    bytec 21 // "BOOST_TOGGLED"
+    dig 2
+    app_global_put
+    // Gainify Contracts/staking_pool.py:163
+    // @abimethod
+    intc_1 // 1
+    return
+
+initialize_staking_pool_else_body@7:
+    // Gainify Contracts/staking_pool.py:208
+    // self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT = UInt64(0)
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    intc_0 // 0
+    app_global_put
+    b initialize_staking_pool_after_if_else@8
+
+initialize_staking_pool_else_body@16:
+    // Gainify Contracts/staking_pool.py:155
+    // elif supplemental_asset_payment.type == TransactionType.AssetTransfer:
+    dig 9
+    pushint 4 // axfer
+    ==
+    bz initialize_staking_pool_after_if_else@19
+    // Gainify Contracts/staking_pool.py:156
+    // supplemental_reward_asset = supplemental_asset_payment.xfer_asset.id
+    dig 5
+    dup
+    gtxns XferAsset
+    bury 14
+    // Gainify Contracts/staking_pool.py:157
+    // supplemental_reward_asset_amount = supplemental_asset_payment.asset_amount
+    dup
+    gtxns AssetAmount
+    bury 13
+    // Gainify Contracts/staking_pool.py:158
+    // assert supplemental_asset_payment.asset_receiver == Global.current_application_address
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    b initialize_staking_pool_after_if_else@19
+
+initialize_staking_pool_else_body@11:
+    // Gainify Contracts/staking_pool.py:145
+    // elif reward_asset_payment.type == TransactionType.AssetTransfer:
+    dig 10
+    pushint 4 // axfer
+    ==
+    bz initialize_staking_pool_after_if_else@14
+    // Gainify Contracts/staking_pool.py:146
+    // reward_asset = reward_asset_payment.xfer_asset.id
+    dig 6
+    dup
+    gtxns XferAsset
+    bury 16
+    // Gainify Contracts/staking_pool.py:147
+    // reward_asset_amount = reward_asset_payment.asset_amount
+    dup
+    gtxns AssetAmount
+    bury 15
+    // Gainify Contracts/staking_pool.py:148
+    // assert reward_asset_payment.asset_receiver == Global.current_application_address
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    b initialize_staking_pool_after_if_else@14
+
+initialize_staking_pool_bool_false@4:
+    intc_0 // 0
+    b initialize_staking_pool_bool_merge@5
+
+
+// staking_pool.GainifyStakingPool.calculate_user_current_earnings[routing]() -> void:
+calculate_user_current_earnings:
+    intc_0 // 0
+    dupn 4
+    pushbytes ""
+    dupn 5
+    // Gainify Contracts/staking_pool.py:335
+    // @abimethod
+    txna ApplicationArgs 1
+    dupn 2
+    len
+    pushint 49
+    ==
+    assert // invalid number of bytes for staking_pool.UserStake
+    pushbytes ""
+    swap
+    // Gainify Contracts/staking_pool.py:345
+    // asset_reward_sum = UInt64(0)
+    intc_0 // 0
+    swap
+    // Gainify Contracts/staking_pool.py:346
+    // supplemental_reward_sum = UInt64(0)
+    intc_0 // 0
+    swap
+    // Gainify Contracts/staking_pool.py:347
+    // user_amount_at_timestamp = user_stake_instance.stake_amount.native
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    // Gainify Contracts/staking_pool.py:348
+    // user_boost_at_timestamp = user_stake_instance.boost_amount.native
+    dup
+    pushint 41
+    extract_uint64
+    swap
+    // Gainify Contracts/staking_pool.py:349
+    // user_timestamp = user_stake_instance.stake_time.native
+    dup
+    intc_3 // 8
+    extract_uint64
+    swap
+    // Gainify Contracts/staking_pool.py:352
+    // max_counter_reached = False
+    intc_0 // 0
+    swap
+    // Gainify Contracts/staking_pool.py:353
+    // add_one = False
+    intc_0 // 0
+    swap
+    // Gainify Contracts/staking_pool.py:354
+    // current_counter = user_stake_instance.last_counter
+    extract 32 8
+    // Gainify Contracts/staking_pool.py:356
+    // last_timestamp = UInt64(0)
+    intc_0 // 0
+
+calculate_user_current_earnings_while_top@2:
+    // Gainify Contracts/staking_pool.py:358
+    // while not max_counter_reached:
+    dig 3
+    bnz calculate_user_current_earnings_after_while@25
+    // Gainify Contracts/staking_pool.py:360-361
+    // box_activity_for_counter = self.STAKE_ACTIVITY[current_counter].copy()
+    // for i in urange(box_activity_for_counter.length):
+    dig 1
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    bury 16
+    // Gainify Contracts/staking_pool.py:361
+    // for i in urange(box_activity_for_counter.length):
+    intc_0 // 0
+    bury 15
+
+calculate_user_current_earnings_for_header@4:
+    // Gainify Contracts/staking_pool.py:361
+    // for i in urange(box_activity_for_counter.length):
+    dig 14
+    dig 16
+    <
+    bz calculate_user_current_earnings_after_for@21
+    // Gainify Contracts/staking_pool.py:363
+    // if add_one == True:
+    dig 2
+    intc_1 // 1
+    ==
+    bz calculate_user_current_earnings_else_body@7
+    // Gainify Contracts/staking_pool.py:364
+    // j = i + UInt64(1)
+    dig 14
+    intc_1 // 1
+    +
+    bury 14
+
+calculate_user_current_earnings_after_if_else@8:
+    // Gainify Contracts/staking_pool.py:368-369
+    // activity_in_array = box_activity_for_counter[j].copy()
+    // activity_amount_at_timestamp = activity_in_array.total_stake_amount.native
+    dig 13
+    dup
+    pushint 16
+    *
+    intc_2 // 2
+    +
+    dig 3
+    dup
+    uncover 2
+    pushint 16
+    box_extract
+    dup
+    extract 0 8
+    bury 25
+    // Gainify Contracts/staking_pool.py:370
+    // activity_timestamp = activity_in_array.change_time.native
+    intc_3 // 8
+    extract_uint64
+    bury 19
+    // Gainify Contracts/staking_pool.py:373
+    // ensure_budget(3000, OpUpFeeSource.GroupCredit)
+    pushint 3000
+    intc_0 // 0
+    callsub ensure_budget
+    // Gainify Contracts/staking_pool.py:375
+    // if j + 1 <= box_activity_for_counter.length:
+    swap
+    intc_1 // 1
+    +
+    dup
+    bury 14
+    swap
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    <=
+    bz calculate_user_current_earnings_after_if_else@19
+    // Gainify Contracts/staking_pool.py:377
+    // if j < box_activity_for_counter.length:
+    dig 1
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    dig 14
+    >
+    bz calculate_user_current_earnings_after_if_else@11
+    // Gainify Contracts/staking_pool.py:379-380
+    // next_activity_in_array = box_activity_for_counter[next_index].copy()
+    // next_time_stamp = next_activity_in_array.change_time.native
+    dig 11
+    pushint 16
+    *
+    intc_2 // 2
+    +
+    dig 2
+    swap
+    pushint 16
+    box_extract
+    intc_3 // 8
+    // Gainify Contracts/staking_pool.py:380
+    // next_time_stamp = next_activity_in_array.change_time.native
+    extract_uint64
+    bury 10
+
+calculate_user_current_earnings_after_if_else@11:
+    // Gainify Contracts/staking_pool.py:382
+    // if j == box_activity_for_counter.length and arc4UInt64(current_counter.native + 1) in self.STAKE_ACTIVITY:
+    dig 1
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    dig 14
+    ==
+    bz calculate_user_current_earnings_after_if_else@14
+    dig 1
+    btoi
+    intc_1 // 1
+    +
+    itob
+    box_len
+    bury 1
+    bz calculate_user_current_earnings_after_if_else@14
+    // Gainify Contracts/staking_pool.py:383-384
+    // next_activity_in_array = box_activity_for_counter[0].copy()
+    // next_time_stamp = next_activity_in_array.change_time.native
+    dig 1
+    intc_2 // 2
+    pushint 16
+    box_extract
+    intc_3 // 8
+    // Gainify Contracts/staking_pool.py:384
+    // next_time_stamp = next_activity_in_array.change_time.native
+    extract_uint64
+    bury 10
+    // Gainify Contracts/staking_pool.py:385
+    // add_one = True
+    intc_1 // 1
+    bury 3
+
+calculate_user_current_earnings_after_if_else@14:
+    // Gainify Contracts/staking_pool.py:387
+    // if activity_timestamp > user_timestamp:
+    dig 16
+    dig 5
+    >
+    bz calculate_user_current_earnings_after_if_else@19
+    // Gainify Contracts/staking_pool.py:388
+    // time_diff = next_time_stamp - activity_timestamp
+    dig 9
+    dig 17
+    -
+    // Gainify Contracts/staking_pool.py:389
+    // asset_per_share_reward_rates = BigUInt(self.REWARD_RATE_ASSET) * time_diff
+    intc_0 // 0
+    bytec 9 // "REWARD_RATE_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_RATE_ASSET exists
+    itob
+    swap
+    itob
+    dup
+    bury 23
+    b*
+    // Gainify Contracts/staking_pool.py:390
+    // asset_per_share_reward_rate = asset_per_share_reward_rates // self.ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:391
+    // asset_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * asset_per_share_reward_rate
+    dig 7
+    dig 7
+    +
+    itob
+    dup
+    bury 22
+    b*
+    // Gainify Contracts/staking_pool.py:392
+    // asset_reward = op.btoi((asset_rewards // activity_amount_at_timestamp).bytes)
+    dig 22
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:393
+    // asset_reward_sum += asset_reward
+    dig 9
+    +
+    bury 9
+    // Gainify Contracts/staking_pool.py:394
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz calculate_user_current_earnings_after_if_else@19
+    // Gainify Contracts/staking_pool.py:395
+    // supplemental_per_share_reward_rates = BigUInt(self.SUPPLEMENTAL_REWARD_RATE) * time_diff
+    intc_0 // 0
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_RATE exists
+    itob
+    dig 21
+    b*
+    // Gainify Contracts/staking_pool.py:396
+    // supplemental_per_share_reward_rate = supplemental_per_share_reward_rates // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:397
+    // supplemental_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * supplemental_per_share_reward_rate
+    dig 20
+    b*
+    // Gainify Contracts/staking_pool.py:398
+    // supplemental_reward = op.btoi((supplemental_rewards // activity_amount_at_timestamp).bytes)
+    dig 22
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:399
+    // supplemental_reward_sum += supplemental_reward
+    dig 8
+    +
+    bury 8
+
+calculate_user_current_earnings_after_if_else@19:
+    // Gainify Contracts/staking_pool.py:361
+    // for i in urange(box_activity_for_counter.length):
+    dig 14
+    intc_1 // 1
+    +
+    dig 17
+    bury 2
+    bury 15
+    b calculate_user_current_earnings_for_header@4
+
+calculate_user_current_earnings_else_body@7:
+    dig 14
+    bury 14
+    b calculate_user_current_earnings_after_if_else@8
+
+calculate_user_current_earnings_after_for@21:
+    // Gainify Contracts/staking_pool.py:401
+    // if current_counter == self.STAKE_ACTIVITY_COUNTER:
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    dig 2
+    b==
+    bz calculate_user_current_earnings_else_body@23
+    // Gainify Contracts/staking_pool.py:402
+    // max_counter_reached = True
+    intc_1 // 1
+    bury 4
+    b calculate_user_current_earnings_while_top@2
+
+calculate_user_current_earnings_else_body@23:
+    // Gainify Contracts/staking_pool.py:404
+    // current_counter = arc4UInt64(current_counter.native + 1)
+    dig 1
+    btoi
+    intc_1 // 1
+    +
+    itob
+    bury 2
+    b calculate_user_current_earnings_while_top@2
+
+calculate_user_current_earnings_after_while@25:
+    // Gainify Contracts/staking_pool.py:407
+    // max_time = self.POOL_START_TIME + self.POOL_LENGTH
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    dup
+    bury 14
+    // Gainify Contracts/staking_pool.py:409
+    // if Global.latest_timestamp > max_time:
+    global LatestTimestamp
+    <
+    bz calculate_user_current_earnings_else_body@27
+    // Gainify Contracts/staking_pool.py:410
+    // time_diff = max_time - last_timestamp
+    dig 12
+    dig 1
+    -
+
+calculate_user_current_earnings_after_if_else@28:
+    // Gainify Contracts/staking_pool.py:414
+    // asset_per_share_reward_rates = BigUInt(self.REWARD_RATE_ASSET) * time_diff
+    intc_0 // 0
+    bytec 9 // "REWARD_RATE_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_RATE_ASSET exists
+    itob
+    swap
+    itob
+    dup
+    bury 21
+    b*
+    // Gainify Contracts/staking_pool.py:415
+    // asset_per_share_reward_rate = asset_per_share_reward_rates // self.ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:417
+    // asset_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * asset_per_share_reward_rate
+    dig 7
+    dig 7
+    +
+    itob
+    dup
+    bury 20
+    b*
+    // Gainify Contracts/staking_pool.py:418
+    // asset_reward = op.btoi((asset_rewards // self.STAKED_ASSET_AMOUNT).bytes)
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    itob
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:419
+    // asset_reward_sum += asset_reward
+    dig 9
+    +
+    bury 9
+    // Gainify Contracts/staking_pool.py:421
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz calculate_user_current_earnings_after_if_else@30
+    // Gainify Contracts/staking_pool.py:422
+    // supplemental_per_share_reward_rates = BigUInt(self.SUPPLEMENTAL_REWARD_RATE) * time_diff
+    intc_0 // 0
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_RATE exists
+    itob
+    dig 19
+    b*
+    // Gainify Contracts/staking_pool.py:423
+    // supplemental_per_share_reward_rate = supplemental_per_share_reward_rates // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:425
+    // supplemental_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * supplemental_per_share_reward_rate
+    dig 18
+    b*
+    // Gainify Contracts/staking_pool.py:427
+    // supplemental_reward = op.btoi((supplemental_rewards // self.STAKED_ASSET_AMOUNT).bytes)
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    itob
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:428
+    // supplemental_reward_sum += supplemental_reward
+    dig 8
+    +
+    bury 8
+
+calculate_user_current_earnings_after_if_else@30:
+    // Gainify Contracts/staking_pool.py:430
+    // if asset_reward_sum > 0:
+    dig 8
+    bz calculate_user_current_earnings_after_if_else@35
+    // Gainify Contracts/staking_pool.py:432
+    // if self.STAKE_ASSET == self.REWARD_ASSET:
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    ==
+    bz calculate_user_current_earnings_else_body@33
+    // Gainify Contracts/staking_pool.py:433
+    // user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native + asset_reward_sum)
+    dig 6
+    dig 9
+    +
+    itob
+    dig 11
+    swap
+    replace2 0
+    // Gainify Contracts/staking_pool.py:434
+    // user_stake_instance.reward_asset = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 16
+    bury 11
+
+calculate_user_current_earnings_after_if_else@34:
+    // Gainify Contracts/staking_pool.py:439
+    // user_stake_instance.stake_time = arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    dig 11
+    swap
+    replace2 8
+    // Gainify Contracts/staking_pool.py:440
+    // user_stake_instance.last_counter = current_counter
+    dig 2
+    replace2 32
+    bury 11
+
+calculate_user_current_earnings_after_if_else@35:
+    // Gainify Contracts/staking_pool.py:442
+    // if supplemental_reward_sum > 0:
+    dig 7
+    bz calculate_user_current_earnings_after_if_else@40
+    // Gainify Contracts/staking_pool.py:444
+    // if self.STAKE_ASSET == self.SUPPLEMENTAL_REWARD_ASSET:
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    ==
+    bz calculate_user_current_earnings_else_body@38
+    // Gainify Contracts/staking_pool.py:445
+    // user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native + supplemental_reward_sum)
+    dig 10
+    dup
+    intc_0 // 0
+    extract_uint64
+    dig 9
+    +
+    itob
+    replace2 0
+    // Gainify Contracts/staking_pool.py:446
+    // user_stake_instance.reward_supplement = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 24
+    bury 11
+
+calculate_user_current_earnings_after_if_else@39:
+    // Gainify Contracts/staking_pool.py:451
+    // user_stake_instance.stake_time = arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    dig 11
+    swap
+    replace2 8
+    // Gainify Contracts/staking_pool.py:452
+    // user_stake_instance.last_counter = current_counter
+    dig 2
+    replace2 32
+    bury 11
+
+calculate_user_current_earnings_after_if_else@40:
+    // Gainify Contracts/staking_pool.py:454
+    // return user_stake_instance.stake_amount, user_stake_instance.reward_asset, user_stake_instance.reward_supplement
+    dig 10
+    dup
+    extract 0 8
+    dig 1
+    extract 16 8
+    uncover 2
+    extract 24 8
+    // Gainify Contracts/staking_pool.py:335
+    // @abimethod
+    cover 2
+    concat
+    swap
+    concat
+    bytec 16 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+calculate_user_current_earnings_else_body@38:
+    // Gainify Contracts/staking_pool.py:449
+    // user_stake_instance.reward_supplement = arc4UInt64(user_stake_instance.reward_supplement.native + supplemental_reward_sum)
+    dig 10
+    dup
+    pushint 24
+    extract_uint64
+    dig 9
+    +
+    itob
+    replace2 24
+    bury 11
+    b calculate_user_current_earnings_after_if_else@39
+
+calculate_user_current_earnings_else_body@33:
+    // Gainify Contracts/staking_pool.py:437
+    // user_stake_instance.reward_asset = arc4UInt64(user_stake_instance.reward_asset.native + asset_reward_sum)
+    dig 10
+    dup
+    pushint 16
+    extract_uint64
+    dig 10
+    +
+    itob
+    replace2 16
+    bury 11
+    b calculate_user_current_earnings_after_if_else@34
+
+calculate_user_current_earnings_else_body@27:
+    // Gainify Contracts/staking_pool.py:412
+    // time_diff = Global.latest_timestamp - last_timestamp
+    global LatestTimestamp
+    dig 1
+    -
+    b calculate_user_current_earnings_after_if_else@28
+
+
+// staking_pool.GainifyStakingPool.add_stake[routing]() -> void:
+add_stake:
+    // Gainify Contracts/staking_pool.py:495
+    // @abimethod
+    txn GroupIndex
+    pushint 3
+    -
+    dup
+    gtxns TypeEnum
+    pushint 4 // axfer
+    ==
+    assert // transaction type is axfer
+    txn GroupIndex
+    intc_2 // 2
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 3
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    cover 3
+    // Gainify Contracts/staking_pool.py:505
+    // end_timestamp = self.POOL_START_TIME + self.POOL_LENGTH
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    // Gainify Contracts/staking_pool.py:507
+    // sent_stake_amount = STAKE_ASSET_axfer.asset_amount
+    dig 3
+    gtxns AssetAmount
+    dup
+    cover 2
+    cover 5
+    // Gainify Contracts/staking_pool.py:509
+    // assert STAKE_ASSET_axfer.xfer_asset.id == self.STAKE_ASSET
+    dig 4
+    gtxns XferAsset
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:510
+    // assert sent_stake_amount > 0
+    swap
+    assert
+    // Gainify Contracts/staking_pool.py:511
+    // assert STAKE_ASSET_axfer.asset_receiver == Global.current_application_address
+    uncover 3
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:512
+    // assert interaction_fee.amount == 330_000
+    dig 2
+    gtxns Amount
+    intc 4 // 330000
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:513
+    // assert interaction_fee.receiver == Global.current_application_address
+    uncover 2
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:514
+    // assert mbr_fees.receiver == Global.current_application_address
+    swap
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:515
+    // assert Global.latest_timestamp < end_timestamp
+    global LatestTimestamp
+    >
+    assert
+    // Gainify Contracts/staking_pool.py:517
+    // user_address = Address(Txn.sender)
+    txn Sender
+    dup
+    // Gainify Contracts/staking_pool.py:519-523
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:522
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:520
+    // receiver=self.FEE_ADDRESS,
+    intc_0 // 0
+    bytec 13 // "FEE_ADDRESS"
+    app_global_get_ex
+    assert // check self.FEE_ADDRESS exists
+    // Gainify Contracts/staking_pool.py:521
+    // amount=330_000,
+    intc 4 // 330000
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:519
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:519-523
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    // Gainify Contracts/staking_pool.py:525
+    // if user_address not in self.USER_STAKE_BOX:
+    box_len
+    bury 1
+    bnz add_stake_else_body@4
+    // Gainify Contracts/staking_pool.py:527
+    // assert mbr_fees.amount >= 45_000
+    dig 3
+    gtxns Amount
+    pushint 45000
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:530
+    // arc4UInt64(sent_stake_amount),
+    dig 1
+    dup
+    itob
+    // Gainify Contracts/staking_pool.py:531
+    // arc4UInt64(Global.latest_timestamp),
+    global LatestTimestamp
+    itob
+    // Gainify Contracts/staking_pool.py:534
+    // self.STAKE_ACTIVITY_COUNTER,
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    // Gainify Contracts/staking_pool.py:529-537
+    // self.USER_STAKE_BOX[user_address] = UserStake(
+    //     arc4UInt64(sent_stake_amount),
+    //     arc4UInt64(Global.latest_timestamp),
+    //     arc4UInt64(0),
+    //     arc4UInt64(0),
+    //     self.STAKE_ACTIVITY_COUNTER,
+    //     Bool(False),
+    //     arc4UInt64(0)
+    // )
+    cover 2
+    concat
+    pushbytes 0x00000000000000000000000000000000
+    concat
+    swap
+    concat
+    pushbytes 0x000000000000000000
+    concat
+    uncover 2
+    dup
+    uncover 2
+    box_put
+    // Gainify Contracts/staking_pool.py:539
+    // self._verify_gainify_nfd_ownership_pool(nfd_app_id)
+    dig 3
+    callsub _verify_gainify_nfd_ownership_pool
+    // Gainify Contracts/staking_pool.py:540
+    // self.add_stake_activity(arc4UInt64(sent_stake_amount + self.USER_STAKE_BOX[user_address].boost_amount.native), True)
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    pushint 41
+    extract_uint64
+    +
+    itob
+    intc_1 // 1
+    callsub add_stake_activity
+
+add_stake_after_if_else@5:
+    // Gainify Contracts/staking_pool.py:495
+    // @abimethod
+    intc_1 // 1
+    return
+
+add_stake_else_body@4:
+    // Gainify Contracts/staking_pool.py:545
+    // assert mbr_fees.amount >= 15_000
+    dig 3
+    gtxns Amount
+    pushint 15000
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:547
+    // self._verify_gainify_nfd_ownership_pool(nfd_app_id)
+    dig 2
+    callsub _verify_gainify_nfd_ownership_pool
+    // Gainify Contracts/staking_pool.py:548
+    // user_stake_instance = self.USER_STAKE_BOX[user_address].copy()
+    dup
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    // Gainify Contracts/staking_pool.py:549
+    // new_user_stake_instance = self.calculate_earnings(user_stake_instance)
+    callsub calculate_earnings
+    // Gainify Contracts/staking_pool.py:550
+    // new_user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native + sent_stake_amount)
+    intc_0 // 0
+    extract_uint64
+    dig 3
+    dup
+    cover 3
+    +
+    itob
+    replace2 0
+    // Gainify Contracts/staking_pool.py:552
+    // self.USER_STAKE_BOX[user_address] = new_user_stake_instance.copy()
+    uncover 2
+    dig 1
+    box_put
+    // Gainify Contracts/staking_pool.py:553
+    // self.add_stake_activity(arc4UInt64(sent_stake_amount + (new_user_stake_instance.boost_amount.native)), True)
+    pushint 41
+    extract_uint64
+    +
+    itob
+    intc_1 // 1
+    callsub add_stake_activity
+    b add_stake_after_if_else@5
+
+
+// staking_pool.GainifyStakingPool.claim_reward[routing]() -> void:
+claim_reward:
+    pushbytes ""
+    dup
+    // Gainify Contracts/staking_pool.py:595
+    // @abimethod
+    txn GroupIndex
+    intc_2 // 2
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 2
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // Gainify Contracts/staking_pool.py:603
+    // assert interaction_fee.amount == 330_000
+    dig 1
+    gtxns Amount
+    intc 4 // 330000
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:604
+    // assert interaction_fee.receiver == Global.current_application_address
+    swap
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:608-612
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:611
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:609
+    // receiver=self.FEE_ADDRESS,
+    intc_0 // 0
+    bytec 13 // "FEE_ADDRESS"
+    app_global_get_ex
+    assert // check self.FEE_ADDRESS exists
+    // Gainify Contracts/staking_pool.py:610
+    // amount=330_000,
+    intc 4 // 330000
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:608
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:608-612
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    // Gainify Contracts/staking_pool.py:614
+    // total_transfers += 1
+    intc_1 // 1
+    swap
+    // Gainify Contracts/staking_pool.py:616
+    // user_address = Address(Txn.sender)
+    txn Sender
+    dup
+    cover 2
+    // Gainify Contracts/staking_pool.py:618
+    // self._verify_gainify_nfd_ownership_pool(nfd_app_id)
+    swap
+    callsub _verify_gainify_nfd_ownership_pool
+    // Gainify Contracts/staking_pool.py:620
+    // user_stake_instance = self.USER_STAKE_BOX[user_address].copy()
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    // Gainify Contracts/staking_pool.py:625
+    // new_user_stake_instance = self.calculate_earnings(user_stake_instance)
+    dup
+    callsub calculate_earnings
+    pop
+    dup
+    cover 2
+    // Gainify Contracts/staking_pool.py:627
+    // diff = new_user_stake_instance.stake_amount.native - original_stake_amount.native
+    dup
+    intc_0 // 0
+    extract_uint64
+    dig 2
+    // Gainify Contracts/staking_pool.py:622
+    // original_stake_amount = user_stake_instance.stake_amount
+    intc_0 // 0
+    // Gainify Contracts/staking_pool.py:627
+    // diff = new_user_stake_instance.stake_amount.native - original_stake_amount.native
+    extract_uint64
+    -
+    cover 2
+    // Gainify Contracts/staking_pool.py:628
+    // boost_diff = new_user_stake_instance.boost_amount.native - original_boost_amount.native
+    pushint 41
+    extract_uint64
+    swap
+    // Gainify Contracts/staking_pool.py:623
+    // original_boost_amount = user_stake_instance.boost_amount
+    pushint 41
+    // Gainify Contracts/staking_pool.py:628
+    // boost_diff = new_user_stake_instance.boost_amount.native - original_boost_amount.native
+    extract_uint64
+    -
+    // Gainify Contracts/staking_pool.py:630
+    // pool_end_time = self.POOL_START_TIME + self.POOL_LENGTH
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    // Gainify Contracts/staking_pool.py:632
+    // if Global.latest_timestamp < pool_end_time:
+    global LatestTimestamp
+    >
+    bz claim_reward_after_if_else@4
+    // Gainify Contracts/staking_pool.py:633
+    // self.add_stake_activity(stake_change=arc4UInt64(diff + boost_diff), increment=True)
+    dup2
+    +
+    itob
+    intc_1 // 1
+    callsub add_stake_activity
+
+claim_reward_after_if_else@4:
+    // Gainify Contracts/staking_pool.py:635
+    // self.USER_STAKE_BOX[user_address] = new_user_stake_instance.copy()
+    dig 3
+    dig 3
+    dup
+    cover 2
+    box_put
+    // Gainify Contracts/staking_pool.py:636
+    // reward_amount = new_user_stake_instance.reward_asset.native
+    pushint 16
+    extract_uint64
+    dup
+    bury 9
+    // Gainify Contracts/staking_pool.py:638
+    // if reward_amount != 0:
+    bz claim_reward_after_if_else@11
+    // Gainify Contracts/staking_pool.py:640
+    // if self.REWARD_ASSET == 0:
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    bnz claim_reward_else_body@8
+    // Gainify Contracts/staking_pool.py:641-645
+    // itxn.Payment(
+    //     amount=reward_amount,
+    //     fee=Global.min_txn_fee,
+    //     receiver=Txn.sender,
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:643
+    // fee=Global.min_txn_fee,
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:644
+    // receiver=Txn.sender,
+    txn Sender
+    itxn_field Receiver
+    dig 8
+    itxn_field Amount
+    // Gainify Contracts/staking_pool.py:641
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:641-645
+    // itxn.Payment(
+    //     amount=reward_amount,
+    //     fee=Global.min_txn_fee,
+    //     receiver=Txn.sender,
+    // ).submit()
+    itxn_submit
+
+claim_reward_after_if_else@10:
+    // Gainify Contracts/staking_pool.py:655
+    // new_user_stake_instance.reward_asset = arc4UInt64(0)
+    dig 2
+    bytec_2 // 0x0000000000000000
+    replace2 16
+    bury 3
+    // Gainify Contracts/staking_pool.py:656
+    // total_transfers += 1
+    intc_2 // 2
+    bury 5
+
+claim_reward_after_if_else@11:
+    // Gainify Contracts/staking_pool.py:658
+    // assert fee_payment.amount >= Global.min_txn_fee * (total_transfers + 1)
+    dig 5
+    dup
+    gtxns Amount
+    global MinTxnFee
+    dig 7
+    intc_1 // 1
+    +
+    *
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:659
+    // assert fee_payment.receiver == Global.current_application_address
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:661
+    // supplemental_reward_amount = UInt64(0)
+    intc_0 // 0
+    bury 7
+    // Gainify Contracts/staking_pool.py:663
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz claim_reward_after_if_else@20
+    // Gainify Contracts/staking_pool.py:665
+    // supplemental_reward_amount = new_user_stake_instance.reward_supplement.native
+    dig 2
+    pushint 24
+    extract_uint64
+    dup
+    bury 8
+    // Gainify Contracts/staking_pool.py:667
+    // if supplemental_reward_amount > 0:
+    bz claim_reward_after_if_else@20
+    // Gainify Contracts/staking_pool.py:669
+    // if self.SUPPLEMENTAL_REWARD_ASSET == 0:
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    bnz claim_reward_else_body@16
+    // Gainify Contracts/staking_pool.py:670-674
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:673
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:671
+    // receiver=Txn.sender,
+    txn Sender
+    dig 8
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:670
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:670-674
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+claim_reward_after_if_else@18:
+    // Gainify Contracts/staking_pool.py:683
+    // new_user_stake_instance.reward_supplement = arc4UInt64(0)
+    dig 2
+    bytec_2 // 0x0000000000000000
+    replace2 24
+    bury 3
+
+claim_reward_after_if_else@20:
+    // Gainify Contracts/staking_pool.py:687
+    // self.USER_STAKE_BOX[user_address] = new_user_stake_instance.copy()
+    dig 3
+    dig 3
+    box_put
+    // Gainify Contracts/staking_pool.py:689
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0 and supplemental_reward_amount > 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz claim_reward_after_if_else@23
+    dig 6
+    bz claim_reward_after_if_else@23
+    dig 6
+
+claim_reward_after_inlined_staking_pool.GainifyStakingPool.claim_reward@24:
+    // Gainify Contracts/staking_pool.py:595
+    // @abimethod
+    dig 8
+    itob
+    swap
+    itob
+    concat
+    bytec 16 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+claim_reward_after_if_else@23:
+    // Gainify Contracts/staking_pool.py:692
+    // return reward_amount, UInt64(0)
+    intc_0 // 0
+    // Gainify Contracts/staking_pool.py:595
+    // @abimethod
+    b claim_reward_after_inlined_staking_pool.GainifyStakingPool.claim_reward@24
+
+claim_reward_else_body@16:
+    // Gainify Contracts/staking_pool.py:676-681
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:680
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:677
+    // xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    // Gainify Contracts/staking_pool.py:678
+    // asset_receiver=Txn.sender,
+    txn Sender
+    dig 9
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:676
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:676-681
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    b claim_reward_after_if_else@18
+
+claim_reward_else_body@8:
+    // Gainify Contracts/staking_pool.py:648-653
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:652
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:649
+    // xfer_asset=self.REWARD_ASSET,
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    // Gainify Contracts/staking_pool.py:650
+    // asset_receiver=Txn.sender,
+    txn Sender
+    dig 10
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:648
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:648-653
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    b claim_reward_after_if_else@10
+
+
+// staking_pool.GainifyStakingPool.claim_reward_and_unstake[routing]() -> void:
+claim_reward_and_unstake:
+    pushbytes ""
+    dupn 3
+    // Gainify Contracts/staking_pool.py:696
+    // @abimethod
+    txn GroupIndex
+    intc_2 // 2
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 2
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dup
+    cover 3
+    cover 3
+    txna ApplicationArgs 3
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    cover 3
+    // Gainify Contracts/staking_pool.py:706
+    // assert interaction_fee.amount == 330_000
+    dig 1
+    gtxns Amount
+    intc 4 // 330000
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:707
+    // assert interaction_fee.receiver == Global.current_application_address
+    swap
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:711-715
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:714
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:712
+    // receiver=self.FEE_ADDRESS,
+    intc_0 // 0
+    bytec 13 // "FEE_ADDRESS"
+    app_global_get_ex
+    assert // check self.FEE_ADDRESS exists
+    // Gainify Contracts/staking_pool.py:713
+    // amount=330_000,
+    intc 4 // 330000
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:711
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:711-715
+    // itxn.Payment(
+    //     receiver=self.FEE_ADDRESS,
+    //     amount=330_000,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    // Gainify Contracts/staking_pool.py:719
+    // user_address = Address(Txn.sender)
+    txn Sender
+    dup
+    cover 3
+    // Gainify Contracts/staking_pool.py:721
+    // self._verify_gainify_nfd_ownership_pool(nfd_app_id)
+    swap
+    callsub _verify_gainify_nfd_ownership_pool
+    // Gainify Contracts/staking_pool.py:723
+    // total_transfers += 1
+    intc_2 // 2
+    cover 2
+    // Gainify Contracts/staking_pool.py:725
+    // user_stake_instance = self.USER_STAKE_BOX[user_address].copy()
+    dup
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    // Gainify Contracts/staking_pool.py:727
+    // original_amount = user_stake_instance.stake_amount.native
+    dup
+    intc_0 // 0
+    extract_uint64
+    cover 3
+    // Gainify Contracts/staking_pool.py:728
+    // original_boost_amount = user_stake_instance.boost_amount.native
+    dup
+    pushint 41
+    extract_uint64
+    cover 3
+    // Gainify Contracts/staking_pool.py:730
+    // new_user_stake_instance = self.calculate_earnings(user_stake_instance)
+    callsub calculate_earnings
+    cover 3
+    dup
+    cover 3
+    // Gainify Contracts/staking_pool.py:732
+    // self.USER_STAKE_BOX[user_address] = new_user_stake_instance.copy()
+    swap
+    dig 1
+    box_put
+    // Gainify Contracts/staking_pool.py:734
+    // assert unstake_amount <= new_user_stake_instance.stake_amount.native
+    dup
+    intc_0 // 0
+    extract_uint64
+    dup
+    cover 3
+    uncover 2
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:737
+    // new_boost_amount = new_user_stake_instance.boost_amount.native
+    pushint 41
+    extract_uint64
+    // Gainify Contracts/staking_pool.py:739
+    // pool_end_time = self.POOL_START_TIME + self.POOL_LENGTH
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    // Gainify Contracts/staking_pool.py:740
+    // pool_ended = False
+    intc_0 // 0
+    swap
+    // Gainify Contracts/staking_pool.py:742
+    // if Global.latest_timestamp >= pool_end_time:
+    global LatestTimestamp
+    <=
+    bz claim_reward_and_unstake_after_if_else@4
+    // Gainify Contracts/staking_pool.py:743
+    // pool_ended = True
+    intc_1 // 1
+    bury 1
+
+claim_reward_and_unstake_after_if_else@4:
+    // Gainify Contracts/staking_pool.py:745
+    // if unstake_all == 1 and not pool_ended:
+    dig 9
+    intc_1 // 1
+    ==
+    dup
+    bury 14
+    bz claim_reward_and_unstake_else_body@7
+    dup
+    bnz claim_reward_and_unstake_else_body@7
+    // Gainify Contracts/staking_pool.py:746
+    // self.add_stake_activity(arc4UInt64(original_amount + original_boost_amount), False)
+    dig 6
+    dig 6
+    +
+    itob
+    intc_0 // 0
+    callsub add_stake_activity
+
+claim_reward_and_unstake_after_if_else@13:
+    // Gainify Contracts/staking_pool.py:772
+    // reward_amount = new_user_stake_instance.reward_asset.native
+    dig 3
+    dup
+    pushint 16
+    extract_uint64
+    bury 16
+    // Gainify Contracts/staking_pool.py:773
+    // supplemental_reward_amount = new_user_stake_instance.reward_supplement.native
+    pushint 24
+    extract_uint64
+    bury 14
+    // Gainify Contracts/staking_pool.py:775
+    // if unstake_amount != 0:
+    dig 10
+    bz claim_reward_and_unstake_after_if_else@20
+    // Gainify Contracts/staking_pool.py:777
+    // if unstake_all == 1:
+    dig 12
+    bz claim_reward_and_unstake_else_body@17
+    // Gainify Contracts/staking_pool.py:778-783
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.STAKE_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=self.USER_STAKE_BOX[user_address].stake_amount.native,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:782
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:779
+    // xfer_asset=self.STAKE_ASSET,
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    // Gainify Contracts/staking_pool.py:780
+    // asset_receiver=Txn.sender,
+    txn Sender
+    // Gainify Contracts/staking_pool.py:781
+    // asset_amount=self.USER_STAKE_BOX[user_address].stake_amount.native,
+    dig 11
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    intc_0 // 0
+    extract_uint64
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:778
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:778-783
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.STAKE_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=self.USER_STAKE_BOX[user_address].stake_amount.native,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+claim_reward_and_unstake_after_if_else@19:
+    // Gainify Contracts/staking_pool.py:792
+    // total_transfers += 1
+    pushint 3
+    bury 8
+
+claim_reward_and_unstake_after_if_else@20:
+    // Gainify Contracts/staking_pool.py:794
+    // if reward_amount != 0:
+    dig 14
+    bz claim_reward_and_unstake_after_if_else@27
+    // Gainify Contracts/staking_pool.py:796
+    // if self.REWARD_ASSET != 0:
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    bz claim_reward_and_unstake_else_body@24
+    // Gainify Contracts/staking_pool.py:797-802
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:801
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:798
+    // xfer_asset=self.REWARD_ASSET,
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    // Gainify Contracts/staking_pool.py:799
+    // asset_receiver=Txn.sender,
+    txn Sender
+    dig 17
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:797
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:797-802
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+claim_reward_and_unstake_after_if_else@26:
+    // Gainify Contracts/staking_pool.py:812
+    // total_transfers += 1
+    dig 7
+    intc_1 // 1
+    +
+    bury 8
+
+claim_reward_and_unstake_after_if_else@27:
+    // Gainify Contracts/staking_pool.py:814
+    // if supplemental_reward_amount != 0:
+    dig 13
+    bz claim_reward_and_unstake_after_if_else@34
+    // Gainify Contracts/staking_pool.py:816
+    // if self.SUPPLEMENTAL_REWARD_ASSET != 0:
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    bz claim_reward_and_unstake_else_body@31
+    // Gainify Contracts/staking_pool.py:817-822
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:821
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:818
+    // xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    // Gainify Contracts/staking_pool.py:819
+    // asset_receiver=Txn.sender,
+    txn Sender
+    dig 16
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:817
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:817-822
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.SUPPLEMENTAL_REWARD_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+
+claim_reward_and_unstake_after_if_else@33:
+    // Gainify Contracts/staking_pool.py:833
+    // total_transfers += 1
+    dig 7
+    intc_1 // 1
+    +
+    bury 8
+
+claim_reward_and_unstake_after_if_else@34:
+    // Gainify Contracts/staking_pool.py:835
+    // assert fee_payment.amount >= (Global.min_txn_fee * total_transfers)
+    dig 11
+    dup
+    gtxns Amount
+    global MinTxnFee
+    dig 10
+    *
+    >=
+    assert
+    // Gainify Contracts/staking_pool.py:836
+    // assert fee_payment.receiver == Global.current_application_address
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:838
+    // if unstake_all == 1:
+    dig 12
+    bz claim_reward_and_unstake_after_if_else@36
+    // Gainify Contracts/staking_pool.py:839
+    // del self.USER_STAKE_BOX[user_address]
+    dig 8
+    box_del
+    pop
+
+claim_reward_and_unstake_after_if_else@36:
+    // Gainify Contracts/staking_pool.py:696
+    // @abimethod
+    intc_1 // 1
+    return
+
+claim_reward_and_unstake_else_body@31:
+    // Gainify Contracts/staking_pool.py:825-829
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:828
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:826
+    // receiver=Txn.sender,
+    txn Sender
+    dig 15
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:825
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:825-829
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=supplemental_reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    b claim_reward_and_unstake_after_if_else@33
+
+claim_reward_and_unstake_else_body@24:
+    // Gainify Contracts/staking_pool.py:805-809
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:808
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:806
+    // receiver=Txn.sender,
+    txn Sender
+    dig 16
+    itxn_field Amount
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:805
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:805-809
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=reward_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    b claim_reward_and_unstake_after_if_else@26
+
+claim_reward_and_unstake_else_body@17:
+    // Gainify Contracts/staking_pool.py:785-790
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.STAKE_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=unstake_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_begin
+    // Gainify Contracts/staking_pool.py:789
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:786
+    // xfer_asset=self.STAKE_ASSET,
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    // Gainify Contracts/staking_pool.py:787
+    // asset_receiver=Txn.sender,
+    txn Sender
+    dig 13
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // Gainify Contracts/staking_pool.py:785
+    // itxn.AssetTransfer(
+    pushint 4 // axfer
+    itxn_field TypeEnum
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:785-790
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.STAKE_ASSET,
+    //     asset_receiver=Txn.sender,
+    //     asset_amount=unstake_amount,
+    //     fee=Global.min_txn_fee
+    // ).submit()
+    itxn_submit
+    b claim_reward_and_unstake_after_if_else@19
+
+claim_reward_and_unstake_else_body@7:
+    // Gainify Contracts/staking_pool.py:749
+    // add_diff = original_amount - new_amount
+    dig 6
+    dig 3
+    -
+    bury 16
+    // Gainify Contracts/staking_pool.py:751
+    // if not pool_ended:
+    dup
+    bnz claim_reward_and_unstake_after_if_else@12
+    // Gainify Contracts/staking_pool.py:753
+    // if original_boost_amount > new_boost_amount:
+    dig 5
+    dig 2
+    >
+    bz claim_reward_and_unstake_else_body@10
+    // Gainify Contracts/staking_pool.py:754
+    // boost_diff = original_boost_amount - new_boost_amount
+    dig 5
+    dig 2
+    -
+    // Gainify Contracts/staking_pool.py:755
+    // self.add_stake_activity(arc4UInt64(add_diff + boost_diff), False)
+    dig 16
+    +
+    itob
+    intc_0 // 0
+    callsub add_stake_activity
+
+claim_reward_and_unstake_after_if_else@12:
+    // Gainify Contracts/staking_pool.py:761
+    // adjusted_user_stake_instance = self.USER_STAKE_BOX[user_address].copy()
+    dig 8
+    dup
+    box_get
+    assert // check self.USER_STAKE_BOX entry exists
+    // Gainify Contracts/staking_pool.py:762
+    // adjusted_user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native - unstake_amount)
+    dig 6
+    intc_0 // 0
+    extract_uint64
+    dig 13
+    -
+    itob
+    replace2 0
+    // Gainify Contracts/staking_pool.py:763
+    // adjusted_user_stake_instance.stake_time = arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    replace2 8
+    // Gainify Contracts/staking_pool.py:764
+    // adjusted_boost_amounts = adjusted_user_stake_instance.stake_amount.native * 20
+    dup
+    intc_0 // 0
+    extract_uint64
+    pushint 20
+    *
+    // Gainify Contracts/staking_pool.py:765
+    // adjusted_user_stake_instance.boost_amount = arc4UInt64(adjusted_boost_amounts // 100)
+    pushint 100
+    /
+    itob
+    replace2 41
+    // Gainify Contracts/staking_pool.py:766
+    // adjusted_user_stake_instance.reward_asset = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 16
+    // Gainify Contracts/staking_pool.py:767
+    // adjusted_user_stake_instance.reward_supplement = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 24
+    // Gainify Contracts/staking_pool.py:768
+    // adjusted_user_stake_instance.last_counter = self.STAKE_ACTIVITY_COUNTER
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    replace2 32
+    // Gainify Contracts/staking_pool.py:770
+    // self.USER_STAKE_BOX[user_address] = adjusted_user_stake_instance.copy()
+    box_put
+    b claim_reward_and_unstake_after_if_else@13
+
+claim_reward_and_unstake_else_body@10:
+    // Gainify Contracts/staking_pool.py:758
+    // boost_diff = new_boost_amount - original_boost_amount
+    dig 1
+    dig 6
+    -
+    // Gainify Contracts/staking_pool.py:759
+    // self.add_stake_activity(arc4UInt64(add_diff - boost_diff), False)
+    dig 16
+    swap
+    -
+    itob
+    intc_0 // 0
+    callsub add_stake_activity
+    b claim_reward_and_unstake_after_if_else@12
+
+
+// staking_pool.GainifyStakingPool.update[routing]() -> void:
+update:
+    // Gainify Contracts/staking_pool.py:848
+    // assert Txn.sender == Global.creator_address
+    txn Sender
+    global CreatorAddress
+    ==
+    assert
+    // Gainify Contracts/staking_pool.py:843
+    // @abimethod(allow_actions=['UpdateApplication'])
+    intc_1 // 1
+    return
+
+
+// staking_pool.GainifyStakingPool.calculate_earnings(user_stake_instance: bytes) -> bytes, bytes:
+calculate_earnings:
+    // Gainify Contracts/staking_pool.py:217-221
+    // @subroutine
+    // def calculate_earnings(
+    //     self,
+    //     user_stake_instance: UserStake,
+    // ) -> UserStake:
+    proto 1 2
+    intc_0 // 0
+    dupn 4
+    pushbytes ""
+    dupn 5
+    // Gainify Contracts/staking_pool.py:223
+    // asset_reward_sum = UInt64(0)
+    intc_0 // 0
+    // Gainify Contracts/staking_pool.py:224
+    // supplemental_reward_sum = UInt64(0)
+    dup
+    // Gainify Contracts/staking_pool.py:225
+    // user_amount_at_timestamp = user_stake_instance.stake_amount.native
+    frame_dig -1
+    intc_0 // 0
+    extract_uint64
+    // Gainify Contracts/staking_pool.py:226
+    // user_boost_at_timestamp = user_stake_instance.boost_amount.native
+    frame_dig -1
+    pushint 41
+    extract_uint64
+    // Gainify Contracts/staking_pool.py:227
+    // user_timestamp = user_stake_instance.stake_time.native
+    frame_dig -1
+    intc_3 // 8
+    extract_uint64
+    // Gainify Contracts/staking_pool.py:230
+    // max_counter_reached = False
+    intc_0 // 0
+    // Gainify Contracts/staking_pool.py:231
+    // add_one = False
+    dup
+    // Gainify Contracts/staking_pool.py:232
+    // current_counter = user_stake_instance.last_counter
+    frame_dig -1
+    extract 32 8
+    // Gainify Contracts/staking_pool.py:234
+    // last_timestamp = UInt64(0)
+    intc_0 // 0
+
+calculate_earnings_while_top@1:
+    // Gainify Contracts/staking_pool.py:235
+    // while not max_counter_reached:
+    frame_dig 16
+    bnz calculate_earnings_after_while@24
+    // Gainify Contracts/staking_pool.py:236-237
+    // box_activity_for_counter = self.STAKE_ACTIVITY[current_counter].copy()
+    // for i in urange(box_activity_for_counter.length):
+    frame_dig 18
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    frame_bury 6
+    // Gainify Contracts/staking_pool.py:237
+    // for i in urange(box_activity_for_counter.length):
+    intc_0 // 0
+    frame_bury 7
+
+calculate_earnings_for_header@3:
+    // Gainify Contracts/staking_pool.py:237
+    // for i in urange(box_activity_for_counter.length):
+    frame_dig 7
+    frame_dig 6
+    <
+    bz calculate_earnings_after_for@20
+    // Gainify Contracts/staking_pool.py:239
+    // if add_one == True:
+    frame_dig 17
+    intc_1 // 1
+    ==
+    bz calculate_earnings_else_body@6
+    // Gainify Contracts/staking_pool.py:240
+    // j = i + UInt64(1)
+    frame_dig 7
+    intc_1 // 1
+    +
+
+calculate_earnings_after_if_else@7:
+    // Gainify Contracts/staking_pool.py:244-245
+    // activity_in_array = box_activity_for_counter[j].copy()
+    // activity_amount_at_timestamp = activity_in_array.total_stake_amount.native
+    dup
+    pushint 16
+    *
+    intc_2 // 2
+    +
+    frame_dig 18
+    dup
+    uncover 2
+    pushint 16
+    box_extract
+    dup
+    extract 0 8
+    frame_bury 0
+    // Gainify Contracts/staking_pool.py:246
+    // activity_timestamp = activity_in_array.change_time.native
+    intc_3 // 8
+    extract_uint64
+    frame_bury 5
+    // Gainify Contracts/staking_pool.py:249
+    // ensure_budget(3000, OpUpFeeSource.GroupCredit)
+    pushint 3000
+    intc_0 // 0
+    callsub ensure_budget
+    // Gainify Contracts/staking_pool.py:251
+    // if j + 1 < box_activity_for_counter.length:
+    swap
+    intc_1 // 1
+    +
+    dup
+    frame_bury 9
+    swap
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    <
+    bz calculate_earnings_after_if_else@18
+    // Gainify Contracts/staking_pool.py:253
+    // if j + 1 < box_activity_for_counter.length:
+    frame_dig 18
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    frame_dig 9
+    >
+    bz calculate_earnings_after_if_else@10
+    // Gainify Contracts/staking_pool.py:255-256
+    // next_activity_in_array = box_activity_for_counter[next_index].copy()
+    // next_time_stamp = next_activity_in_array.change_time.native
+    frame_dig 9
+    pushint 16
+    *
+    intc_2 // 2
+    +
+    frame_dig 18
+    swap
+    pushint 16
+    box_extract
+    intc_3 // 8
+    // Gainify Contracts/staking_pool.py:256
+    // next_time_stamp = next_activity_in_array.change_time.native
+    extract_uint64
+    frame_bury 10
+
+calculate_earnings_after_if_else@10:
+    // Gainify Contracts/staking_pool.py:258
+    // if j + 1 == box_activity_for_counter.length and arc4UInt64(current_counter.native + 1) in self.STAKE_ACTIVITY:
+    frame_dig 18
+    intc_0 // 0
+    intc_2 // 2
+    box_extract
+    btoi
+    frame_dig 9
+    ==
+    bz calculate_earnings_after_if_else@13
+    frame_dig 18
+    btoi
+    intc_1 // 1
+    +
+    itob
+    box_len
+    bury 1
+    bz calculate_earnings_after_if_else@13
+    // Gainify Contracts/staking_pool.py:259-260
+    // next_activity_in_array = box_activity_for_counter[0].copy()
+    // next_time_stamp = next_activity_in_array.change_time.native
+    frame_dig 18
+    intc_2 // 2
+    pushint 16
+    box_extract
+    intc_3 // 8
+    // Gainify Contracts/staking_pool.py:260
+    // next_time_stamp = next_activity_in_array.change_time.native
+    extract_uint64
+    frame_bury 10
+    // Gainify Contracts/staking_pool.py:261
+    // add_one = True
+    intc_1 // 1
+    frame_bury 17
+
+calculate_earnings_after_if_else@13:
+    // Gainify Contracts/staking_pool.py:263
+    // if activity_timestamp >= user_timestamp:
+    frame_dig 5
+    frame_dig 15
+    >=
+    bz calculate_earnings_after_if_else@18
+    // Gainify Contracts/staking_pool.py:264
+    // time_diff = next_time_stamp - activity_timestamp
+    frame_dig 10
+    frame_dig 5
+    -
+    // Gainify Contracts/staking_pool.py:265
+    // asset_per_share_reward_rates = BigUInt(self.REWARD_RATE_ASSET) * time_diff
+    intc_0 // 0
+    bytec 9 // "REWARD_RATE_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_RATE_ASSET exists
+    itob
+    swap
+    itob
+    dup
+    frame_bury 1
+    b*
+    // Gainify Contracts/staking_pool.py:266
+    // asset_per_share_reward_rate = asset_per_share_reward_rates // self.ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:267
+    // asset_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * asset_per_share_reward_rate
+    frame_dig 13
+    frame_dig 14
+    +
+    itob
+    dup
+    frame_bury 2
+    b*
+    // Gainify Contracts/staking_pool.py:268
+    // asset_reward = op.btoi((asset_rewards // activity_amount_at_timestamp).bytes)
+    frame_dig 0
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:269
+    // asset_reward_sum += asset_reward
+    frame_dig 11
+    +
+    frame_bury 11
+    // Gainify Contracts/staking_pool.py:271
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz calculate_earnings_after_if_else@18
+    // Gainify Contracts/staking_pool.py:272
+    // supplemental_per_share_reward_rates = BigUInt(self.SUPPLEMENTAL_REWARD_RATE) * time_diff
+    intc_0 // 0
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_RATE exists
+    itob
+    frame_dig 1
+    b*
+    // Gainify Contracts/staking_pool.py:273
+    // supplemental_per_share_reward_rate = supplemental_per_share_reward_rates // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:274
+    // supplemental_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * supplemental_per_share_reward_rate
+    frame_dig 2
+    b*
+    // Gainify Contracts/staking_pool.py:275
+    // supplemental_reward = op.btoi((supplemental_rewards // activity_amount_at_timestamp).bytes)
+    frame_dig 0
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:276
+    // supplemental_reward_sum += supplemental_reward
+    frame_dig 12
+    +
+    frame_bury 12
+
+calculate_earnings_after_if_else@18:
+    // Gainify Contracts/staking_pool.py:237
+    // for i in urange(box_activity_for_counter.length):
+    frame_dig 7
+    intc_1 // 1
+    +
+    frame_dig 5
+    frame_bury 19
+    frame_bury 7
+    b calculate_earnings_for_header@3
+
+calculate_earnings_else_body@6:
+    frame_dig 7
+    b calculate_earnings_after_if_else@7
+
+calculate_earnings_after_for@20:
+    // Gainify Contracts/staking_pool.py:278
+    // if current_counter == self.STAKE_ACTIVITY_COUNTER:
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    frame_dig 18
+    b==
+    bz calculate_earnings_else_body@22
+    // Gainify Contracts/staking_pool.py:279
+    // max_counter_reached = True
+    intc_1 // 1
+    frame_bury 16
+    b calculate_earnings_while_top@1
+
+calculate_earnings_else_body@22:
+    // Gainify Contracts/staking_pool.py:281
+    // current_counter = arc4UInt64(current_counter.native + 1)
+    frame_dig 18
+    btoi
+    intc_1 // 1
+    +
+    itob
+    frame_bury 18
+    b calculate_earnings_while_top@1
+
+calculate_earnings_after_while@24:
+    // Gainify Contracts/staking_pool.py:283
+    // user_stake_instance.last_counter = current_counter
+    frame_dig -1
+    frame_dig 18
+    replace2 32
+    frame_bury -1
+    // Gainify Contracts/staking_pool.py:284
+    // max_time = self.POOL_START_TIME + self.POOL_LENGTH
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    dup
+    frame_bury 8
+    // Gainify Contracts/staking_pool.py:286
+    // if Global.latest_timestamp > max_time:
+    global LatestTimestamp
+    <
+    bz calculate_earnings_else_body@28
+    // Gainify Contracts/staking_pool.py:287
+    // time_diff = max_time - last_timestamp
+    frame_dig 8
+    frame_dig 19
+    -
+
+calculate_earnings_after_if_else@29:
+    // Gainify Contracts/staking_pool.py:291
+    // asset_per_share_reward_rates = BigUInt(self.REWARD_RATE_ASSET) * time_diff
+    intc_0 // 0
+    bytec 9 // "REWARD_RATE_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_RATE_ASSET exists
+    itob
+    swap
+    itob
+    dup
+    frame_bury 3
+    b*
+    // Gainify Contracts/staking_pool.py:292
+    // asset_per_share_reward_rate = asset_per_share_reward_rates // self.ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 10 // "ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:294
+    // asset_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * asset_per_share_reward_rate
+    frame_dig 13
+    frame_dig 14
+    +
+    itob
+    dup
+    frame_bury 4
+    b*
+    // Gainify Contracts/staking_pool.py:295
+    // asset_reward = op.btoi((asset_rewards // self.STAKED_ASSET_AMOUNT).bytes)
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    itob
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:296
+    // asset_reward_sum += asset_reward
+    frame_dig 11
+    +
+    frame_bury 11
+    // Gainify Contracts/staking_pool.py:298
+    // if self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT != 0:
+    intc_0 // 0
+    bytec 4 // "SUPPLEMENTAL_REWARD_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET_AMOUNT exists
+    bz calculate_earnings_after_if_else@31
+    // Gainify Contracts/staking_pool.py:300
+    // supplemental_per_share_reward_rates = BigUInt(self.SUPPLEMENTAL_REWARD_RATE) * time_diff
+    intc_0 // 0
+    bytec 11 // "SUPPLEMENTAL_REWARD_RATE"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_RATE exists
+    itob
+    frame_dig 3
+    b*
+    // Gainify Contracts/staking_pool.py:301
+    // supplemental_per_share_reward_rate = supplemental_per_share_reward_rates // self.SUPPLEMENTAL_ASSET_SCALE_FACTOR
+    intc_0 // 0
+    bytec 12 // "SUPPLEMENTAL_ASSET_SCALE_FACTOR"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_ASSET_SCALE_FACTOR exists
+    itob
+    b/
+    // Gainify Contracts/staking_pool.py:303
+    // supplemental_rewards = BigUInt(user_amount_at_timestamp + user_boost_at_timestamp) * supplemental_per_share_reward_rate
+    frame_dig 4
+    b*
+    // Gainify Contracts/staking_pool.py:305
+    // supplemental_reward = op.btoi((supplemental_rewards // self.STAKED_ASSET_AMOUNT).bytes)
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    itob
+    b/
+    btoi
+    // Gainify Contracts/staking_pool.py:306
+    // supplemental_reward_sum += supplemental_reward
+    frame_dig 12
+    +
+    frame_bury 12
+
+calculate_earnings_after_if_else@31:
+    // Gainify Contracts/staking_pool.py:308
+    // if asset_reward_sum > 0:
+    frame_dig 11
+    bz calculate_earnings_after_if_else@46
+    // Gainify Contracts/staking_pool.py:310
+    // if self.STAKE_ASSET == self.REWARD_ASSET:
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    intc_0 // 0
+    bytec 5 // "REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.REWARD_ASSET exists
+    ==
+    bz calculate_earnings_else_body@38
+    // Gainify Contracts/staking_pool.py:311
+    // user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native + asset_reward_sum)
+    frame_dig -1
+    intc_0 // 0
+    extract_uint64
+    frame_dig 11
+    +
+    itob
+    frame_dig -1
+    swap
+    replace2 0
+    dup
+    frame_bury -1
+    // Gainify Contracts/staking_pool.py:312
+    // user_stake_instance.reward_asset = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 16
+    frame_bury -1
+
+calculate_earnings_after_if_else@41:
+    // Gainify Contracts/staking_pool.py:317
+    // user_stake_instance.stake_time = arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    frame_dig -1
+    swap
+    replace2 8
+    dup
+    frame_bury -1
+    // Gainify Contracts/staking_pool.py:318
+    // user_stake_instance.last_counter = current_counter
+    frame_dig 18
+    replace2 32
+    frame_bury -1
+
+calculate_earnings_after_if_else@46:
+    // Gainify Contracts/staking_pool.py:320
+    // if supplemental_reward_sum > 0:
+    frame_dig 12
+    bz calculate_earnings_after_if_else@61
+    // Gainify Contracts/staking_pool.py:322
+    // if self.STAKE_ASSET == self.SUPPLEMENTAL_REWARD_ASSET:
+    intc_0 // 0
+    bytec_3 // "STAKE_ASSET"
+    app_global_get_ex
+    assert // check self.STAKE_ASSET exists
+    intc_0 // 0
+    bytec 6 // "SUPPLEMENTAL_REWARD_ASSET"
+    app_global_get_ex
+    assert // check self.SUPPLEMENTAL_REWARD_ASSET exists
+    ==
+    bz calculate_earnings_else_body@53
+    // Gainify Contracts/staking_pool.py:323
+    // user_stake_instance.stake_amount = arc4UInt64(user_stake_instance.stake_amount.native + supplemental_reward_sum)
+    frame_dig -1
+    intc_0 // 0
+    extract_uint64
+    frame_dig 12
+    +
+    itob
+    frame_dig -1
+    swap
+    replace2 0
+    dup
+    frame_bury -1
+    // Gainify Contracts/staking_pool.py:324
+    // user_stake_instance.reward_supplement = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 24
+    frame_bury -1
+
+calculate_earnings_after_if_else@56:
+    // Gainify Contracts/staking_pool.py:329
+    // user_stake_instance.stake_time = arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    frame_dig -1
+    swap
+    replace2 8
+    dup
+    frame_bury -1
+    // Gainify Contracts/staking_pool.py:330
+    // user_stake_instance.last_counter = current_counter
+    frame_dig 18
+    replace2 32
+    frame_bury -1
+
+calculate_earnings_after_if_else@61:
+    // Gainify Contracts/staking_pool.py:332
+    // return user_stake_instance.copy()
+    frame_dig -1
+    dup
+    frame_bury 1
+    frame_bury 0
+    retsub
+
+calculate_earnings_else_body@53:
+    // Gainify Contracts/staking_pool.py:327
+    // user_stake_instance.reward_supplement = arc4UInt64(user_stake_instance.reward_supplement.native + supplemental_reward_sum)
+    frame_dig -1
+    pushint 24
+    extract_uint64
+    frame_dig 12
+    +
+    itob
+    frame_dig -1
+    swap
+    replace2 24
+    frame_bury -1
+    b calculate_earnings_after_if_else@56
+
+calculate_earnings_else_body@38:
+    // Gainify Contracts/staking_pool.py:315
+    // user_stake_instance.reward_asset = arc4UInt64(user_stake_instance.reward_asset.native + asset_reward_sum)
+    frame_dig -1
+    pushint 16
+    extract_uint64
+    frame_dig 11
+    +
+    itob
+    frame_dig -1
+    swap
+    replace2 16
+    frame_bury -1
+    b calculate_earnings_after_if_else@41
+
+calculate_earnings_else_body@28:
+    // Gainify Contracts/staking_pool.py:289
+    // time_diff = Global.latest_timestamp - last_timestamp
+    global LatestTimestamp
+    frame_dig 19
+    -
+    b calculate_earnings_after_if_else@29
+
+
+// staking_pool.GainifyStakingPool.add_stake_activity(stake_change: bytes, increment: uint64) -> void:
+add_stake_activity:
+    // Gainify Contracts/staking_pool.py:457-462
+    // @subroutine
+    // def add_stake_activity(
+    //     self,
+    //     stake_change: arc4UInt64,
+    //     increment: bool
+    // ) -> None:
+    proto 2 0
+    intc_0 // 0
+    dup
+    // Gainify Contracts/staking_pool.py:465
+    // if Global.latest_timestamp > self.POOL_START_TIME + self.POOL_LENGTH:
+    global LatestTimestamp
+    intc_0 // 0
+    bytec 7 // "POOL_START_TIME"
+    app_global_get_ex
+    assert // check self.POOL_START_TIME exists
+    intc_0 // 0
+    bytec 8 // "POOL_LENGTH"
+    app_global_get_ex
+    assert // check self.POOL_LENGTH exists
+    +
+    >
+    bnz add_stake_activity_after_if_else@12
+    // Gainify Contracts/staking_pool.py:469
+    // if increment == True:
+    frame_dig -1
+    intc_1 // 1
+    ==
+    bz add_stake_activity_else_body@4
+    // Gainify Contracts/staking_pool.py:470
+    // self.STAKED_ASSET_AMOUNT = self.STAKED_ASSET_AMOUNT + stake_change.native
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    frame_dig -2
+    btoi
+    +
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    swap
+    app_global_put
+
+add_stake_activity_after_if_else@5:
+    // Gainify Contracts/staking_pool.py:475
+    // arc4UInt64(self.STAKED_ASSET_AMOUNT),
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    itob
+    // Gainify Contracts/staking_pool.py:476
+    // arc4UInt64(Global.latest_timestamp)
+    global LatestTimestamp
+    itob
+    // Gainify Contracts/staking_pool.py:474-477
+    // new_stake_activity = StakeActivity(
+    //     arc4UInt64(self.STAKED_ASSET_AMOUNT),
+    //     arc4UInt64(Global.latest_timestamp)
+    // )
+    concat
+    frame_bury 1
+    // Gainify Contracts/staking_pool.py:479
+    // if self.STAKE_ACTIVITY_COUNTER in self.STAKE_ACTIVITY:
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    box_len
+    bury 1
+    bz add_stake_activity_else_body@10
+    // Gainify Contracts/staking_pool.py:481
+    // current_value = self.STAKE_ACTIVITY[self.STAKE_ACTIVITY_COUNTER].copy()
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    dup
+    box_get
+    swap
+    frame_bury 0
+    assert // check self.STAKE_ACTIVITY entry exists
+    // Gainify Contracts/staking_pool.py:483
+    // if current_value.bytes.length == 1010: #CHANGE TO 1008
+    box_len
+    pop
+    pushint 1010
+    ==
+    bz add_stake_activity_else_body@8
+    // Gainify Contracts/staking_pool.py:484
+    // self.STAKE_ACTIVITY_COUNTER = arc4UInt64(self.STAKE_ACTIVITY_COUNTER.native + 1)
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    btoi
+    intc_1 // 1
+    +
+    itob
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    dig 1
+    app_global_put
+    // Gainify Contracts/staking_pool.py:485
+    // self.STAKE_ACTIVITY[self.STAKE_ACTIVITY_COUNTER] = DynamicArray(new_stake_activity.copy())
+    bytec 23 // 0x0001
+    frame_dig 1
+    concat
+    dig 1
+    box_del
+    pop
+    box_put
+
+add_stake_activity_after_if_else@12:
+    retsub
+
+add_stake_activity_else_body@8:
+    // Gainify Contracts/staking_pool.py:487
+    // current_value.append(new_stake_activity.copy())
+    frame_dig 0
+    dup
+    frame_dig 1
+    concat // on error: max array length exceeded
+    swap
+    intc_0 // 0
+    extract_uint16
+    intc_1 // 1
+    +
+    itob
+    extract 6 2
+    replace2 0
+    // Gainify Contracts/staking_pool.py:488
+    // self.STAKE_ACTIVITY[self.STAKE_ACTIVITY_COUNTER] = current_value.copy()
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    dup
+    box_del
+    pop
+    swap
+    box_put
+    retsub
+
+add_stake_activity_else_body@10:
+    // Gainify Contracts/staking_pool.py:491
+    // self.STAKE_ACTIVITY[self.STAKE_ACTIVITY_COUNTER] = DynamicArray(new_stake_activity.copy())
+    bytec 23 // 0x0001
+    frame_dig 1
+    concat
+    intc_0 // 0
+    bytec_0 // "STAKE_ACTIVITY_COUNTER"
+    app_global_get_ex
+    assert // check self.STAKE_ACTIVITY_COUNTER exists
+    dup
+    box_del
+    pop
+    swap
+    box_put
+    retsub
+
+add_stake_activity_else_body@4:
+    // Gainify Contracts/staking_pool.py:472
+    // self.STAKED_ASSET_AMOUNT = self.STAKED_ASSET_AMOUNT - stake_change.native
+    intc_0 // 0
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    app_global_get_ex
+    assert // check self.STAKED_ASSET_AMOUNT exists
+    frame_dig -2
+    btoi
+    -
+    bytec_1 // "STAKED_ASSET_AMOUNT"
+    swap
+    app_global_put
+    b add_stake_activity_after_if_else@5
+
+
+// staking_pool.GainifyStakingPool._verify_gainify_nfd_ownership_pool(nfd_app_id: uint64) -> void:
+_verify_gainify_nfd_ownership_pool:
+    // Gainify Contracts/staking_pool.py:555-559
+    // @subroutine
+    // def _verify_gainify_nfd_ownership_pool(
+    //     self,
+    //     nfd_app_id: Application,
+    // ) -> None:
+    proto 1 0
+    // Gainify Contracts/staking_pool.py:561
+    // user_address = Address(Txn.sender)
+    txn Sender
+    // Gainify Contracts/staking_pool.py:566
+    // fee = Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:564
+    // receiver=self.MASTER_APP_ADDRESS,
+    intc_0 // 0
+    bytec 15 // "MASTER_APP_ADDRESS"
+    app_global_get_ex
+    assert // check self.MASTER_APP_ADDRESS exists
+    // Gainify Contracts/staking_pool.py:565
+    // amount=Global.min_txn_fee,
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:569
+    // if nfd_app_id.id != 0:
+    frame_dig -1
+    bz _verify_gainify_nfd_ownership_pool_else_body@4
+    // Gainify Contracts/staking_pool.py:570-577
+    // result, txn = abi_call[bool](
+    //     '_verify_gainify_nfd_ownership_master(address,application,pay)bool',
+    //     Address(Txn.sender),
+    //     nfd_app_id,
+    //     pass_tx_fee_payment,
+    //     app_id = self.MASTER_APP_ID,
+    //     fee=Global.min_txn_fee
+    // )
+    itxn_begin
+    frame_dig 3
+    itxn_field Amount
+    frame_dig 2
+    itxn_field Receiver
+    // Gainify Contracts/staking_pool.py:563
+    // pass_tx_fee_payment = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    frame_dig 1
+    itxn_field Fee
+    // Gainify Contracts/staking_pool.py:570-577
+    // result, txn = abi_call[bool](
+    //     '_verify_gainify_nfd_ownership_master(address,application,pay)bool',
+    //     Address(Txn.sender),
+    //     nfd_app_id,
+    //     pass_tx_fee_payment,
+    //     app_id = self.MASTER_APP_ID,
+    //     fee=Global.min_txn_fee
+    // )
+    itxn_next
+    // Gainify Contracts/staking_pool.py:576
+    // fee=Global.min_txn_fee
+    global MinTxnFee
+    // Gainify Contracts/staking_pool.py:572
+    // Address(Txn.sender),
+    txn Sender
+    // Gainify Contracts/staking_pool.py:575
+    // app_id = self.MASTER_APP_ID,
+    intc_0 // 0
+    bytec 14 // "MASTER_APP_ID"
+    app_global_get_ex
+    assert // check self.MASTER_APP_ID exists
+    itxn_field ApplicationID
+    frame_dig -1
+    itxn_field Applications
+    // Gainify Contracts/staking_pool.py:570-577
+    // result, txn = abi_call[bool](
+    //     '_verify_gainify_nfd_ownership_master(address,application,pay)bool',
+    //     Address(Txn.sender),
+    //     nfd_app_id,
+    //     pass_tx_fee_payment,
+    //     app_id = self.MASTER_APP_ID,
+    //     fee=Global.min_txn_fee
+    // )
+    pushbytes 0xec5bded8 // method "_verify_gainify_nfd_ownership_master(address,application,pay)bool"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    // Gainify Contracts/staking_pool.py:573
+    // nfd_app_id,
+    pushbytes 0x01
+    itxn_field ApplicationArgs
+    // Gainify Contracts/staking_pool.py:570-577
+    // result, txn = abi_call[bool](
+    //     '_verify_gainify_nfd_ownership_master(address,application,pay)bool',
+    //     Address(Txn.sender),
+    //     nfd_app_id,
+    //     pass_tx_fee_payment,
+    //     app_id = self.MASTER_APP_ID,
+    //     fee=Global.min_txn_fee
+    // )
+    pushint 6 // appl
+    itxn_field TypeEnum
+    itxn_field Fee
+    itxn_submit
+    gitxn 1 LastLog
+    dup
+    extract 0 4
+    bytec 16 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    extract 4 0
+    dup
+    len
+    intc_1 // 1
+    ==
+    assert // invalid number of bytes for bool
+    intc_0 // 0
+    getbit
+
+_verify_gainify_nfd_ownership_pool_after_if_else@5:
+    // Gainify Contracts/staking_pool.py:582
+    // user_stake_instance = self.USER_STAKE_BOX[user_address].copy()
+    frame_dig 0
+    box_get
+    swap
+    cover 2
+    assert // check self.USER_STAKE_BOX entry exists
+    // Gainify Contracts/staking_pool.py:584
+    // if result != True:
+    intc_1 // 1
+    !=
+    bz _verify_gainify_nfd_ownership_pool_else_body@7
+    // Gainify Contracts/staking_pool.py:585
+    // user_stake_instance.boost_amount = arc4UInt64(0)
+    bytec_2 // 0x0000000000000000
+    replace2 41
+    // Gainify Contracts/staking_pool.py:586
+    // user_stake_instance.boosted = Bool(False)
+    pushint 320
+    intc_0 // 0
+    setbit
+
+_verify_gainify_nfd_ownership_pool_after_if_else@8:
+    // Gainify Contracts/staking_pool.py:592
+    // self.USER_STAKE_BOX[user_address] = user_stake_instance.copy()
+    frame_dig 0
+    swap
+    box_put
+    retsub
+
+_verify_gainify_nfd_ownership_pool_else_body@7:
+    // Gainify Contracts/staking_pool.py:588
+    // boost_amounts = user_stake_instance.stake_amount.native * 20
+    dup
+    intc_0 // 0
+    extract_uint64
+    pushint 20
+    *
+    // Gainify Contracts/staking_pool.py:589
+    // user_stake_instance.boost_amount = arc4UInt64(boost_amounts // 100 )
+    pushint 100
+    /
+    itob
+    replace2 41
+    // Gainify Contracts/staking_pool.py:590
+    // user_stake_instance.boosted = Bool(True)
+    pushint 320
+    intc_1 // 1
+    setbit
+    b _verify_gainify_nfd_ownership_pool_after_if_else@8
+
+_verify_gainify_nfd_ownership_pool_else_body@4:
+    // Gainify Contracts/staking_pool.py:580
+    // result = bool(False)
+    intc_0 // 0
+    b _verify_gainify_nfd_ownership_pool_after_if_else@5

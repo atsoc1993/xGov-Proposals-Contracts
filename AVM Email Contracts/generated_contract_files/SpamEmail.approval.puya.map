@@ -1,0 +1,2969 @@
+{
+  "version": 3,
+  "sources": [
+    "../avm_email_contracts.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6vCQ;AAAmB;;AAAnB;AACA;AAA0B;;AAA1B;AACA;AAAsB;AAAtB;AACA;AAAmB;;;;AAAnB;AACA;;AAAY;;AAAZ;AACA;;;;;;AAAY;AAAZ;AAPR;;AAAA;;;AAAA;;;;;;AAAA;;;AAAA;;;;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;AAAA;AAUK;;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;;;;;;;;;;;AAxsCM;;AAAc;;AAAA;;AAAA;AAAd;AAAP;AAwsCC;AAAA;AAMA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAYU;;AAAc;;AAAA;;AAAA;AAAd;AAAP;AACA;AAAA;;AAAA;AACA;;AAAA;;AAAA;AACA;AAAA;;AAAA;AACA;AAAA;;AAAA;AACA;AAAA;;AAAA;AACA;;AAAA;;AAAA;AACA;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAnBH;AAAA;AAqBA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGU;;AAAc;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAd;AAAP;AACA;AAAA;;AAAA;AACA;;AAAA;;AAAA;AACA;AAAA;AAAA;AANH;AAAA;AAQA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAGU;AAAA;;AAAA;AAAuB;;AAAvB;AAAP;AACO;AAAA;;AAAA;AAAuB;;AAAvB;AAAP;AAEyD;AAA1C;AAAA;AAEf;AAEa;AAAA;AAAA;AAAA;AAC6B;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAjC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAoD;;;;;;AAApD;AAA8D;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAA;AAAA;AAA9D;AAA2F;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAA3F;;;;;AAFE;;;AADX;;;AAAA;;;AAAA;AARH;AAAA",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "algopy.arc4.ARC4Contract.approval_program",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 2 1 32"
+    },
+    "7": {
+      "op": "bytecblock \"EMAIL_OWNER\" 0x454d41494c5f656d61696c \"CURVE25519_ACCOUNT\" \"EMAIL_REGISTRY\" \"SALT\" \"DETERMINISTIC_ACCOUNT\""
+    },
+    "94": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "96": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "99": {
+      "op": "bytec_0 // \"EMAIL_OWNER\"",
+      "defined_out": [
+        "\"EMAIL_OWNER\""
+      ],
+      "stack_out": [
+        "\"EMAIL_OWNER\""
+      ]
+    },
+    "100": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "\"EMAIL_OWNER\"",
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "\"EMAIL_OWNER\"",
+        "tmp%0#2"
+      ]
+    },
+    "102": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "103": {
+      "op": "bytec_2 // \"CURVE25519_ACCOUNT\"",
+      "defined_out": [
+        "\"CURVE25519_ACCOUNT\""
+      ],
+      "stack_out": [
+        "\"CURVE25519_ACCOUNT\""
+      ]
+    },
+    "104": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "\"CURVE25519_ACCOUNT\"",
+        "tmp%1#2"
+      ],
+      "stack_out": [
+        "\"CURVE25519_ACCOUNT\"",
+        "tmp%1#2"
+      ]
+    },
+    "106": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "107": {
+      "op": "bytec_3 // \"EMAIL_REGISTRY\"",
+      "defined_out": [
+        "\"EMAIL_REGISTRY\""
+      ],
+      "stack_out": [
+        "\"EMAIL_REGISTRY\""
+      ]
+    },
+    "108": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"EMAIL_REGISTRY\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"EMAIL_REGISTRY\"",
+        "0"
+      ]
+    },
+    "109": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "110": {
+      "op": "bytec_1 // \"EMAIL_email\"",
+      "defined_out": [
+        "\"EMAIL_email\""
+      ],
+      "stack_out": [
+        "\"EMAIL_email\""
+      ]
+    },
+    "111": {
+      "op": "pushbytes 0x0000",
+      "defined_out": [
+        "\"EMAIL_email\"",
+        "0x0000"
+      ],
+      "stack_out": [
+        "\"EMAIL_email\"",
+        "0x0000"
+      ]
+    },
+    "115": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "116": {
+      "op": "bytec 4 // \"SALT\"",
+      "defined_out": [
+        "\"SALT\""
+      ],
+      "stack_out": [
+        "\"SALT\""
+      ]
+    },
+    "118": {
+      "op": "pushbytes 0x",
+      "defined_out": [
+        "\"SALT\"",
+        "0x"
+      ],
+      "stack_out": [
+        "\"SALT\"",
+        "0x"
+      ]
+    },
+    "120": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "121": {
+      "op": "pushbytes \"SPAM\"",
+      "defined_out": [
+        "\"SPAM\""
+      ],
+      "stack_out": [
+        "\"SPAM\""
+      ]
+    },
+    "127": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "\"SPAM\"",
+        "1"
+      ],
+      "stack_out": [
+        "\"SPAM\"",
+        "1"
+      ]
+    },
+    "128": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "129": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "131": {
+      "op": "bz main___algopy_default_create@14",
+      "stack_out": []
+    },
+    "134": {
+      "op": "pushbytes 0xce76066d // method \"update_spam_email_contract()void\"",
+      "defined_out": [
+        "Method(update_spam_email_contract()void)"
+      ],
+      "stack_out": [
+        "Method(update_spam_email_contract()void)"
+      ]
+    },
+    "140": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(update_spam_email_contract()void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(update_spam_email_contract()void)",
+        "tmp%2#0"
+      ]
+    },
+    "143": {
+      "op": "match main_update_spam_email_contract_route@5",
+      "stack_out": []
+    },
+    "147": {
+      "block": "main_switch_case_next@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "149": {
+      "op": "!",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "150": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "151": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "153": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "154": {
+      "op": "pushbytess 0xf7d135ab 0xba7e65cf 0xbeadd2fd // method \"set_globals(address,string,address,address,byte[],uint64,uint64)void\", method \"transfer_ownership(address,address,address)void\", method \"receive_email(byte[],uint64)void\"",
+      "defined_out": [
+        "Method(receive_email(byte[],uint64)void)",
+        "Method(set_globals(address,string,address,address,byte[],uint64,uint64)void)",
+        "Method(transfer_ownership(address,address,address)void)"
+      ],
+      "stack_out": [
+        "Method(set_globals(address,string,address,address,byte[],uint64,uint64)void)",
+        "Method(transfer_ownership(address,address,address)void)",
+        "Method(receive_email(byte[],uint64)void)"
+      ]
+    },
+    "171": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(receive_email(byte[],uint64)void)",
+        "Method(set_globals(address,string,address,address,byte[],uint64,uint64)void)",
+        "Method(transfer_ownership(address,address,address)void)",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "Method(set_globals(address,string,address,address,byte[],uint64,uint64)void)",
+        "Method(transfer_ownership(address,address,address)void)",
+        "Method(receive_email(byte[],uint64)void)",
+        "tmp%12#0"
+      ]
+    },
+    "174": {
+      "op": "match set_globals transfer_ownership receive_email",
+      "stack_out": []
+    },
+    "182": {
+      "op": "err"
+    },
+    "183": {
+      "block": "main_update_spam_email_contract_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "185": {
+      "op": "pushint 4 // UpdateApplication",
+      "defined_out": [
+        "UpdateApplication",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "UpdateApplication"
+      ]
+    },
+    "187": {
+      "op": "==",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "188": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%4#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%4#0",
+        "tmp%5#0"
+      ]
+    },
+    "190": {
+      "op": "&&",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "191": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "192": {
+      "op": "b update_spam_email_contract"
+    },
+    "195": {
+      "block": "main___algopy_default_create@14",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "197": {
+      "op": "!",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "198": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%14#0",
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%14#0",
+        "tmp%15#0"
+      ]
+    },
+    "200": {
+      "op": "!",
+      "defined_out": [
+        "tmp%14#0",
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%14#0",
+        "tmp%16#0"
+      ]
+    },
+    "201": {
+      "op": "&&",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "202": {
+      "op": "return",
+      "defined_out": [],
+      "stack_out": []
+    },
+    "203": {
+      "subroutine": "avm_email_contracts.SpamEmail.update_spam_email_contract[routing]",
+      "params": {},
+      "block": "update_spam_email_contract",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "205": {
+      "op": "global CurrentApplicationID",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "207": {
+      "op": "app_params_get AppCreator",
+      "defined_out": [
+        "check%0#0",
+        "tmp%0#0",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "209": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "tmp%0#0",
+        "value%0#0"
+      ]
+    },
+    "210": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "211": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "212": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "213": {
+      "op": "return",
+      "stack_out": []
+    },
+    "214": {
+      "subroutine": "avm_email_contracts.SpamEmail.set_globals[routing]",
+      "params": {},
+      "block": "set_globals",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0"
+      ]
+    },
+    "217": {
+      "op": "dup",
+      "defined_out": [
+        "owner#0",
+        "owner#0 (copy)"
+      ],
+      "stack_out": [
+        "owner#0",
+        "owner#0 (copy)"
+      ]
+    },
+    "218": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "len%0#0"
+      ]
+    },
+    "219": {
+      "op": "intc_3 // 32",
+      "defined_out": [
+        "32",
+        "len%0#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "220": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "eq%0#0"
+      ]
+    },
+    "221": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "owner#0"
+      ]
+    },
+    "222": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0"
+      ]
+    },
+    "225": {
+      "op": "dup",
+      "defined_out": [
+        "email#0",
+        "email#0 (copy)",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "email#0 (copy)"
+      ]
+    },
+    "226": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "email#0",
+        "email#0 (copy)",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "email#0 (copy)",
+        "0"
+      ]
+    },
+    "227": {
+      "error": "invalid array length header",
+      "op": "extract_uint16 // on error: invalid array length header",
+      "defined_out": [
+        "aggregate%array_length%0#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "aggregate%array_length%0#0"
+      ]
+    },
+    "228": {
+      "op": "intc_1 // 2",
+      "defined_out": [
+        "2",
+        "aggregate%array_length%0#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "aggregate%array_length%0#0",
+        "2"
+      ]
+    },
+    "229": {
+      "op": "+",
+      "defined_out": [
+        "add%0#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "add%0#0"
+      ]
+    },
+    "230": {
+      "op": "dig 1",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "add%0#0",
+        "email#0 (copy)"
+      ]
+    },
+    "232": {
+      "op": "len",
+      "defined_out": [
+        "add%0#0",
+        "email#0",
+        "len%1#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "add%0#0",
+        "len%1#0"
+      ]
+    },
+    "233": {
+      "op": "==",
+      "defined_out": [
+        "email#0",
+        "eq%1#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "eq%1#0"
+      ]
+    },
+    "234": {
+      "error": "invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "op": "assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "stack_out": [
+        "owner#0",
+        "email#0"
+      ]
+    },
+    "235": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "det_account#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0"
+      ]
+    },
+    "238": {
+      "op": "dup",
+      "defined_out": [
+        "det_account#0",
+        "det_account#0 (copy)",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "det_account#0 (copy)"
+      ]
+    },
+    "239": {
+      "op": "len",
+      "defined_out": [
+        "det_account#0",
+        "email#0",
+        "len%2#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "len%2#0"
+      ]
+    },
+    "240": {
+      "op": "intc_3 // 32",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "len%2#0",
+        "32"
+      ]
+    },
+    "241": {
+      "op": "==",
+      "defined_out": [
+        "det_account#0",
+        "email#0",
+        "eq%2#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "eq%2#0"
+      ]
+    },
+    "242": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0"
+      ]
+    },
+    "243": {
+      "op": "txna ApplicationArgs 4",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0"
+      ]
+    },
+    "246": {
+      "op": "dup",
+      "defined_out": [
+        "curve_account#0",
+        "curve_account#0 (copy)",
+        "det_account#0",
+        "email#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "curve_account#0 (copy)"
+      ]
+    },
+    "247": {
+      "op": "len",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "len%3#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "len%3#0"
+      ]
+    },
+    "248": {
+      "op": "intc_3 // 32",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "len%3#0",
+        "32"
+      ]
+    },
+    "249": {
+      "op": "==",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "eq%3#0",
+        "owner#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "eq%3#0"
+      ]
+    },
+    "250": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0"
+      ]
+    },
+    "251": {
+      "op": "txna ApplicationArgs 5",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0"
+      ]
+    },
+    "254": {
+      "op": "dup",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "tmp%4#0",
+        "tmp%4#0 (copy)"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "tmp%4#0 (copy)"
+      ]
+    },
+    "255": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "tmp%4#0 (copy)",
+        "0"
+      ]
+    },
+    "256": {
+      "error": "invalid array length header",
+      "op": "extract_uint16 // on error: invalid array length header",
+      "defined_out": [
+        "aggregate%array_length%1#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "aggregate%array_length%1#0"
+      ]
+    },
+    "257": {
+      "op": "intc_1 // 2",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "aggregate%array_length%1#0",
+        "2"
+      ]
+    },
+    "258": {
+      "op": "+",
+      "defined_out": [
+        "add%1#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "add%1#0"
+      ]
+    },
+    "259": {
+      "op": "dig 1",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "add%1#0",
+        "tmp%4#0 (copy)"
+      ]
+    },
+    "261": {
+      "op": "len",
+      "defined_out": [
+        "add%1#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "len%4#0",
+        "owner#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "add%1#0",
+        "len%4#0"
+      ]
+    },
+    "262": {
+      "op": "==",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "eq%4#0",
+        "owner#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0",
+        "eq%4#0"
+      ]
+    },
+    "263": {
+      "error": "invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "op": "assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "tmp%4#0"
+      ]
+    },
+    "264": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0"
+      ]
+    },
+    "267": {
+      "op": "txna ApplicationArgs 6",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "salt#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0"
+      ]
+    },
+    "270": {
+      "op": "dup",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "owner#0",
+        "salt#0",
+        "tmp%6#0",
+        "tmp%6#0 (copy)"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0",
+        "tmp%6#0 (copy)"
+      ]
+    },
+    "271": {
+      "op": "len",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "len%5#0",
+        "owner#0",
+        "salt#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0",
+        "len%5#0"
+      ]
+    },
+    "272": {
+      "op": "pushint 8",
+      "defined_out": [
+        "8",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "len%5#0",
+        "owner#0",
+        "salt#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0",
+        "len%5#0",
+        "8"
+      ]
+    },
+    "274": {
+      "op": "==",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "eq%5#0",
+        "owner#0",
+        "salt#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0",
+        "eq%5#0"
+      ]
+    },
+    "275": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "tmp%6#0"
+      ]
+    },
+    "276": {
+      "op": "btoi",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0"
+      ]
+    },
+    "277": {
+      "op": "txna ApplicationArgs 7",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0"
+      ]
+    },
+    "280": {
+      "op": "dup",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0",
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ]
+    },
+    "281": {
+      "op": "len",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "len%6#0",
+        "owner#0",
+        "salt#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0",
+        "len%6#0"
+      ]
+    },
+    "282": {
+      "op": "pushint 8",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0",
+        "len%6#0",
+        "8"
+      ]
+    },
+    "284": {
+      "op": "==",
+      "defined_out": [
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "eq%6#0",
+        "owner#0",
+        "salt#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0",
+        "eq%6#0"
+      ]
+    },
+    "285": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "tmp%8#0"
+      ]
+    },
+    "286": {
+      "op": "btoi",
+      "defined_out": [
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "287": {
+      "op": "txn Sender",
+      "defined_out": [
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "tmp%0#1"
+      ]
+    },
+    "289": {
+      "op": "dig 2",
+      "defined_out": [
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "email_registry#0 (copy)",
+        "owner#0",
+        "salt#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "tmp%0#1",
+        "email_registry#0 (copy)"
+      ]
+    },
+    "291": {
+      "op": "app_params_get AppAddress",
+      "defined_out": [
+        "algofun_shares_app#0",
+        "check%0#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0",
+        "tmp%0#1",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "tmp%0#1",
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "293": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "tmp%0#1",
+        "value%0#0"
+      ]
+    },
+    "294": {
+      "op": "==",
+      "defined_out": [
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "tmp%1#1"
+      ]
+    },
+    "295": {
+      "op": "assert",
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "296": {
+      "op": "bytec_0 // \"EMAIL_OWNER\"",
+      "defined_out": [
+        "\"EMAIL_OWNER\"",
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "owner#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "owner#0",
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_OWNER\""
+      ]
+    },
+    "297": {
+      "op": "uncover 7",
+      "stack_out": [
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_OWNER\"",
+        "owner#0"
+      ]
+    },
+    "299": {
+      "op": "app_global_put",
+      "stack_out": [
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "300": {
+      "op": "bytec 5 // \"DETERMINISTIC_ACCOUNT\"",
+      "defined_out": [
+        "\"DETERMINISTIC_ACCOUNT\"",
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "det_account#0",
+        "email#0",
+        "email_registry#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "email#0",
+        "det_account#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"DETERMINISTIC_ACCOUNT\""
+      ]
+    },
+    "302": {
+      "op": "uncover 5",
+      "stack_out": [
+        "email#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"DETERMINISTIC_ACCOUNT\"",
+        "det_account#0"
+      ]
+    },
+    "304": {
+      "op": "app_global_put",
+      "stack_out": [
+        "email#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "305": {
+      "op": "bytec_2 // \"CURVE25519_ACCOUNT\"",
+      "defined_out": [
+        "\"CURVE25519_ACCOUNT\"",
+        "algofun_shares_app#0",
+        "curve_account#0",
+        "email#0",
+        "email_registry#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "email#0",
+        "curve_account#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"CURVE25519_ACCOUNT\""
+      ]
+    },
+    "306": {
+      "op": "uncover 4",
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"CURVE25519_ACCOUNT\"",
+        "curve_account#0"
+      ]
+    },
+    "308": {
+      "op": "app_global_put",
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "309": {
+      "op": "bytec_3 // \"EMAIL_REGISTRY\"",
+      "defined_out": [
+        "\"EMAIL_REGISTRY\"",
+        "algofun_shares_app#0",
+        "email#0",
+        "email_registry#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "email_registry#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_REGISTRY\""
+      ]
+    },
+    "310": {
+      "op": "uncover 2",
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_REGISTRY\"",
+        "email_registry#0"
+      ]
+    },
+    "312": {
+      "op": "app_global_put",
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "313": {
+      "op": "bytec_1 // \"EMAIL_email\"",
+      "defined_out": [
+        "\"EMAIL_email\"",
+        "algofun_shares_app#0",
+        "email#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "email#0",
+        "salt#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_email\""
+      ]
+    },
+    "314": {
+      "op": "uncover 3",
+      "stack_out": [
+        "salt#0",
+        "algofun_shares_app#0",
+        "\"EMAIL_email\"",
+        "email#0"
+      ]
+    },
+    "316": {
+      "op": "app_global_put",
+      "stack_out": [
+        "salt#0",
+        "algofun_shares_app#0"
+      ]
+    },
+    "317": {
+      "op": "bytec 4 // \"SALT\"",
+      "defined_out": [
+        "\"SALT\"",
+        "algofun_shares_app#0",
+        "salt#0"
+      ],
+      "stack_out": [
+        "salt#0",
+        "algofun_shares_app#0",
+        "\"SALT\""
+      ]
+    },
+    "319": {
+      "op": "uncover 2",
+      "stack_out": [
+        "algofun_shares_app#0",
+        "\"SALT\"",
+        "salt#0"
+      ]
+    },
+    "321": {
+      "op": "app_global_put",
+      "stack_out": [
+        "algofun_shares_app#0"
+      ]
+    },
+    "322": {
+      "op": "pushbytes \"algofun_shares_app\"",
+      "defined_out": [
+        "\"algofun_shares_app\"",
+        "algofun_shares_app#0"
+      ],
+      "stack_out": [
+        "algofun_shares_app#0",
+        "\"algofun_shares_app\""
+      ]
+    },
+    "342": {
+      "op": "swap",
+      "stack_out": [
+        "\"algofun_shares_app\"",
+        "algofun_shares_app#0"
+      ]
+    },
+    "343": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "344": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "345": {
+      "op": "return",
+      "stack_out": []
+    },
+    "346": {
+      "subroutine": "avm_email_contracts.SpamEmail.transfer_ownership[routing]",
+      "params": {},
+      "block": "transfer_ownership",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0"
+      ]
+    },
+    "349": {
+      "op": "dup",
+      "defined_out": [
+        "new_owner#0",
+        "new_owner#0 (copy)"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_owner#0 (copy)"
+      ]
+    },
+    "350": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "len%0#0"
+      ]
+    },
+    "351": {
+      "op": "intc_3 // 32",
+      "defined_out": [
+        "32",
+        "len%0#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "352": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "eq%0#0"
+      ]
+    },
+    "353": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "new_owner#0"
+      ]
+    },
+    "354": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0"
+      ]
+    },
+    "357": {
+      "op": "dup",
+      "defined_out": [
+        "new_det_account#0",
+        "new_det_account#0 (copy)",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_det_account#0 (copy)"
+      ]
+    },
+    "358": {
+      "op": "len",
+      "defined_out": [
+        "len%1#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "len%1#0"
+      ]
+    },
+    "359": {
+      "op": "intc_3 // 32",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "len%1#0",
+        "32"
+      ]
+    },
+    "360": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "eq%1#0"
+      ]
+    },
+    "361": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0"
+      ]
+    },
+    "362": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0"
+      ]
+    },
+    "365": {
+      "op": "dup",
+      "defined_out": [
+        "new_curve_account#0",
+        "new_curve_account#0 (copy)",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "new_curve_account#0 (copy)"
+      ]
+    },
+    "366": {
+      "op": "len",
+      "defined_out": [
+        "len%2#0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "len%2#0"
+      ]
+    },
+    "367": {
+      "op": "intc_3 // 32",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "len%2#0",
+        "32"
+      ]
+    },
+    "368": {
+      "op": "==",
+      "defined_out": [
+        "eq%2#0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "eq%2#0"
+      ]
+    },
+    "369": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0"
+      ]
+    },
+    "370": {
+      "op": "txn Sender",
+      "defined_out": [
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1"
+      ]
+    },
+    "372": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "0"
+      ]
+    },
+    "373": {
+      "op": "bytec_3 // \"EMAIL_REGISTRY\"",
+      "defined_out": [
+        "\"EMAIL_REGISTRY\"",
+        "0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "0",
+        "\"EMAIL_REGISTRY\""
+      ]
+    },
+    "374": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "375": {
+      "error": "check self.EMAIL_REGISTRY exists",
+      "op": "assert // check self.EMAIL_REGISTRY exists",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "maybe_value%0#0"
+      ]
+    },
+    "376": {
+      "op": "app_params_get AppAddress",
+      "defined_out": [
+        "check%0#0",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%0#1",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "378": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%0#1",
+        "value%0#0"
+      ]
+    },
+    "379": {
+      "op": "==",
+      "defined_out": [
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "tmp%1#1"
+      ]
+    },
+    "380": {
+      "op": "assert",
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0"
+      ]
+    },
+    "381": {
+      "op": "bytec_0 // \"EMAIL_OWNER\"",
+      "defined_out": [
+        "\"EMAIL_OWNER\"",
+        "new_curve_account#0",
+        "new_det_account#0",
+        "new_owner#0"
+      ],
+      "stack_out": [
+        "new_owner#0",
+        "new_det_account#0",
+        "new_curve_account#0",
+        "\"EMAIL_OWNER\""
+      ]
+    },
+    "382": {
+      "op": "uncover 3",
+      "stack_out": [
+        "new_det_account#0",
+        "new_curve_account#0",
+        "\"EMAIL_OWNER\"",
+        "new_owner#0"
+      ]
+    },
+    "384": {
+      "op": "app_global_put",
+      "stack_out": [
+        "new_det_account#0",
+        "new_curve_account#0"
+      ]
+    },
+    "385": {
+      "op": "bytec 5 // \"DETERMINISTIC_ACCOUNT\"",
+      "defined_out": [
+        "\"DETERMINISTIC_ACCOUNT\"",
+        "new_curve_account#0",
+        "new_det_account#0"
+      ],
+      "stack_out": [
+        "new_det_account#0",
+        "new_curve_account#0",
+        "\"DETERMINISTIC_ACCOUNT\""
+      ]
+    },
+    "387": {
+      "op": "uncover 2",
+      "stack_out": [
+        "new_curve_account#0",
+        "\"DETERMINISTIC_ACCOUNT\"",
+        "new_det_account#0"
+      ]
+    },
+    "389": {
+      "op": "app_global_put",
+      "stack_out": [
+        "new_curve_account#0"
+      ]
+    },
+    "390": {
+      "op": "bytec_2 // \"CURVE25519_ACCOUNT\"",
+      "defined_out": [
+        "\"CURVE25519_ACCOUNT\"",
+        "new_curve_account#0"
+      ],
+      "stack_out": [
+        "new_curve_account#0",
+        "\"CURVE25519_ACCOUNT\""
+      ]
+    },
+    "391": {
+      "op": "swap",
+      "stack_out": [
+        "\"CURVE25519_ACCOUNT\"",
+        "new_curve_account#0"
+      ]
+    },
+    "392": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "393": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "394": {
+      "op": "return",
+      "stack_out": []
+    },
+    "395": {
+      "subroutine": "avm_email_contracts.SpamEmail.receive_email[routing]",
+      "params": {},
+      "block": "receive_email",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "398": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "399": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)",
+        "0"
+      ]
+    },
+    "400": {
+      "error": "invalid array length header",
+      "op": "extract_uint16 // on error: invalid array length header",
+      "defined_out": [
+        "aggregate%array_length%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "aggregate%array_length%0#0"
+      ]
+    },
+    "401": {
+      "op": "intc_1 // 2",
+      "defined_out": [
+        "2",
+        "aggregate%array_length%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "aggregate%array_length%0#0",
+        "2"
+      ]
+    },
+    "402": {
+      "op": "+",
+      "defined_out": [
+        "add%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "add%0#0"
+      ]
+    },
+    "403": {
+      "op": "swap",
+      "stack_out": [
+        "add%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "404": {
+      "op": "len",
+      "defined_out": [
+        "add%0#0",
+        "len%0#0"
+      ],
+      "stack_out": [
+        "add%0#0",
+        "len%0#0"
+      ]
+    },
+    "405": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0"
+      ],
+      "stack_out": [
+        "eq%0#0"
+      ]
+    },
+    "406": {
+      "error": "invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "op": "assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "stack_out": []
+    },
+    "407": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "410": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "411": {
+      "op": "len",
+      "defined_out": [
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "412": {
+      "op": "pushint 8",
+      "defined_out": [
+        "8",
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "414": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "415": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "416": {
+      "op": "btoi",
+      "defined_out": [
+        "calling_app#0"
+      ],
+      "stack_out": [
+        "calling_app#0"
+      ]
+    },
+    "417": {
+      "op": "dup",
+      "defined_out": [
+        "calling_app#0",
+        "calling_app#0 (copy)"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "calling_app#0 (copy)"
+      ]
+    },
+    "418": {
+      "op": "app_params_get AppCreator",
+      "defined_out": [
+        "calling_app#0",
+        "check%0#0",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "420": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "calling_app#0",
+        "value%0#0"
+      ]
+    },
+    "421": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "calling_app#0",
+        "tmp%0#1",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "value%0#0",
+        "tmp%0#1"
+      ]
+    },
+    "423": {
+      "op": "==",
+      "defined_out": [
+        "calling_app#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "tmp%1#1"
+      ]
+    },
+    "424": {
+      "op": "assert",
+      "stack_out": [
+        "calling_app#0"
+      ]
+    },
+    "425": {
+      "op": "dup",
+      "stack_out": [
+        "calling_app#0",
+        "calling_app#0 (copy)"
+      ]
+    },
+    "426": {
+      "op": "app_params_get AppAddress",
+      "defined_out": [
+        "calling_app#0",
+        "check%1#0",
+        "value%1#0"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "value%1#0",
+        "check%1#0"
+      ]
+    },
+    "428": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "calling_app#0",
+        "value%1#0"
+      ]
+    },
+    "429": {
+      "op": "txn Sender",
+      "defined_out": [
+        "calling_app#0",
+        "tmp%2#1",
+        "value%1#0"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "value%1#0",
+        "tmp%2#1"
+      ]
+    },
+    "431": {
+      "op": "==",
+      "defined_out": [
+        "calling_app#0",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "tmp%3#1"
+      ]
+    },
+    "432": {
+      "op": "assert",
+      "stack_out": [
+        "calling_app#0"
+      ]
+    },
+    "433": {
+      "op": "bytec_1 // 0x454d41494c5f656d61696c",
+      "defined_out": [
+        "0x454d41494c5f656d61696c",
+        "calling_app#0"
+      ],
+      "stack_out": [
+        "calling_app#0",
+        "0x454d41494c5f656d61696c"
+      ]
+    },
+    "434": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "sender_email#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "tmp%5#0"
+      ]
+    },
+    "435": {
+      "op": "pop",
+      "stack_out": [
+        "sender_email#0"
+      ]
+    },
+    "436": {
+      "op": "itxn_begin"
+    },
+    "437": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "sender_email#0",
+        "0"
+      ]
+    },
+    "438": {
+      "op": "bytec_0 // \"EMAIL_OWNER\"",
+      "defined_out": [
+        "\"EMAIL_OWNER\"",
+        "0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "0",
+        "\"EMAIL_OWNER\""
+      ]
+    },
+    "439": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "440": {
+      "error": "check self.EMAIL_OWNER exists",
+      "op": "assert // check self.EMAIL_OWNER exists",
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "441": {
+      "op": "dig 1",
+      "defined_out": [
+        "maybe_value%0#0",
+        "sender_email#0",
+        "sender_email#0 (copy)"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "sender_email#0 (copy)"
+      ]
+    },
+    "443": {
+      "op": "len",
+      "defined_out": [
+        "length%0#1",
+        "maybe_value%0#0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1"
+      ]
+    },
+    "444": {
+      "op": "intc_1 // 2",
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "2"
+      ]
+    },
+    "445": {
+      "op": "dig 1",
+      "defined_out": [
+        "2",
+        "length%0#1",
+        "length%0#1 (copy)",
+        "maybe_value%0#0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "2",
+        "length%0#1 (copy)"
+      ]
+    },
+    "447": {
+      "op": ">=",
+      "defined_out": [
+        "is_out_of_bounds%0#0",
+        "length%0#1",
+        "maybe_value%0#0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "448": {
+      "op": "intc_1 // 2",
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "is_out_of_bounds%0#0",
+        "2"
+      ]
+    },
+    "449": {
+      "op": "dig 2",
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "is_out_of_bounds%0#0",
+        "2",
+        "length%0#1 (copy)"
+      ]
+    },
+    "451": {
+      "op": "uncover 2",
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "2",
+        "length%0#1 (copy)",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "453": {
+      "op": "select",
+      "defined_out": [
+        "bounded_index%0#0",
+        "length%0#1",
+        "maybe_value%0#0",
+        "sender_email#0"
+      ],
+      "stack_out": [
+        "sender_email#0",
+        "maybe_value%0#0",
+        "length%0#1",
+        "bounded_index%0#0"
+      ]
+    },
+    "454": {
+      "op": "uncover 3",
+      "stack_out": [
+        "maybe_value%0#0",
+        "length%0#1",
+        "bounded_index%0#0",
+        "sender_email#0"
+      ]
+    },
+    "456": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_value%0#0",
+        "length%0#1",
+        "sender_email#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "457": {
+      "op": "uncover 2",
+      "stack_out": [
+        "maybe_value%0#0",
+        "sender_email#0",
+        "bounded_index%0#0",
+        "length%0#1"
+      ]
+    },
+    "459": {
+      "op": "substring3",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%6#0"
+      ]
+    },
+    "460": {
+      "op": "pushbytes 0x52656365697665642061207370616d20656d61696c2066726f6d20",
+      "defined_out": [
+        "0x52656365697665642061207370616d20656d61696c2066726f6d20",
+        "maybe_value%0#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%6#0",
+        "0x52656365697665642061207370616d20656d61696c2066726f6d20"
+      ]
+    },
+    "489": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x52656365697665642061207370616d20656d61696c2066726f6d20",
+        "tmp%6#0"
+      ]
+    },
+    "490": {
+      "op": "concat",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%7#0"
+      ]
+    },
+    "491": {
+      "op": "pushbytes 0x20746f20",
+      "defined_out": [
+        "0x20746f20",
+        "maybe_value%0#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%7#0",
+        "0x20746f20"
+      ]
+    },
+    "497": {
+      "op": "concat",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0"
+      ]
+    },
+    "498": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "0"
+      ]
+    },
+    "499": {
+      "op": "bytec_1 // \"EMAIL_email\"",
+      "defined_out": [
+        "\"EMAIL_email\"",
+        "0",
+        "maybe_value%0#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "0",
+        "\"EMAIL_email\""
+      ]
+    },
+    "500": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "501": {
+      "error": "check self.EMAIL_email exists",
+      "op": "assert // check self.EMAIL_email exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "502": {
+      "op": "dup",
+      "defined_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_value%1#0 (copy)",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "maybe_value%1#0 (copy)"
+      ]
+    },
+    "503": {
+      "op": "len",
+      "defined_out": [
+        "length%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0"
+      ]
+    },
+    "504": {
+      "op": "intc_1 // 2",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "2"
+      ]
+    },
+    "505": {
+      "op": "dig 1",
+      "defined_out": [
+        "2",
+        "length%1#0",
+        "length%1#0 (copy)",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "2",
+        "length%1#0 (copy)"
+      ]
+    },
+    "507": {
+      "op": ">=",
+      "defined_out": [
+        "is_out_of_bounds%1#0",
+        "length%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0"
+      ]
+    },
+    "508": {
+      "op": "intc_1 // 2",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0",
+        "2"
+      ]
+    },
+    "509": {
+      "op": "dig 2",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0",
+        "2",
+        "length%1#0 (copy)"
+      ]
+    },
+    "511": {
+      "op": "uncover 2",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "2",
+        "length%1#0 (copy)",
+        "is_out_of_bounds%1#0"
+      ]
+    },
+    "513": {
+      "op": "select",
+      "defined_out": [
+        "bounded_index%1#0",
+        "length%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "length%1#0",
+        "bounded_index%1#0"
+      ]
+    },
+    "514": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "maybe_value%1#0",
+        "bounded_index%1#0",
+        "length%1#0"
+      ]
+    },
+    "515": {
+      "op": "substring3",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "516": {
+      "op": "concat",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%10#0"
+      ]
+    },
+    "517": {
+      "op": "pushbytes 0x2e20466f7277617264656420746f204a756e6b204d61696c2c2061646420746869732073656e64657220746f20796f757220616c6c6f77206c69737420696620796f75206b6e6f77207468656d21",
+      "defined_out": [
+        "0x2e20466f7277617264656420746f204a756e6b204d61696c2c2061646420746869732073656e64657220746f20796f757220616c6c6f77206c69737420696620796f75206b6e6f77207468656d21",
+        "maybe_value%0#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%10#0",
+        "0x2e20466f7277617264656420746f204a756e6b204d61696c2c2061646420746869732073656e64657220746f20796f757220616c6c6f77206c69737420696620796f75206b6e6f77207468656d21"
+      ]
+    },
+    "597": {
+      "op": "concat",
+      "defined_out": [
+        "inner_txn_params%0%%param_Note_idx_0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "inner_txn_params%0%%param_Note_idx_0#0"
+      ]
+    },
+    "598": {
+      "op": "itxn_field Note",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "600": {
+      "op": "itxn_field Receiver",
+      "stack_out": []
+    },
+    "602": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "603": {
+      "op": "itxn_field Amount",
+      "stack_out": []
+    },
+    "605": {
+      "op": "intc_2 // pay",
+      "defined_out": [
+        "pay"
+      ],
+      "stack_out": [
+        "pay"
+      ]
+    },
+    "606": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "608": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "609": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "611": {
+      "op": "itxn_submit"
+    },
+    "612": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "613": {
+      "op": "return",
+      "stack_out": []
+    }
+  }
+}

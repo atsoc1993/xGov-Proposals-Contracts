@@ -1,0 +1,1396 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 2 6
+    bytecblock "REGISTRY_APP_ID" 0x151f7c75 "algofun_shares_app" 0x0a75a15e "server" 0x17066748 "email" "fee" 0xd554ebd9
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // AVM Email Contracts/avm_email_contracts.py:1344
+    // self.REGISTRY_APP = Application()
+    pushbytes "REGISTRY_APP"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1345
+    // self.algofun_shares_app = Application()
+    bytec_2 // "algofun_shares_app"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1346
+    // self.fee = UInt64(5)
+    bytec 7 // "fee"
+    pushint 5
+    app_global_put
+
+main_after_if_else@2:
+    // AVM Email Contracts/avm_email_contracts.py:1340
+    // class EmailListings(ARC4Contract):
+    txn NumAppArgs
+    bz main___algopy_default_create@18
+    pushbytes 0x83e0fa9c // method "update_listings_contract()void"
+    txna ApplicationArgs 0
+    match main_update_listings_contract_route@5
+
+main_switch_case_next@6:
+    // AVM Email Contracts/avm_email_contracts.py:1340
+    // class EmailListings(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    assert
+    pushbytess 0x3775a48f 0x56e074f4 0xd0d740bc 0x48dc2428 0x652883f7 0x2fa44e49 0x69f3c6e4 // method "set_globals(uint64,uint64)void", method "create_server_listing(string,uint64,pay)void", method "purchase_server_listing(string,pay)void", method "create_email_listing(string,uint64,pay)void", method "purchase_email_listing(string,address,address,pay,pay)void", method "cancel_listing_of_any_type(string,string)void", method "arbitrary_app_call()void"
+    txna ApplicationArgs 0
+    match set_globals create_server_listing purchase_server_listing create_email_listing purchase_email_listing cancel_listing_of_any_type main_arbitrary_app_call_route@14
+    err
+
+main_arbitrary_app_call_route@14:
+    // AVM Email Contracts/avm_email_contracts.py:1542
+    // @abimethod
+    intc_1 // 1
+    return
+
+main_update_listings_contract_route@5:
+    // AVM Email Contracts/avm_email_contracts.py:1355
+    // @abimethod(allow_actions=['UpdateApplication'])
+    txn OnCompletion
+    pushint 4 // UpdateApplication
+    ==
+    txn ApplicationID
+    &&
+    assert
+    b update_listings_contract
+
+main___algopy_default_create@18:
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    return
+
+
+// avm_email_contracts.is_creator() -> void:
+is_creator:
+    // AVM Email Contracts/avm_email_contracts.py:62
+    // assert Txn.sender == Global.current_application_id.creator
+    txn Sender
+    global CurrentApplicationID
+    app_params_get AppCreator
+    assert // application exists
+    ==
+    assert
+    retsub
+
+
+// avm_email_contracts.refund_excess_mbr(excess: uint64) -> void:
+refund_excess_mbr:
+    // AVM Email Contracts/avm_email_contracts.py:69-70
+    // @subroutine
+    // def refund_excess_mbr(excess: UInt64) -> None:
+    proto 1 0
+    // AVM Email Contracts/avm_email_contracts.py:72-75
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=excess
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:73
+    // receiver=Txn.sender,
+    txn Sender
+    frame_dig -1
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:72
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:72-75
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=excess
+    // ).submit()
+    itxn_submit
+    retsub
+
+
+// avm_email_contracts.contract_is_payment_receiver(txn: uint64) -> void:
+contract_is_payment_receiver:
+    // AVM Email Contracts/avm_email_contracts.py:77-78
+    // @subroutine
+    // def contract_is_payment_receiver(txn: gtxn.PaymentTransaction) -> None:
+    proto 1 0
+    // AVM Email Contracts/avm_email_contracts.py:80
+    // assert txn.receiver == Global.current_application_address
+    frame_dig -1
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert
+    retsub
+
+
+// avm_email_contracts.EmailListings.set_globals[routing]() -> void:
+set_globals:
+    // AVM Email Contracts/avm_email_contracts.py:1348
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // AVM Email Contracts/avm_email_contracts.py:1351
+    // is_creator()
+    callsub is_creator
+    // AVM Email Contracts/avm_email_contracts.py:1352
+    // self.REGISTRY_APP_ID = registry_app
+    bytec_0 // "REGISTRY_APP_ID"
+    uncover 2
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1353
+    // self.algofun_shares_app = algofun_shares_app
+    bytec_2 // "algofun_shares_app"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1348
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.update_listings_contract[routing]() -> void:
+update_listings_contract:
+    // AVM Email Contracts/avm_email_contracts.py:1358
+    // is_creator()
+    callsub is_creator
+    // AVM Email Contracts/avm_email_contracts.py:1355
+    // @abimethod(allow_actions=['UpdateApplication'])
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.create_server_listing[routing]() -> void:
+create_server_listing:
+    // AVM Email Contracts/avm_email_contracts.py:1360
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 2
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // AVM Email Contracts/avm_email_contracts.py:1363
+    // contract_is_payment_receiver(mbr_payment)
+    dup
+    callsub contract_is_payment_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1364-1368
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1367
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1364-1368
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec_3 // method "get_server_info_by_email(string)(address,uint64,bool,uint64,bool,uint64)"
+    itxn_field ApplicationArgs
+    dig 2
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dup
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    dup
+    extract 4 0
+    len
+    pushint 58
+    ==
+    assert // invalid number of bytes for avm_email_contracts.ServerDetails
+    // AVM Email Contracts/avm_email_contracts.py:1370
+    // assert Txn.sender == server_info.server_owner
+    extract 4 32
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1375
+    // lister=Address(Txn.sender),
+    txn Sender
+    // AVM Email Contracts/avm_email_contracts.py:1374-1377
+    // listing_info = Listing(
+    //     lister=Address(Txn.sender),
+    //     algo_amount=sell_amount_in_microalgo
+    // )
+    uncover 3
+    concat
+    // AVM Email Contracts/avm_email_contracts.py:1378
+    // self.server_listings[server] = listing_info.copy()
+    bytec 4 // "server"
+    uncover 4
+    concat
+    swap
+    box_put
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1381
+    // mbr_diff = post_mbr - pre_mbr
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1382
+    // excess_mbr = mbr_payment.amount - mbr_diff
+    swap
+    gtxns Amount
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1383
+    // refund_excess_mbr(excess=excess_mbr)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:1360
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.purchase_server_listing[routing]() -> void:
+purchase_server_listing:
+    // AVM Email Contracts/avm_email_contracts.py:1385
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // AVM Email Contracts/avm_email_contracts.py:1388
+    // contract_is_payment_receiver(payment)
+    dup
+    callsub contract_is_payment_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1390
+    // algo_sent = payment.amount
+    gtxns Amount
+    // AVM Email Contracts/avm_email_contracts.py:1391
+    // algo_requested = self.server_listings[server].algo_amount.native
+    bytec 4 // "server"
+    dig 2
+    concat
+    dup
+    box_get
+    assert // check self.server_listings entry exists
+    pushint 32
+    extract_uint64
+    // AVM Email Contracts/avm_email_contracts.py:1392
+    // assert algo_sent == algo_requested
+    uncover 2
+    dig 1
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1393
+    // fee_amount = (algo_requested * self.fee) // 100
+    intc_0 // 0
+    bytec 7 // "fee"
+    app_global_get_ex
+    assert // check self.fee exists
+    dig 1
+    *
+    pushint 100
+    /
+    // AVM Email Contracts/avm_email_contracts.py:1394
+    // algo_after_fee = algo_requested - fee_amount
+    swap
+    dig 1
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1396-1400
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1399
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1396-1400
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec_3 // method "get_server_info_by_email(string)(address,uint64,bool,uint64,bool,uint64)"
+    itxn_field ApplicationArgs
+    dig 3
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dup
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    dup
+    extract 4 0
+    len
+    pushint 58
+    ==
+    assert // invalid number of bytes for avm_email_contracts.ServerDetails
+    // AVM Email Contracts/avm_email_contracts.py:1404
+    // receiver=self.algofun_shares_app.address,
+    intc_0 // 0
+    bytec_2 // "algofun_shares_app"
+    app_global_get_ex
+    assert // check self.algofun_shares_app exists
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    // AVM Email Contracts/avm_email_contracts.py:1408-1412
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_begin
+    uncover 4
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1403
+    // fee_deposit = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1408-1412
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_next
+    itxn_field ApplicationID
+    bytec 8 // method "add_fees(pay)void"
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1414-1418
+    // itxn.Payment(
+    //     receiver=server_info.server_owner.native,
+    //     amount=algo_after_fee,
+    //     note='Someone purchased your AVM server: ' + server.native
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1415
+    // receiver=server_info.server_owner.native,
+    dup
+    extract 4 32
+    // AVM Email Contracts/avm_email_contracts.py:1417
+    // note='Someone purchased your AVM server: ' + server.native
+    uncover 4
+    extract 2 0
+    pushbytes "Someone purchased your AVM server: "
+    swap
+    concat
+    itxn_field Note
+    uncover 2
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1414
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1414-1418
+    // itxn.Payment(
+    //     receiver=server_info.server_owner.native,
+    //     amount=algo_after_fee,
+    //     note='Someone purchased your AVM server: ' + server.native
+    // ).submit()
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1420-1424
+    // txn = abi_call(
+    //     ServerContract.transfer_server_ownership,
+    //     Address(Txn.sender),
+    //     app_id=server_info.server_app.native
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1422
+    // Address(Txn.sender),
+    txn Sender
+    // AVM Email Contracts/avm_email_contracts.py:1423
+    // app_id=server_info.server_app.native
+    swap
+    pushint 36
+    extract_uint64
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1420-1424
+    // txn = abi_call(
+    //     ServerContract.transfer_server_ownership,
+    //     Address(Txn.sender),
+    //     app_id=server_info.server_app.native
+    // )
+    pushbytes 0x49ed1a93 // method "transfer_server_ownership(address)void"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1426
+    // del self.server_listings[server]
+    box_del
+    pop
+    // AVM Email Contracts/avm_email_contracts.py:1385
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.create_email_listing[routing]() -> void:
+create_email_listing:
+    // AVM Email Contracts/avm_email_contracts.py:1428
+    // @abimethod
+    txna ApplicationArgs 1
+    dupn 2
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 2
+    dup
+    cover 2
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 2
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // AVM Email Contracts/avm_email_contracts.py:1431
+    // contract_is_payment_receiver(mbr_payment)
+    callsub contract_is_payment_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1432-1436
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1435
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1432-1436
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec 5 // method "get_email_info_by_email(string)(address,address,uint64,uint64,byte[],byte[][])"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dupn 2
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    extract 4 0
+    dup
+    len
+    dup
+    uncover 2
+    dup
+    pushint 80
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    pushint 84
+    ==
+    assert // invalid tail pointer at index 4 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    dig 1
+    swap
+    dig 3
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 86
+    +
+    dup
+    cover 3
+    dig 1
+    pushint 82
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    uncover 2
+    ==
+    assert // invalid tail pointer at index 5 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    uncover 2
+    substring3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    dup
+    cover 2
+    intc_2 // 2
+    *
+    swap
+    extract 2 0
+    intc_0 // 0
+
+create_email_listing_for_header@3:
+    // AVM Email Contracts/avm_email_contracts.py:1432-1436
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dup
+    dig 4
+    <
+    bz create_email_listing_after_for@6
+    dupn 2
+    intc_2 // 2
+    *
+    dig 3
+    dup
+    uncover 2
+    extract_uint16 // on error: invalid array encoding
+    dup
+    dig 6
+    dup
+    cover 4
+    ==
+    assert // invalid tail pointer for (len+(len+uint8[])[])
+    dig 1
+    len
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    +
+    bury 4
+    intc_1 // 1
+    +
+    bury 1
+    b create_email_listing_for_header@3
+
+create_email_listing_after_for@6:
+    // AVM Email Contracts/avm_email_contracts.py:1432-1436
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dig 2
+    intc_2 // 2
+    +
+    dig 5
+    +
+    dig 6
+    ==
+    assert // invalid number of bytes for avm_email_contracts.EmailInfo
+    // AVM Email Contracts/avm_email_contracts.py:1438
+    // assert Txn.sender == email_info.account
+    dig 6
+    extract 4 32
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1442
+    // lister=Address(Txn.sender),
+    txn Sender
+    // AVM Email Contracts/avm_email_contracts.py:1441-1444
+    // listing_info = Listing(
+    //     lister=Address(Txn.sender),
+    //     algo_amount=sell_amount_in_microalgo
+    // )
+    dig 10
+    concat
+    // AVM Email Contracts/avm_email_contracts.py:1446
+    // self.email_listings[full_email] = listing_info.copy()
+    bytec 6 // "email"
+    dig 12
+    concat
+    swap
+    box_put
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1448
+    // mbr_diff = post_mbr - pre_mbr
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1449
+    // excess_mbr = mbr_payment.amount - mbr_diff
+    dig 8
+    gtxns Amount
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1450
+    // refund_excess_mbr(excess=excess_mbr)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:1428
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.purchase_email_listing[routing]() -> void:
+purchase_email_listing:
+    // AVM Email Contracts/avm_email_contracts.py:1452
+    // @abimethod
+    txna ApplicationArgs 1
+    dupn 2
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 2
+    dup
+    cover 2
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 3
+    dup
+    cover 2
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txn GroupIndex
+    intc_2 // 2
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 3
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // AVM Email Contracts/avm_email_contracts.py:1462
+    // contract_is_payment_receiver(payment)
+    dig 1
+    callsub contract_is_payment_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1463
+    // contract_is_payment_receiver(mbr_payment)
+    callsub contract_is_payment_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1464
+    // algo_sent = payment.amount
+    gtxns Amount
+    // AVM Email Contracts/avm_email_contracts.py:1465
+    // algo_requested = self.email_listings[full_email].algo_amount.native
+    bytec 6 // "email"
+    dig 2
+    concat
+    dup
+    cover 3
+    box_get
+    assert // check self.email_listings entry exists
+    pushint 32
+    extract_uint64
+    // AVM Email Contracts/avm_email_contracts.py:1467
+    // assert algo_sent == algo_requested
+    swap
+    dig 1
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1468
+    // fee_amount = (algo_requested * 5) // 100
+    dup
+    pushint 5
+    *
+    pushint 100
+    /
+    dup
+    cover 3
+    // AVM Email Contracts/avm_email_contracts.py:1469
+    // algo_after_fee = algo_requested - fee_amount
+    -
+    swap
+    // AVM Email Contracts/avm_email_contracts.py:1471-1475
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1474
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1471-1475
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec 5 // method "get_email_info_by_email(string)(address,address,uint64,uint64,byte[],byte[][])"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dupn 2
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    extract 4 0
+    dup
+    len
+    dup
+    uncover 2
+    dup
+    pushint 80
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    pushint 84
+    ==
+    assert // invalid tail pointer at index 4 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    dig 1
+    swap
+    dig 3
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 86
+    +
+    dup
+    cover 3
+    dig 1
+    pushint 82
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    uncover 2
+    ==
+    assert // invalid tail pointer at index 5 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    uncover 2
+    substring3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    dup
+    cover 2
+    intc_2 // 2
+    *
+    swap
+    extract 2 0
+    intc_0 // 0
+
+purchase_email_listing_for_header@3:
+    // AVM Email Contracts/avm_email_contracts.py:1471-1475
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dup
+    dig 4
+    <
+    bz purchase_email_listing_after_for@6
+    dupn 2
+    intc_2 // 2
+    *
+    dig 3
+    dup
+    uncover 2
+    extract_uint16 // on error: invalid array encoding
+    dup
+    dig 6
+    dup
+    cover 4
+    ==
+    assert // invalid tail pointer for (len+(len+uint8[])[])
+    dig 1
+    len
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    +
+    bury 4
+    intc_1 // 1
+    +
+    bury 1
+    b purchase_email_listing_for_header@3
+
+purchase_email_listing_after_for@6:
+    // AVM Email Contracts/avm_email_contracts.py:1471-1475
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dig 2
+    intc_2 // 2
+    +
+    dig 5
+    +
+    dig 6
+    ==
+    assert // invalid number of bytes for avm_email_contracts.EmailInfo
+    // AVM Email Contracts/avm_email_contracts.py:1479
+    // receiver=self.algofun_shares_app.address,
+    intc_0 // 0
+    bytec_2 // "algofun_shares_app"
+    app_global_get_ex
+    assert // check self.algofun_shares_app exists
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    // AVM Email Contracts/avm_email_contracts.py:1483-1487
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_begin
+    dig 10
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1478
+    // fee_deposit = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1483-1487
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_next
+    itxn_field ApplicationID
+    bytec 8 // method "add_fees(pay)void"
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1490-1494
+    // itxn.Payment(
+    //     receiver=email_info.account.native,
+    //     amount=algo_after_fee,
+    //     note='Someone purchased your AVM full_email: ' + full_email.native
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1491
+    // receiver=email_info.account.native,
+    dig 6
+    dup
+    extract 4 32
+    // AVM Email Contracts/avm_email_contracts.py:1493
+    // note='Someone purchased your AVM full_email: ' + full_email.native
+    dig 15
+    extract 2 0
+    pushbytes "Someone purchased your AVM full_email: "
+    swap
+    concat
+    itxn_field Note
+    dig 9
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1490
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1490-1494
+    // itxn.Payment(
+    //     receiver=email_info.account.native,
+    //     amount=algo_after_fee,
+    //     note='Someone purchased your AVM full_email: ' + full_email.native
+    // ).submit()
+    itxn_submit
+    pushint 68
+    // AVM Email Contracts/avm_email_contracts.py:1497
+    // receiver=Application(email_info.child_email_app.native).address,
+    extract_uint64
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    // AVM Email Contracts/avm_email_contracts.py:1498
+    // amount=mbr_payment.amount
+    dig 12
+    gtxns Amount
+    // AVM Email Contracts/avm_email_contracts.py:1501-1508
+    // txn = abi_call(
+    //     EmailContract.transfer_email_ownership,
+    //     Address(Txn.sender),
+    //     new_det_account,
+    //     new_curve_account,
+    //     new_inner_mbr_payment,
+    //     app_id=email_info.child_email_app.native
+    // )
+    itxn_begin
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1496
+    // new_inner_mbr_payment = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1501-1508
+    // txn = abi_call(
+    //     EmailContract.transfer_email_ownership,
+    //     Address(Txn.sender),
+    //     new_det_account,
+    //     new_curve_account,
+    //     new_inner_mbr_payment,
+    //     app_id=email_info.child_email_app.native
+    // )
+    itxn_next
+    // AVM Email Contracts/avm_email_contracts.py:1503
+    // Address(Txn.sender),
+    txn Sender
+    swap
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1501-1508
+    // txn = abi_call(
+    //     EmailContract.transfer_email_ownership,
+    //     Address(Txn.sender),
+    //     new_det_account,
+    //     new_curve_account,
+    //     new_inner_mbr_payment,
+    //     app_id=email_info.child_email_app.native
+    // )
+    pushbytes 0xf605271d // method "transfer_email_ownership(address,address,address,pay)void"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    dig 12
+    itxn_field ApplicationArgs
+    dig 11
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1510
+    // del self.email_listings[full_email]
+    dig 9
+    box_del
+    pop
+    // AVM Email Contracts/avm_email_contracts.py:1452
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.EmailListings.cancel_listing_of_any_type[routing]() -> void:
+cancel_listing_of_any_type:
+    intc_0 // 0
+    dupn 2
+    pushbytes ""
+    dupn 4
+    // AVM Email Contracts/avm_email_contracts.py:1512
+    // @abimethod
+    txna ApplicationArgs 1
+    dupn 2
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    swap
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 2
+    dupn 2
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    swap
+    cover 2
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1517
+    // if type == 'email':
+    pushbytes 0x0005656d61696c
+    ==
+    bz cancel_listing_of_any_type_else_body@8
+    // AVM Email Contracts/avm_email_contracts.py:1518
+    // assert server_or_fullemail in self.email_listings
+    bytec 6 // "email"
+    dig 3
+    dup
+    cover 2
+    concat
+    dup
+    bury 11
+    box_len
+    bury 1
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1519-1523
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1522
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1519-1523
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec 5 // method "get_email_info_by_email(string)(address,address,uint64,uint64,byte[],byte[][])"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dup
+    bury 11
+    dup
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    extract 4 0
+    dup
+    len
+    dup
+    cover 2
+    bury 6
+    dup
+    pushint 80
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    pushint 84
+    ==
+    assert // invalid tail pointer at index 4 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    dig 1
+    swap
+    dig 3
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 86
+    +
+    dup
+    bury 11
+    dig 1
+    pushint 82
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    uncover 2
+    ==
+    assert // invalid tail pointer at index 5 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    uncover 2
+    substring3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    dup
+    bury 9
+    intc_2 // 2
+    *
+    bury 6
+    extract 2 0
+    bury 11
+    intc_0 // 0
+    bury 6
+
+cancel_listing_of_any_type_for_header@4:
+    // AVM Email Contracts/avm_email_contracts.py:1519-1523
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dig 5
+    dig 7
+    <
+    bz cancel_listing_of_any_type_after_for@7
+    dig 5
+    dup
+    intc_2 // 2
+    *
+    dig 12
+    dup
+    uncover 2
+    extract_uint16 // on error: invalid array encoding
+    dup
+    dig 8
+    dup
+    cover 4
+    ==
+    assert // invalid tail pointer for (len+(len+uint8[])[])
+    dig 1
+    len
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    +
+    bury 6
+    intc_1 // 1
+    +
+    bury 6
+    b cancel_listing_of_any_type_for_header@4
+
+cancel_listing_of_any_type_after_for@7:
+    // AVM Email Contracts/avm_email_contracts.py:1519-1523
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    dig 4
+    intc_2 // 2
+    +
+    dig 8
+    +
+    dig 4
+    ==
+    assert // invalid number of bytes for avm_email_contracts.EmailInfo
+    // AVM Email Contracts/avm_email_contracts.py:1524
+    // assert Txn.sender == email_info.account
+    dig 9
+    extract 4 32
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1525
+    // del self.email_listings[server_or_fullemail]
+    dig 8
+    box_del
+    pop
+
+cancel_listing_of_any_type_after_if_else@12:
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:1539
+    // mbr_diff = pre_mbr - post_mbr
+    dig 1
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:1540
+    // refund_excess_mbr(excess=mbr_diff)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:1512
+    // @abimethod
+    intc_1 // 1
+    return
+
+cancel_listing_of_any_type_else_body@8:
+    // AVM Email Contracts/avm_email_contracts.py:1527
+    // elif type == 'server':
+    dig 1
+    pushbytes 0x0006736572766572
+    ==
+    bz cancel_listing_of_any_type_after_if_else@12
+    // AVM Email Contracts/avm_email_contracts.py:1528
+    // assert server_or_fullemail in self.server_listings
+    bytec 4 // "server"
+    dig 3
+    dup
+    cover 2
+    concat
+    dup
+    box_len
+    bury 1
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1529-1533
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1532
+    // app_id=self.REGISTRY_APP_ID
+    intc_0 // 0
+    bytec_0 // "REGISTRY_APP_ID"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:1529-1533
+    // server_info, txn = abi_call(
+    //     EmailRegistry.get_server_info_by_email,
+    //     server_or_fullemail,
+    //     app_id=self.REGISTRY_APP_ID
+    // )
+    bytec_3 // method "get_server_info_by_email(string)(address,uint64,bool,uint64,bool,uint64)"
+    itxn_field ApplicationArgs
+    swap
+    itxn_field ApplicationArgs
+    intc_3 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dup
+    extract 0 4
+    bytec_1 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    dup
+    extract 4 0
+    len
+    pushint 58
+    ==
+    assert // invalid number of bytes for avm_email_contracts.ServerDetails
+    // AVM Email Contracts/avm_email_contracts.py:1534
+    // assert Txn.sender == server_info.server_owner
+    extract 4 32
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1535
+    // del self.server_listings[server_or_fullemail]
+    box_del
+    pop
+    b cancel_listing_of_any_type_after_if_else@12

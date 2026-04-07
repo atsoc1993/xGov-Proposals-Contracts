@@ -1,0 +1,1904 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 4 8
+    bytecblock "asset_to_stake" "reward_asset" "total_rewards" "acc_reward_per_share" "total_staked" "pool_length" "last_update_time" "users_staked" "initial_reward_total" "pool_start_time" "initialized" "server" "algofun_shares_app" 0x151f7c75 "reward_rate" "SCALE" "PSP_MANAGER_APP_ID" "TINYMAN_ROUTER" "REGISTRY_APP" 0xd554ebd9
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // AVM Email Contracts/avm_email_contracts.py:1975
+    // self.asset_to_stake = UInt64(0)
+    bytec_0 // "asset_to_stake"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1976
+    // self.reward_asset = UInt64(0)
+    bytec_1 // "reward_asset"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1977
+    // self.initial_reward_total = UInt64(0)
+    bytec 8 // "initial_reward_total"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1978
+    // self.total_rewards = UInt64(0)
+    bytec_2 // "total_rewards"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1979
+    // self.pool_start_time = UInt64(0)
+    bytec 9 // "pool_start_time"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1980
+    // self.pool_length = UInt64(0)
+    bytec 5 // "pool_length"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1981
+    // self.reward_rate = UInt64(0)
+    bytec 14 // "reward_rate"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1982
+    // self.total_staked = UInt64(0)
+    bytec 4 // "total_staked"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1983
+    // self.acc_reward_per_share = arc4.UInt256(0)
+    bytec_3 // "acc_reward_per_share"
+    pushbytes 0x0000000000000000000000000000000000000000000000000000000000000000
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1984
+    // self.last_update_time = UInt64(0)
+    bytec 6 // "last_update_time"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1985
+    // self.initialized  = False
+    bytec 10 // "initialized"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1986
+    // self.SCALE = UInt64(1_000_000_000)
+    bytec 15 // "SCALE"
+    pushint 1000000000
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1988
+    // self.platform_fee = UInt64(5)
+    pushbytes "platform_fee"
+    pushint 5
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1989
+    // self.server = String()
+    bytec 11 // "server"
+    pushbytes 0x0000
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1990
+    // self.REGISTRY_APP_ID = Application()
+    pushbytes "REGISTRY_APP_ID"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1991
+    // self.PSP_MANAGER_APP_ID = Application()
+    bytec 16 // "PSP_MANAGER_APP_ID"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1992
+    // self.TINYMAN_ROUTER = Application()
+    bytec 17 // "TINYMAN_ROUTER"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1993
+    // self.users_staked = UInt64(0)
+    bytec 7 // "users_staked"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1994
+    // self.algofun_shares_app = Application()
+    bytec 12 // "algofun_shares_app"
+    intc_0 // 0
+    app_global_put
+
+main_after_if_else@2:
+    // AVM Email Contracts/avm_email_contracts.py:1973
+    // class StakingPool(ARC4Contract):
+    txn NumAppArgs
+    bz main___algopy_default_create@17
+    pushbytess 0x50dc3a0e 0xbf32738a // method "update_or_delete()void", method "cleanse_ended_pool(address,address)void"
+    txna ApplicationArgs 0
+    match main_update_or_delete_route@5 main_cleanse_ended_pool_route@6
+
+main_switch_case_next@7:
+    // AVM Email Contracts/avm_email_contracts.py:1973
+    // class StakingPool(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    assert
+    pushbytess 0x83017e4b 0x2c5abb64 0xf09fcdd7 0x19cb92ed 0xf2191d1b // method "opt_into_assets(uint64,uint64,txn)uint64", method "initialize(uint64,txn,uint64,string,uint64,uint64,uint64,uint64)void", method "stake(string,txn,txn)void", method "unstake()uint64", method "claim_reward()uint64"
+    txna ApplicationArgs 0
+    match opt_into_assets initialize stake unstake claim_reward
+    err
+
+main_cleanse_ended_pool_route@6:
+    // AVM Email Contracts/avm_email_contracts.py:2254
+    // @abimethod(allow_actions=['DeleteApplication'])
+    txn OnCompletion
+    pushint 5 // DeleteApplication
+    ==
+    txn ApplicationID
+    &&
+    assert
+    b cleanse_ended_pool
+
+main_update_or_delete_route@5:
+    // AVM Email Contracts/avm_email_contracts.py:1997
+    // @abimethod(allow_actions=['UpdateApplication', 'DeleteApplication'])
+    intc_1 // 1
+    txn OnCompletion
+    shl
+    pushint 48
+    &
+    txn ApplicationID
+    &&
+    assert
+    b update_or_delete
+
+main___algopy_default_create@17:
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    return
+
+
+// avm_email_contracts.is_creator() -> void:
+is_creator:
+    // AVM Email Contracts/avm_email_contracts.py:62
+    // assert Txn.sender == Global.current_application_id.creator
+    txn Sender
+    global CurrentApplicationID
+    app_params_get AppCreator
+    assert // application exists
+    ==
+    assert
+    retsub
+
+
+// avm_email_contracts.refund_excess_mbr(excess: uint64) -> void:
+refund_excess_mbr:
+    // AVM Email Contracts/avm_email_contracts.py:69-70
+    // @subroutine
+    // def refund_excess_mbr(excess: UInt64) -> None:
+    proto 1 0
+    // AVM Email Contracts/avm_email_contracts.py:72-75
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=excess
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:73
+    // receiver=Txn.sender,
+    txn Sender
+    frame_dig -1
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:72
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:72-75
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=excess
+    // ).submit()
+    itxn_submit
+    retsub
+
+
+// avm_email_contracts.contract_is_receiver(txn: uint64) -> void:
+contract_is_receiver:
+    // AVM Email Contracts/avm_email_contracts.py:1549-1550
+    // @subroutine
+    // def contract_is_receiver(txn: gtxn.Transaction) -> None:
+    proto 1 0
+    // AVM Email Contracts/avm_email_contracts.py:1552
+    // if txn.type == TransactionType.Payment:
+    frame_dig -1
+    gtxns TypeEnum
+    dup
+    intc_1 // pay
+    ==
+    bz contract_is_receiver_else_body@2
+    // AVM Email Contracts/avm_email_contracts.py:1553
+    // assert txn.receiver == Global.current_application_address, "Contract is not receiver of payment txn"
+    frame_dig -1
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert // Contract is not receiver of payment txn
+
+contract_is_receiver_after_if_else@5:
+    retsub
+
+contract_is_receiver_else_body@2:
+    // AVM Email Contracts/avm_email_contracts.py:1554
+    // elif txn.type == TransactionType.AssetTransfer:
+    frame_dig 0
+    intc_2 // axfer
+    ==
+    bz contract_is_receiver_after_if_else@5
+    // AVM Email Contracts/avm_email_contracts.py:1555
+    // assert txn.asset_receiver == Global.current_application_address, "Contract is not receiver of asset transfer"
+    frame_dig -1
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Contract is not receiver of asset transfer
+    retsub
+
+
+// avm_email_contracts.StakingPool.update_or_delete[routing]() -> void:
+update_or_delete:
+    // AVM Email Contracts/avm_email_contracts.py:2000
+    // is_creator()
+    callsub is_creator
+    // AVM Email Contracts/avm_email_contracts.py:1997
+    // @abimethod(allow_actions=['UpdateApplication', 'DeleteApplication'])
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.StakingPool.opt_into_assets[routing]() -> void:
+opt_into_assets:
+    // AVM Email Contracts/avm_email_contracts.py:2002
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dup
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    swap
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 2
+    // AVM Email Contracts/avm_email_contracts.py:2005
+    // contract_is_receiver(mbr_payment)
+    dup
+    callsub contract_is_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1560
+    // assert txn.type == TransactionType.Payment, "Not a payment txn"
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // Not a payment txn
+    // AVM Email Contracts/avm_email_contracts.py:2007
+    // self.not_initialized()
+    callsub not_initialized
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    swap
+    cover 2
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2011
+    // if asset_to_stake != 0:
+    bz opt_into_assets_after_if_else@4
+    // AVM Email Contracts/avm_email_contracts.py:2012-2015
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset_to_stake,
+    //     asset_receiver=Global.current_application_address
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2014
+    // asset_receiver=Global.current_application_address
+    global CurrentApplicationAddress
+    itxn_field AssetReceiver
+    dig 3
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2012
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2012-2015
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset_to_stake,
+    //     asset_receiver=Global.current_application_address
+    // ).submit()
+    itxn_submit
+
+opt_into_assets_after_if_else@4:
+    // AVM Email Contracts/avm_email_contracts.py:2017
+    // if reward_asset != 0 and reward_asset != asset_to_stake:
+    dig 2
+    bz opt_into_assets_after_if_else@8
+    dig 2
+    dig 4
+    !=
+    bz opt_into_assets_after_if_else@8
+    // AVM Email Contracts/avm_email_contracts.py:2018-2021
+    // itxn.AssetTransfer(
+    //     xfer_asset=reward_asset,
+    //     asset_receiver=Global.current_application_address
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2020
+    // asset_receiver=Global.current_application_address
+    global CurrentApplicationAddress
+    itxn_field AssetReceiver
+    dig 2
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2018
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2018-2021
+    // itxn.AssetTransfer(
+    //     xfer_asset=reward_asset,
+    //     asset_receiver=Global.current_application_address
+    // ).submit()
+    itxn_submit
+
+opt_into_assets_after_if_else@8:
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2024
+    // mbr_cost = post_mbr - pre_mbr
+    dig 1
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2025
+    // excess = mbr_payment.amount - mbr_cost
+    dig 2
+    gtxns Amount
+    dig 1
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2026
+    // refund_excess_mbr(excess)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:2002
+    // @abimethod
+    itob
+    bytec 13 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.StakingPool.initialize[routing]() -> void:
+initialize:
+    // AVM Email Contracts/avm_email_contracts.py:2031
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    cover 2
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    cover 3
+    txna ApplicationArgs 3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 4
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 5
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 6
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 7
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // AVM Email Contracts/avm_email_contracts.py:2044
+    // self.server = server
+    bytec 11 // "server"
+    uncover 5
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2045
+    // self.REGISTRY_APP = registry_app
+    bytec 18 // "REGISTRY_APP"
+    uncover 4
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2046
+    // self.PSP_MANAGER_APP_ID = psp_app
+    bytec 16 // "PSP_MANAGER_APP_ID"
+    uncover 3
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2047
+    // self.TINYMAN_ROUTER = tinyman_router
+    bytec 17 // "TINYMAN_ROUTER"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2048
+    // self.algofun_shares_app = algofun_shares_app
+    bytec 12 // "algofun_shares_app"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2050
+    // is_creator()
+    callsub is_creator
+    // AVM Email Contracts/avm_email_contracts.py:2051
+    // self.not_initialized()
+    callsub not_initialized
+    // AVM Email Contracts/avm_email_contracts.py:2052
+    // self.asset_to_stake = asset_to_stake
+    bytec_0 // "asset_to_stake"
+    uncover 2
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2053
+    // if reward_asset_deposit.type == TransactionType.Payment:
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    bz initialize_else_body@3
+    // AVM Email Contracts/avm_email_contracts.py:2054
+    // self.reward_asset = UInt64(0)
+    bytec_1 // "reward_asset"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2055
+    // self.total_rewards = reward_asset_deposit.amount
+    gtxns Amount
+    bytec_2 // "total_rewards"
+    dig 1
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2056
+    // self.initial_reward_total = reward_asset_deposit.amount
+    bytec 8 // "initial_reward_total"
+    swap
+    app_global_put
+
+initialize_after_if_else@4:
+    // AVM Email Contracts/avm_email_contracts.py:2064
+    // self.reward_rate = self.total_rewards // pool_length
+    intc_0 // 0
+    bytec_2 // "total_rewards"
+    app_global_get_ex
+    assert // check self.total_rewards exists
+    dig 1
+    dup
+    cover 2
+    /
+    bytec 14 // "reward_rate"
+    dig 1
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2065
+    // assert self.reward_rate != 0, "Reward rate is 0"
+    assert // Reward rate is 0
+    // AVM Email Contracts/avm_email_contracts.py:2066
+    // self.pool_length = pool_length
+    bytec 5 // "pool_length"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2067
+    // self.pool_start_time = Global.latest_timestamp
+    bytec 9 // "pool_start_time"
+    global LatestTimestamp
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2068
+    // self.last_update_time = Global.latest_timestamp
+    bytec 6 // "last_update_time"
+    global LatestTimestamp
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2070
+    // self.initialized = True
+    bytec 10 // "initialized"
+    intc_1 // 1
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2031
+    // @abimethod
+    intc_1 // 1
+    return
+
+initialize_else_body@3:
+    // AVM Email Contracts/avm_email_contracts.py:2059
+    // self.reward_asset = reward_asset_deposit.xfer_asset.id
+    dup
+    gtxns XferAsset
+    bytec_1 // "reward_asset"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2060
+    // self.total_rewards = reward_asset_deposit.asset_amount
+    gtxns AssetAmount
+    bytec_2 // "total_rewards"
+    dig 1
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2061
+    // self.initial_reward_total = reward_asset_deposit.asset_amount
+    bytec 8 // "initial_reward_total"
+    swap
+    app_global_put
+    b initialize_after_if_else@4
+
+
+// avm_email_contracts.StakingPool.stake[routing]() -> void:
+stake:
+    pushbytes ""
+    dup
+    // AVM Email Contracts/avm_email_contracts.py:2082
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 2
+    +
+    dig 1
+    len
+    dup
+    uncover 2
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txn GroupIndex
+    pushint 2
+    -
+    cover 2
+    txn GroupIndex
+    intc_1 // 1
+    -
+    cover 2
+    // AVM Email Contracts/avm_email_contracts.py:2085
+    // self.users_staked += 1
+    intc_0 // 0
+    bytec 7 // "users_staked"
+    app_global_get_ex
+    assert // check self.users_staked exists
+    intc_1 // 1
+    +
+    bytec 7 // "users_staked"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2086
+    // assert Global.latest_timestamp <= self.pool_start_time + self.pool_length, "Pool already ended"
+    global LatestTimestamp
+    intc_0 // 0
+    bytec 9 // "pool_start_time"
+    app_global_get_ex
+    assert // check self.pool_start_time exists
+    intc_0 // 0
+    bytec 5 // "pool_length"
+    app_global_get_ex
+    assert // check self.pool_length exists
+    +
+    <=
+    assert // Pool already ended
+    // AVM Email Contracts/avm_email_contracts.py:2080
+    // assert self.initialized == True, "Contract is already initialized"
+    intc_0 // 0
+    bytec 10 // "initialized"
+    app_global_get_ex
+    assert // check self.initialized exists
+    intc_1 // 1
+    ==
+    assert // Contract is already initialized
+    // AVM Email Contracts/avm_email_contracts.py:2089
+    // server = self.server
+    intc_0 // 0
+    bytec 11 // "server"
+    app_global_get_ex
+    assert // check self.server exists
+    // AVM Email Contracts/avm_email_contracts.py:2090
+    // assert full_email.bytes[-4:] == b'.avm', "Last 4 bytes are '.avm"
+    intc_2 // 4
+    dig 2
+    >=
+    intc_2 // 4
+    dig 3
+    uncover 2
+    select
+    dig 2
+    swap
+    -
+    dig 3
+    dig 1
+    dig 4
+    substring3
+    pushbytes 0x2e61766d
+    ==
+    assert // Last 4 bytes are '.avm
+    // AVM Email Contracts/avm_email_contracts.py:2091
+    // at_symbol_index = full_email.bytes.length - server.bytes.length - 3
+    dig 1
+    len
+    dig 3
+    dig 1
+    -
+    pushint 3
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2092
+    // assert full_email.bytes[at_symbol_index] == b'@', "@ symbol not at intended index of full email"
+    dig 5
+    dig 1
+    intc_1 // 1
+    extract3
+    pushbytes 0x40
+    ==
+    assert // @ symbol not at intended index of full email
+    // AVM Email Contracts/avm_email_contracts.py:2093
+    // server_index_start = at_symbol_index + 1
+    intc_1 // 1
+    +
+    // AVM Email Contracts/avm_email_contracts.py:2094
+    // assert full_email.bytes[server_index_start:-4] == server.bytes[2:], "Server bytes on full_email arg dont match server bytes in server arg"
+    dup
+    dig 5
+    >=
+    swap
+    uncover 5
+    uncover 2
+    select
+    dig 2
+    dig 1
+    <
+    uncover 3
+    dig 2
+    uncover 2
+    select
+    dig 4
+    cover 2
+    substring3
+    pushint 2
+    dig 2
+    >=
+    pushint 2
+    dig 3
+    uncover 2
+    select
+    uncover 3
+    swap
+    uncover 3
+    substring3
+    ==
+    assert // Server bytes on full_email arg dont match server bytes in server arg
+    // AVM Email Contracts/avm_email_contracts.py:2097-2101
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2100
+    // app_id=self.REGISTRY_APP
+    intc_0 // 0
+    bytec 18 // "REGISTRY_APP"
+    app_global_get_ex
+    assert // check self.REGISTRY_APP exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:2097-2101
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP
+    // )
+    pushbytes 0x17066748 // method "get_email_info_by_email(string)(address,address,uint64,uint64,byte[],byte[][])"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dupn 2
+    extract 0 4
+    bytec 13 // 0x151f7c75
+    ==
+    assert // application log value is not the result of an ABI return
+    extract 4 0
+    dup
+    len
+    dup
+    uncover 2
+    dup
+    pushint 80
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    pushint 84
+    ==
+    assert // invalid tail pointer at index 4 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    dig 1
+    swap
+    dig 3
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 86
+    +
+    dup
+    cover 3
+    dig 1
+    pushint 82
+    extract_uint16 // on error: invalid tuple encoding
+    dup
+    uncover 2
+    ==
+    assert // invalid tail pointer at index 5 of (uint8[32],uint8[32],uint64,uint64,(len+uint8[]),(len+(len+uint8[])[]))
+    uncover 2
+    substring3
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    dup
+    cover 2
+    pushint 2
+    *
+    swap
+    extract 2 0
+    intc_0 // 0
+
+stake_for_header@3:
+    // AVM Email Contracts/avm_email_contracts.py:2097-2101
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP
+    // )
+    dup
+    dig 4
+    <
+    bz stake_after_for@6
+    dupn 2
+    pushint 2
+    *
+    dig 3
+    dup
+    uncover 2
+    extract_uint16 // on error: invalid array encoding
+    dup
+    dig 6
+    dup
+    cover 4
+    ==
+    assert // invalid tail pointer for (len+(len+uint8[])[])
+    dig 1
+    len
+    substring3
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 2
+    +
+    +
+    bury 4
+    intc_1 // 1
+    +
+    bury 1
+    b stake_for_header@3
+
+stake_after_for@6:
+    // AVM Email Contracts/avm_email_contracts.py:2097-2101
+    // email_info, txn = abi_call(
+    //     EmailRegistry.get_email_info_by_email,
+    //     full_email,
+    //     app_id=self.REGISTRY_APP
+    // )
+    dig 2
+    pushint 2
+    +
+    dig 5
+    +
+    dig 6
+    ==
+    assert // invalid number of bytes for avm_email_contracts.EmailInfo
+    // AVM Email Contracts/avm_email_contracts.py:2102
+    // assert Txn.sender == email_info.account
+    dig 6
+    extract 4 32
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:2118
+    // contract_is_receiver(stake_axfer)
+    dig 8
+    callsub contract_is_receiver
+    // AVM Email Contracts/avm_email_contracts.py:2119
+    // if self.asset_to_stake == 0:
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    bnz stake_else_body@9
+    // AVM Email Contracts/avm_email_contracts.py:2120
+    // stake_amount = stake_axfer.amount
+    dig 8
+    dup
+    gtxns Amount
+    dup
+    cover 2
+    bury 12
+    // AVM Email Contracts/avm_email_contracts.py:2121
+    // assert stake_axfer.type == TransactionType.Payment, "Invalid txn type for stake axfer where stake asset is algo"
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // Invalid txn type for stake axfer where stake asset is algo
+    // AVM Email Contracts/avm_email_contracts.py:2122
+    // assert stake_amount != 0, "Attempting to send algo stake with 0 quantity"
+    assert // Attempting to send algo stake with 0 quantity
+
+stake_after_if_else@10:
+    // AVM Email Contracts/avm_email_contracts.py:2105
+    // contract_is_receiver(mbr_payment)
+    dig 7
+    dup
+    callsub contract_is_receiver
+    // AVM Email Contracts/avm_email_contracts.py:1560
+    // assert txn.type == TransactionType.Payment, "Not a payment txn"
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // Not a payment txn
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    swap
+    bury 12
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2136
+    // self.update_increment()
+    callsub update_increment
+    // AVM Email Contracts/avm_email_contracts.py:2138
+    // if Txn.sender not in self.user_stake_instances:
+    txn Sender
+    box_len
+    bury 1
+    bnz stake_else_body@14
+    // AVM Email Contracts/avm_email_contracts.py:2140
+    // stake_amount=arc4.UInt64(stake_amount),
+    dig 9
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2141
+    // last_acc_reward_per_share=arc4.UInt256(self.acc_reward_per_share.native)
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    dup
+    len
+    pushint 32
+    <=
+    assert // overflow
+    pushint 32
+    bzero
+    b|
+    // AVM Email Contracts/avm_email_contracts.py:2139-2142
+    // self.user_stake_instances[Txn.sender] = UserStake(
+    //     stake_amount=arc4.UInt64(stake_amount),
+    //     last_acc_reward_per_share=arc4.UInt256(self.acc_reward_per_share.native)
+    // )
+    concat
+    // AVM Email Contracts/avm_email_contracts.py:2139
+    // self.user_stake_instances[Txn.sender] = UserStake(
+    txn Sender
+    // AVM Email Contracts/avm_email_contracts.py:2139-2142
+    // self.user_stake_instances[Txn.sender] = UserStake(
+    //     stake_amount=arc4.UInt64(stake_amount),
+    //     last_acc_reward_per_share=arc4.UInt256(self.acc_reward_per_share.native)
+    // )
+    swap
+    box_put
+
+stake_after_if_else@15:
+    // AVM Email Contracts/avm_email_contracts.py:2152
+    // self.total_staked += stake_amount
+    intc_0 // 0
+    bytec 4 // "total_staked"
+    app_global_get_ex
+    assert // check self.total_staked exists
+    dig 10
+    +
+    bytec 4 // "total_staked"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2110
+    // mbr_cost = post_mbr - pre_mbr
+    dig 11
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2111
+    // excess = mbr_payment.amount - mbr_cost
+    dig 8
+    gtxns Amount
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2112
+    // refund_excess_mbr(excess)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:2082
+    // @abimethod
+    intc_1 // 1
+    return
+
+stake_else_body@14:
+    // AVM Email Contracts/avm_email_contracts.py:2144
+    // user = self.user_stake_instances[Txn.sender].copy()
+    txn Sender
+    box_get
+    assert // check self.user_stake_instances entry exists
+    // AVM Email Contracts/avm_email_contracts.py:2146
+    // self.dispense_current_reward(user)
+    callsub dispense_current_reward
+    bury 1
+    // AVM Email Contracts/avm_email_contracts.py:2148
+    // user.stake_amount = arc4.UInt64(user.stake_amount.native + stake_amount)
+    dup
+    intc_0 // 0
+    extract_uint64
+    dig 11
+    +
+    itob
+    replace2 0
+    // AVM Email Contracts/avm_email_contracts.py:2149
+    // user.last_acc_reward_per_share  = arc4.UInt256(self.acc_reward_per_share.native)
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    dup
+    len
+    pushint 32
+    <=
+    assert // overflow
+    pushint 32
+    bzero
+    b|
+    replace2 8
+    // AVM Email Contracts/avm_email_contracts.py:2150
+    // self.user_stake_instances[Txn.sender] = user.copy()
+    txn Sender
+    swap
+    box_put
+    b stake_after_if_else@15
+
+stake_else_body@9:
+    // AVM Email Contracts/avm_email_contracts.py:2124
+    // stake_amount = stake_axfer.asset_amount
+    dig 8
+    dup
+    gtxns AssetAmount
+    dup
+    cover 2
+    bury 12
+    // AVM Email Contracts/avm_email_contracts.py:2125
+    // assert stake_axfer.type == TransactionType.AssetTransfer, "Invalid txn type for stake axfer where stake asset is ASA"
+    dup
+    gtxns TypeEnum
+    intc_2 // axfer
+    ==
+    assert // Invalid txn type for stake axfer where stake asset is ASA
+    // AVM Email Contracts/avm_email_contracts.py:2126
+    // assert stake_axfer.xfer_asset.id == self.asset_to_stake, "Stake axfer asset does not match asset_to_stake global"
+    gtxns XferAsset
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    ==
+    assert // Stake axfer asset does not match asset_to_stake global
+    // AVM Email Contracts/avm_email_contracts.py:2127
+    // assert stake_amount != 0, "Attempting to send ASA stake with 0 quantity"
+    assert // Attempting to send ASA stake with 0 quantity
+    b stake_after_if_else@10
+
+
+// avm_email_contracts.StakingPool.unstake[routing]() -> void:
+unstake:
+    // AVM Email Contracts/avm_email_contracts.py:2214
+    // self.update_increment()
+    callsub update_increment
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2216
+    // user_stake_instance = self.user_stake_instances[Txn.sender].copy()
+    txn Sender
+    box_get
+    assert // check self.user_stake_instances entry exists
+    // AVM Email Contracts/avm_email_contracts.py:2217
+    // staked_amount = user_stake_instance.stake_amount.native
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    // AVM Email Contracts/avm_email_contracts.py:2219
+    // reward = self.dispense_current_reward(user_stake_instance)
+    callsub dispense_current_reward
+    pop
+    // AVM Email Contracts/avm_email_contracts.py:2221
+    // if self.asset_to_stake == 0:
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    bnz unstake_else_body@4
+    // AVM Email Contracts/avm_email_contracts.py:2222-2225
+    // itxn.Payment(
+    //     amount=staked_amount,
+    //     receiver=Txn.sender,
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2224
+    // receiver=Txn.sender,
+    txn Sender
+    itxn_field Receiver
+    dig 1
+    itxn_field Amount
+    // AVM Email Contracts/avm_email_contracts.py:2222
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2222-2225
+    // itxn.Payment(
+    //     amount=staked_amount,
+    //     receiver=Txn.sender,
+    // ).submit()
+    itxn_submit
+
+unstake_after_if_else@6:
+    // AVM Email Contracts/avm_email_contracts.py:2234
+    // del self.user_stake_instances[Txn.sender]
+    txn Sender
+    box_del
+    pop
+    // AVM Email Contracts/avm_email_contracts.py:2235
+    // self.users_staked -= 1
+    intc_0 // 0
+    bytec 7 // "users_staked"
+    app_global_get_ex
+    assert // check self.users_staked exists
+    intc_1 // 1
+    -
+    bytec 7 // "users_staked"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2236
+    // self.total_staked -= staked_amount
+    intc_0 // 0
+    bytec 4 // "total_staked"
+    app_global_get_ex
+    assert // check self.total_staked exists
+    dig 2
+    -
+    bytec 4 // "total_staked"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:67
+    // return Global.current_application_address.min_balance
+    global CurrentApplicationAddress
+    acct_params_get AcctMinBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2238
+    // excess = pre_mbr - post_mbr
+    dig 3
+    swap
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2239
+    // refund_excess_mbr(excess)
+    callsub refund_excess_mbr
+    // AVM Email Contracts/avm_email_contracts.py:2211
+    // @abimethod
+    dup
+    itob
+    bytec 13 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+unstake_else_body@4:
+    // AVM Email Contracts/avm_email_contracts.py:2228-2232
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.asset_to_stake,
+    //     asset_amount=staked_amount,
+    //     asset_receiver=Txn.sender
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2229
+    // xfer_asset=self.asset_to_stake,
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    // AVM Email Contracts/avm_email_contracts.py:2231
+    // asset_receiver=Txn.sender
+    txn Sender
+    itxn_field AssetReceiver
+    dig 2
+    itxn_field AssetAmount
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2228
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2228-2232
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.asset_to_stake,
+    //     asset_amount=staked_amount,
+    //     asset_receiver=Txn.sender
+    // ).submit()
+    itxn_submit
+    b unstake_after_if_else@6
+
+
+// avm_email_contracts.StakingPool.claim_reward[routing]() -> void:
+claim_reward:
+    // AVM Email Contracts/avm_email_contracts.py:2246
+    // self.update_increment()
+    callsub update_increment
+    // AVM Email Contracts/avm_email_contracts.py:2247
+    // user_stake_instance = self.user_stake_instances[Txn.sender].copy()
+    txn Sender
+    box_get
+    assert // check self.user_stake_instances entry exists
+    // AVM Email Contracts/avm_email_contracts.py:2248
+    // reward_amount = self.dispense_current_reward(user_stake_instance)
+    callsub dispense_current_reward
+    // AVM Email Contracts/avm_email_contracts.py:2249
+    // user_stake_instance.last_acc_reward_per_share = self.acc_reward_per_share
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    replace2 8
+    // AVM Email Contracts/avm_email_contracts.py:2250
+    // self.user_stake_instances[Txn.sender] = user_stake_instance.copy()
+    txn Sender
+    swap
+    box_put
+    // AVM Email Contracts/avm_email_contracts.py:2243
+    // @abimethod
+    itob
+    bytec 13 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.StakingPool.cleanse_ended_pool[routing]() -> void:
+cleanse_ended_pool:
+    // AVM Email Contracts/avm_email_contracts.py:2254
+    // @abimethod(allow_actions=['DeleteApplication'])
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // AVM Email Contracts/avm_email_contracts.py:2257
+    // is_creator()
+    callsub is_creator
+    // AVM Email Contracts/avm_email_contracts.py:2258
+    // assert self.pool_start_time + self.pool_length < Global.latest_timestamp
+    intc_0 // 0
+    bytec 9 // "pool_start_time"
+    app_global_get_ex
+    assert // check self.pool_start_time exists
+    intc_0 // 0
+    bytec 5 // "pool_length"
+    app_global_get_ex
+    assert // check self.pool_length exists
+    +
+    global LatestTimestamp
+    <
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:2259
+    // if self.asset_to_stake != 0:
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    bz cleanse_ended_pool_after_if_else@3
+    // AVM Email Contracts/avm_email_contracts.py:2260
+    // self.sell_remaining_asset(self.asset_to_stake, pool_address_1)
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    dig 2
+    callsub sell_remaining_asset
+
+cleanse_ended_pool_after_if_else@3:
+    // AVM Email Contracts/avm_email_contracts.py:2262
+    // if self.reward_asset != 0:
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    bz cleanse_ended_pool_after_if_else@5
+    // AVM Email Contracts/avm_email_contracts.py:2263
+    // self.sell_remaining_asset(self.reward_asset, pool_address_2)
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    dig 1
+    callsub sell_remaining_asset
+
+cleanse_ended_pool_after_if_else@5:
+    // AVM Email Contracts/avm_email_contracts.py:2266
+    // receiver=self.algofun_shares_app.address,
+    intc_0 // 0
+    bytec 12 // "algofun_shares_app"
+    app_global_get_ex
+    assert // check self.algofun_shares_app exists
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    // AVM Email Contracts/avm_email_contracts.py:2267
+    // amount=Global.current_application_address.balance
+    global CurrentApplicationAddress
+    acct_params_get AcctBalance
+    assert // account funded
+    // AVM Email Contracts/avm_email_contracts.py:2270-2274
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_begin
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:2265
+    // fee_deposit = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2270-2274
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_next
+    itxn_field ApplicationID
+    bytec 19 // method "add_fees(pay)void"
+    itxn_field ApplicationArgs
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:2276-2287
+    // txn = abi_call(
+    //     PrivateStakingPoolManager.delete_pool_box,
+    //     Global.current_application_id,
+    //     PoolRefBoxName(
+    //         server=self.server,
+    //         asset_to_stake=arc4.UInt64(self.asset_to_stake),
+    //         reward_asset=arc4.UInt64(self.reward_asset),
+    //         reward_total=arc4.UInt64(self.initial_reward_total),
+    //         pool_length=arc4.UInt64(self.pool_length)
+    //     ).bytes,
+    //     app_id=self.PSP_MANAGER_APP_ID
+    // )
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2278
+    // Global.current_application_id,
+    global CurrentApplicationID
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2280
+    // server=self.server,
+    intc_0 // 0
+    bytec 11 // "server"
+    app_global_get_ex
+    assert // check self.server exists
+    // AVM Email Contracts/avm_email_contracts.py:2281
+    // asset_to_stake=arc4.UInt64(self.asset_to_stake),
+    intc_0 // 0
+    bytec_0 // "asset_to_stake"
+    app_global_get_ex
+    assert // check self.asset_to_stake exists
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2282
+    // reward_asset=arc4.UInt64(self.reward_asset),
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2283
+    // reward_total=arc4.UInt64(self.initial_reward_total),
+    intc_0 // 0
+    bytec 8 // "initial_reward_total"
+    app_global_get_ex
+    assert // check self.initial_reward_total exists
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2284
+    // pool_length=arc4.UInt64(self.pool_length)
+    intc_0 // 0
+    bytec 5 // "pool_length"
+    app_global_get_ex
+    assert // check self.pool_length exists
+    itob
+    // AVM Email Contracts/avm_email_contracts.py:2279-2285
+    // PoolRefBoxName(
+    //     server=self.server,
+    //     asset_to_stake=arc4.UInt64(self.asset_to_stake),
+    //     reward_asset=arc4.UInt64(self.reward_asset),
+    //     reward_total=arc4.UInt64(self.initial_reward_total),
+    //     pool_length=arc4.UInt64(self.pool_length)
+    // ).bytes,
+    pushbytes 0x0022
+    uncover 4
+    concat
+    uncover 3
+    concat
+    uncover 2
+    concat
+    swap
+    concat
+    swap
+    concat
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
+    // AVM Email Contracts/avm_email_contracts.py:2286
+    // app_id=self.PSP_MANAGER_APP_ID
+    intc_0 // 0
+    bytec 16 // "PSP_MANAGER_APP_ID"
+    app_global_get_ex
+    assert // check self.PSP_MANAGER_APP_ID exists
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:2276-2287
+    // txn = abi_call(
+    //     PrivateStakingPoolManager.delete_pool_box,
+    //     Global.current_application_id,
+    //     PoolRefBoxName(
+    //         server=self.server,
+    //         asset_to_stake=arc4.UInt64(self.asset_to_stake),
+    //         reward_asset=arc4.UInt64(self.reward_asset),
+    //         reward_total=arc4.UInt64(self.initial_reward_total),
+    //         pool_length=arc4.UInt64(self.pool_length)
+    //     ).bytes,
+    //     app_id=self.PSP_MANAGER_APP_ID
+    // )
+    pushbytes 0x8303bad5 // method "delete_pool_box(uint64,byte[])void"
+    itxn_field ApplicationArgs
+    swap
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:2254
+    // @abimethod(allow_actions=['DeleteApplication'])
+    intc_1 // 1
+    return
+
+
+// avm_email_contracts.StakingPool.not_initialized() -> void:
+not_initialized:
+    // AVM Email Contracts/avm_email_contracts.py:2075
+    // assert self.initialized == False, "Contract is not initialized yet"
+    intc_0 // 0
+    bytec 10 // "initialized"
+    app_global_get_ex
+    assert // check self.initialized exists
+    !
+    assert // Contract is not initialized yet
+    retsub
+
+
+// avm_email_contracts.StakingPool.dispense_current_reward(user: bytes) -> uint64, bytes:
+dispense_current_reward:
+    // AVM Email Contracts/avm_email_contracts.py:2162-2163
+    // @subroutine
+    // def dispense_current_reward(self, user: UserStake) -> UInt64:
+    proto 1 2
+    // AVM Email Contracts/avm_email_contracts.py:2166
+    // (user.stake_amount.native * (self.acc_reward_per_share.native - user.last_acc_reward_per_share.native) // self.SCALE).bytes
+    frame_dig -1
+    extract 0 8
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    frame_dig -1
+    extract 8 32
+    b-
+    b*
+    intc_0 // 0
+    bytec 15 // "SCALE"
+    app_global_get_ex
+    assert // check self.SCALE exists
+    itob
+    b/
+    // AVM Email Contracts/avm_email_contracts.py:2165-2167
+    // reward_amount = op.btoi(
+    //     (user.stake_amount.native * (self.acc_reward_per_share.native - user.last_acc_reward_per_share.native) // self.SCALE).bytes
+    // )
+    btoi
+    dup
+    // AVM Email Contracts/avm_email_contracts.py:2169
+    // if reward_amount == 0:
+    bnz dispense_current_reward_after_if_else@2
+    // AVM Email Contracts/avm_email_contracts.py:2170
+    // return UInt64(0)
+    intc_0 // 0
+    frame_dig -1
+    uncover 2
+    retsub
+
+dispense_current_reward_after_if_else@2:
+    // AVM Email Contracts/avm_email_contracts.py:2172
+    // if self.reward_asset == 0:
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    bnz dispense_current_reward_else_body@5
+    // AVM Email Contracts/avm_email_contracts.py:2173-2176
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=reward_amount
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2174
+    // receiver=Txn.sender,
+    txn Sender
+    frame_dig 0
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:2173
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2173-2176
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=reward_amount
+    // ).submit()
+    itxn_submit
+
+dispense_current_reward_after_if_else@7:
+    // AVM Email Contracts/avm_email_contracts.py:2184
+    // user.last_acc_reward_per_share = arc4.UInt256(self.acc_reward_per_share.native)
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    dup
+    len
+    pushint 32
+    <=
+    assert // overflow
+    pushint 32
+    bzero
+    b|
+    frame_dig -1
+    swap
+    replace2 8
+    frame_bury -1
+    // AVM Email Contracts/avm_email_contracts.py:2186
+    // return reward_amount
+    frame_dig 0
+    frame_dig -1
+    uncover 2
+    retsub
+
+dispense_current_reward_else_body@5:
+    // AVM Email Contracts/avm_email_contracts.py:2178-2182
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.reward_asset,
+    //     asset_amount=reward_amount,
+    //     asset_receiver=Txn.sender
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:2179
+    // xfer_asset=self.reward_asset,
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    // AVM Email Contracts/avm_email_contracts.py:2181
+    // asset_receiver=Txn.sender
+    txn Sender
+    itxn_field AssetReceiver
+    frame_dig 0
+    itxn_field AssetAmount
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2178
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2178-2182
+    // itxn.AssetTransfer(
+    //     xfer_asset=self.reward_asset,
+    //     asset_amount=reward_amount,
+    //     asset_receiver=Txn.sender
+    // ).submit()
+    itxn_submit
+    b dispense_current_reward_after_if_else@7
+
+
+// avm_email_contracts.StakingPool.update_increment() -> void:
+update_increment:
+    // AVM Email Contracts/avm_email_contracts.py:2188-2189
+    // @subroutine
+    // def update_increment(self) -> None:
+    proto 0 0
+    pushbytes ""
+    dup
+    // AVM Email Contracts/avm_email_contracts.py:2191
+    // if self.total_staked == 0:
+    intc_0 // 0
+    bytec 4 // "total_staked"
+    app_global_get_ex
+    assert // check self.total_staked exists
+    bnz update_increment_after_if_else@2
+    // AVM Email Contracts/avm_email_contracts.py:2192
+    // self.last_update_time = Global.latest_timestamp
+    bytec 6 // "last_update_time"
+    global LatestTimestamp
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2193
+    // return
+    retsub
+
+update_increment_after_if_else@2:
+    // AVM Email Contracts/avm_email_contracts.py:2195
+    // now = Global.latest_timestamp
+    global LatestTimestamp
+    dup
+    frame_bury 0
+    // AVM Email Contracts/avm_email_contracts.py:2196
+    // seconds_passed = now - self.last_update_time
+    intc_0 // 0
+    bytec 6 // "last_update_time"
+    app_global_get_ex
+    assert // check self.last_update_time exists
+    -
+    // AVM Email Contracts/avm_email_contracts.py:2197
+    // reward_delta   = seconds_passed * self.reward_rate
+    intc_0 // 0
+    bytec 14 // "reward_rate"
+    app_global_get_ex
+    assert // check self.reward_rate exists
+    *
+    dup
+    frame_bury 1
+    // AVM Email Contracts/avm_email_contracts.py:2199
+    // if reward_delta > self.total_rewards:
+    intc_0 // 0
+    bytec_2 // "total_rewards"
+    app_global_get_ex
+    assert // check self.total_rewards exists
+    >
+    bz update_increment_after_if_else@4
+    // AVM Email Contracts/avm_email_contracts.py:2200
+    // reward_delta = self.total_rewards
+    intc_0 // 0
+    bytec_2 // "total_rewards"
+    app_global_get_ex
+    swap
+    frame_bury 1
+    assert // check self.total_rewards exists
+
+update_increment_after_if_else@4:
+    // AVM Email Contracts/avm_email_contracts.py:2202
+    // self.total_rewards -= reward_delta
+    intc_0 // 0
+    bytec_2 // "total_rewards"
+    app_global_get_ex
+    assert // check self.total_rewards exists
+    frame_dig 1
+    dup
+    cover 2
+    -
+    bytec_2 // "total_rewards"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2205
+    // self.acc_reward_per_share.native +
+    intc_0 // 0
+    bytec_3 // "acc_reward_per_share"
+    app_global_get_ex
+    assert // check self.acc_reward_per_share exists
+    // AVM Email Contracts/avm_email_contracts.py:2206
+    // arc4.UInt256(reward_delta * self.SCALE // self.total_staked).native
+    intc_0 // 0
+    bytec 15 // "SCALE"
+    app_global_get_ex
+    assert // check self.SCALE exists
+    uncover 2
+    *
+    intc_0 // 0
+    bytec 4 // "total_staked"
+    app_global_get_ex
+    assert // check self.total_staked exists
+    /
+    itob
+    pushint 32
+    bzero
+    swap
+    dig 1
+    b|
+    // AVM Email Contracts/avm_email_contracts.py:2205-2206
+    // self.acc_reward_per_share.native +
+    // arc4.UInt256(reward_delta * self.SCALE // self.total_staked).native
+    uncover 2
+    b+
+    // AVM Email Contracts/avm_email_contracts.py:2204-2207
+    // self.acc_reward_per_share = arc4.UInt256(
+    //     self.acc_reward_per_share.native +
+    //     arc4.UInt256(reward_delta * self.SCALE // self.total_staked).native
+    // )
+    dup
+    len
+    pushint 32
+    <=
+    assert // overflow
+    b|
+    // AVM Email Contracts/avm_email_contracts.py:2204
+    // self.acc_reward_per_share = arc4.UInt256(
+    bytec_3 // "acc_reward_per_share"
+    // AVM Email Contracts/avm_email_contracts.py:2204-2207
+    // self.acc_reward_per_share = arc4.UInt256(
+    //     self.acc_reward_per_share.native +
+    //     arc4.UInt256(reward_delta * self.SCALE // self.total_staked).native
+    // )
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:2209
+    // self.last_update_time = now
+    bytec 6 // "last_update_time"
+    frame_dig 0
+    app_global_put
+    retsub
+
+
+// avm_email_contracts.StakingPool.sell_remaining_asset(asset: uint64, pool_address: bytes) -> void:
+sell_remaining_asset:
+    // AVM Email Contracts/avm_email_contracts.py:2290-2291
+    // @subroutine
+    // def sell_remaining_asset(self, asset: UInt64, pool_address: Account) -> None:
+    proto 2 0
+    // AVM Email Contracts/avm_email_contracts.py:2296
+    // asset_amount=Asset(self.reward_asset).balance(Global.current_application_address)
+    global CurrentApplicationAddress
+    intc_0 // 0
+    bytec_1 // "reward_asset"
+    app_global_get_ex
+    assert // check self.reward_asset exists
+    asset_holding_get AssetBalance
+    assert // account opted into asset
+    // AVM Email Contracts/avm_email_contracts.py:2306
+    // app_id=self.TINYMAN_ROUTER,
+    intc_0 // 0
+    bytec 17 // "TINYMAN_ROUTER"
+    app_global_get_ex
+    assert // check self.TINYMAN_ROUTER exists
+    // AVM Email Contracts/avm_email_contracts.py:2313
+    // tx_1, tx_2 = itxn.submit_txns(transfer_asset_to_tinyman_pool_address, asset_fee_sell)
+    itxn_begin
+    swap
+    itxn_field AssetAmount
+    frame_dig -1
+    itxn_field AssetReceiver
+    frame_dig -2
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2293
+    // transfer_asset_to_tinyman_pool_address = itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2313
+    // tx_1, tx_2 = itxn.submit_txns(transfer_asset_to_tinyman_pool_address, asset_fee_sell)
+    itxn_next
+    frame_dig -2
+    itxn_field Assets
+    frame_dig -1
+    itxn_field Accounts
+    // AVM Email Contracts/avm_email_contracts.py:2299
+    // arg_1 = Bytes(b'swap')
+    pushbytes 0x73776170
+    itxn_field ApplicationArgs
+    // AVM Email Contracts/avm_email_contracts.py:2300
+    // arg_2 = Bytes(b'fixed-input')
+    pushbytes 0x66697865642d696e707574
+    itxn_field ApplicationArgs
+    // AVM Email Contracts/avm_email_contracts.py:2301
+    // arg_3 = arc4.UInt64(0).bytes
+    pushbytes 0x0000000000000000
+    itxn_field ApplicationArgs
+    // AVM Email Contracts/avm_email_contracts.py:2307
+    // on_completion=OnCompleteAction.NoOp,
+    intc_0 // NoOp
+    itxn_field OnCompletion
+    itxn_field ApplicationID
+    // AVM Email Contracts/avm_email_contracts.py:2305
+    // asset_fee_sell = itxn.ApplicationCall(
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2313
+    // tx_1, tx_2 = itxn.submit_txns(transfer_asset_to_tinyman_pool_address, asset_fee_sell)
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:2315
+    // algo_received = arc4.UInt64.from_bytes(tx_2.logs(5)[-8:]).native
+    itxna Logs 5
+    dup
+    len
+    intc_3 // 8
+    dig 1
+    >=
+    intc_3 // 8
+    dig 2
+    uncover 2
+    select
+    dig 1
+    swap
+    -
+    swap
+    substring3
+    btoi
+    // AVM Email Contracts/avm_email_contracts.py:2318
+    // receiver=self.algofun_shares_app.address,
+    intc_0 // 0
+    bytec 12 // "algofun_shares_app"
+    app_global_get_ex
+    assert // check self.algofun_shares_app exists
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    // AVM Email Contracts/avm_email_contracts.py:2322-2326
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_begin
+    uncover 2
+    itxn_field Amount
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:2317
+    // fee_deposit = itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2322-2326
+    // abi_call(
+    //     'add_fees(pay)void',
+    //     fee_deposit,
+    //     app_id=self.algofun_shares_app
+    // )
+    itxn_next
+    itxn_field ApplicationID
+    bytec 19 // method "add_fees(pay)void"
+    itxn_field ApplicationArgs
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:2327
+    // asset_creator = Asset(asset).creator
+    frame_dig -2
+    asset_params_get AssetCreator
+    assert // asset exists
+    // AVM Email Contracts/avm_email_contracts.py:2329-2333
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=asset_creator,
+    //     asset_close_to=asset_creator,
+    // ).submit()
+    itxn_begin
+    dup
+    itxn_field AssetCloseTo
+    itxn_field AssetReceiver
+    frame_dig -2
+    itxn_field XferAsset
+    // AVM Email Contracts/avm_email_contracts.py:2329
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:2329-2333
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=asset_creator,
+    //     asset_close_to=asset_creator,
+    // ).submit()
+    itxn_submit
+    retsub

@@ -1,0 +1,374 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 2 1 32
+    bytecblock "EMAIL_OWNER" 0x454d41494c5f656d61696c "CURVE25519_ACCOUNT" "EMAIL_REGISTRY" "SALT" "DETERMINISTIC_ACCOUNT"
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // AVM Email Contracts/avm_email_contracts.py:1278
+    // self.EMAIL_OWNER = Address()
+    bytec_0 // "EMAIL_OWNER"
+    global ZeroAddress
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1279
+    // self.CURVE25519_ACCOUNT = Address()
+    bytec_2 // "CURVE25519_ACCOUNT"
+    global ZeroAddress
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1280
+    // self.EMAIL_REGISTRY = Application()
+    bytec_3 // "EMAIL_REGISTRY"
+    intc_0 // 0
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1281
+    // self.EMAIL_email = String()
+    bytec_1 // "EMAIL_email"
+    pushbytes 0x0000
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1282
+    // self.SALT = Bytes()
+    bytec 4 // "SALT"
+    pushbytes 0x
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1283
+    // self.SPAM = True
+    pushbytes "SPAM"
+    intc_2 // 1
+    app_global_put
+
+main_after_if_else@2:
+    // AVM Email Contracts/avm_email_contracts.py:1276
+    // class SpamEmail(ARC4Contract):
+    txn NumAppArgs
+    bz main___algopy_default_create@14
+    pushbytes 0xce76066d // method "update_spam_email_contract()void"
+    txna ApplicationArgs 0
+    match main_update_spam_email_contract_route@5
+
+main_switch_case_next@6:
+    // AVM Email Contracts/avm_email_contracts.py:1276
+    // class SpamEmail(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    assert
+    pushbytess 0xf7d135ab 0xba7e65cf 0xbeadd2fd // method "set_globals(address,string,address,address,byte[],uint64,uint64)void", method "transfer_ownership(address,address,address)void", method "receive_email(byte[],uint64)void"
+    txna ApplicationArgs 0
+    match set_globals transfer_ownership receive_email
+    err
+
+main_update_spam_email_contract_route@5:
+    // AVM Email Contracts/avm_email_contracts.py:1286
+    // @abimethod(allow_actions=['UpdateApplication'])
+    txn OnCompletion
+    pushint 4 // UpdateApplication
+    ==
+    txn ApplicationID
+    &&
+    assert
+    b update_spam_email_contract
+
+main___algopy_default_create@14:
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    return
+
+
+// avm_email_contracts.SpamEmail.update_spam_email_contract[routing]() -> void:
+update_spam_email_contract:
+    // AVM Email Contracts/avm_email_contracts.py:62
+    // assert Txn.sender == Global.current_application_id.creator
+    txn Sender
+    global CurrentApplicationID
+    app_params_get AppCreator
+    assert // application exists
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1286
+    // @abimethod(allow_actions=['UpdateApplication'])
+    intc_2 // 1
+    return
+
+
+// avm_email_contracts.SpamEmail.set_globals[routing]() -> void:
+set_globals:
+    // AVM Email Contracts/avm_email_contracts.py:1292
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_1 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 3
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 4
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 5
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_1 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    txna ApplicationArgs 6
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 7
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // AVM Email Contracts/avm_email_contracts.py:1304
+    // assert Txn.sender == email_registry.address
+    txn Sender
+    dig 2
+    app_params_get AppAddress
+    assert // application exists
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1305
+    // self.EMAIL_OWNER = owner
+    bytec_0 // "EMAIL_OWNER"
+    uncover 7
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1306
+    // self.DETERMINISTIC_ACCOUNT = det_account
+    bytec 5 // "DETERMINISTIC_ACCOUNT"
+    uncover 5
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1307
+    // self.CURVE25519_ACCOUNT = curve_account
+    bytec_2 // "CURVE25519_ACCOUNT"
+    uncover 4
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1308
+    // self.EMAIL_REGISTRY = email_registry
+    bytec_3 // "EMAIL_REGISTRY"
+    uncover 2
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1309
+    // self.EMAIL_email = email
+    bytec_1 // "EMAIL_email"
+    uncover 3
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1310
+    // self.SALT = salt
+    bytec 4 // "SALT"
+    uncover 2
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1311
+    // self.algofun_shares_app = algofun_shares_app
+    pushbytes "algofun_shares_app"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1292
+    // @abimethod
+    intc_2 // 1
+    return
+
+
+// avm_email_contracts.SpamEmail.transfer_ownership[routing]() -> void:
+transfer_ownership:
+    // AVM Email Contracts/avm_email_contracts.py:1313
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 3
+    dup
+    len
+    intc_3 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // AVM Email Contracts/avm_email_contracts.py:1316
+    // assert Txn.sender == self.EMAIL_REGISTRY.address
+    txn Sender
+    intc_0 // 0
+    bytec_3 // "EMAIL_REGISTRY"
+    app_global_get_ex
+    assert // check self.EMAIL_REGISTRY exists
+    app_params_get AppAddress
+    assert // application exists
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1317
+    // self.EMAIL_OWNER = new_owner
+    bytec_0 // "EMAIL_OWNER"
+    uncover 3
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1318
+    // self.DETERMINISTIC_ACCOUNT = new_det_account
+    bytec 5 // "DETERMINISTIC_ACCOUNT"
+    uncover 2
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1319
+    // self.CURVE25519_ACCOUNT = new_curve_account
+    bytec_2 // "CURVE25519_ACCOUNT"
+    swap
+    app_global_put
+    // AVM Email Contracts/avm_email_contracts.py:1313
+    // @abimethod
+    intc_2 // 1
+    return
+
+
+// avm_email_contracts.SpamEmail.receive_email[routing]() -> void:
+receive_email:
+    // AVM Email Contracts/avm_email_contracts.py:1321
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_1 // 2
+    +
+    swap
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    txna ApplicationArgs 2
+    dup
+    len
+    pushint 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // AVM Email Contracts/avm_email_contracts.py:1324
+    // assert calling_app.creator == Global.creator_address
+    dup
+    app_params_get AppCreator
+    assert // application exists
+    global CreatorAddress
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1325
+    // assert calling_app.address == Txn.sender
+    dup
+    app_params_get AppAddress
+    assert // application exists
+    txn Sender
+    ==
+    assert
+    // AVM Email Contracts/avm_email_contracts.py:1327
+    // sender_email = op.AppGlobal.get_ex_bytes(calling_app.id, b'EMAIL_email')[0]
+    bytec_1 // 0x454d41494c5f656d61696c
+    app_global_get_ex
+    pop
+    // AVM Email Contracts/avm_email_contracts.py:1329-1333
+    // itxn.Payment(
+    //     amount=0,
+    //     receiver=self.EMAIL_OWNER.native,
+    //     note=b'Received a spam email from ' + sender_email[2:] + b' to ' + self.EMAIL_email.bytes[2:] + b'. Forwarded to Junk Mail, add this sender to your allow list if you know them!'
+    // ).submit()
+    itxn_begin
+    // AVM Email Contracts/avm_email_contracts.py:1331
+    // receiver=self.EMAIL_OWNER.native,
+    intc_0 // 0
+    bytec_0 // "EMAIL_OWNER"
+    app_global_get_ex
+    assert // check self.EMAIL_OWNER exists
+    // AVM Email Contracts/avm_email_contracts.py:1332
+    // note=b'Received a spam email from ' + sender_email[2:] + b' to ' + self.EMAIL_email.bytes[2:] + b'. Forwarded to Junk Mail, add this sender to your allow list if you know them!'
+    dig 1
+    len
+    intc_1 // 2
+    dig 1
+    >=
+    intc_1 // 2
+    dig 2
+    uncover 2
+    select
+    uncover 3
+    swap
+    uncover 2
+    substring3
+    pushbytes 0x52656365697665642061207370616d20656d61696c2066726f6d20
+    swap
+    concat
+    pushbytes 0x20746f20
+    concat
+    intc_0 // 0
+    bytec_1 // "EMAIL_email"
+    app_global_get_ex
+    assert // check self.EMAIL_email exists
+    dup
+    len
+    intc_1 // 2
+    dig 1
+    >=
+    intc_1 // 2
+    dig 2
+    uncover 2
+    select
+    swap
+    substring3
+    concat
+    pushbytes 0x2e20466f7277617264656420746f204a756e6b204d61696c2c2061646420746869732073656e64657220746f20796f757220616c6c6f77206c69737420696620796f75206b6e6f77207468656d21
+    concat
+    itxn_field Note
+    itxn_field Receiver
+    // AVM Email Contracts/avm_email_contracts.py:1330
+    // amount=0,
+    intc_0 // 0
+    itxn_field Amount
+    // AVM Email Contracts/avm_email_contracts.py:1329
+    // itxn.Payment(
+    intc_2 // pay
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // AVM Email Contracts/avm_email_contracts.py:1329-1333
+    // itxn.Payment(
+    //     amount=0,
+    //     receiver=self.EMAIL_OWNER.native,
+    //     note=b'Received a spam email from ' + sender_email[2:] + b' to ' + self.EMAIL_email.bytes[2:] + b'. Forwarded to Junk Mail, add this sender to your allow list if you know them!'
+    // ).submit()
+    itxn_submit
+    // AVM Email Contracts/avm_email_contracts.py:1321
+    // @abimethod
+    intc_2 // 1
+    return
