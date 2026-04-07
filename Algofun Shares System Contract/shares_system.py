@@ -1,10 +1,7 @@
 from algopy import ARC4Contract, arc4, UInt64, subroutine, Txn, Global, BoxMap, itxn, Asset, Account, gtxn, ensure_budget, OpUpFeeSource, Bytes, urange, op, BigUInt
-from algopy.arc4 import abimethod, Struct, Bool, DynamicArray
+from algopy.arc4 import abimethod, Struct, Bool
 
-'''
-algokit compile py ALGO.FUN\AlgofunShares\contract\AlgofunShares.py --output-arc56 --out-dir contract_files;algokitgen-py -a ALGO.FUN\AlgofunShares\contract\contract_files\AlgofunSharesSystem.arc56.json -o ALGO.FUN\AlgofunShares\contract\contract_files\AlgofunSharesSystemClient.py ;npx --yes  @algorandfoundation/algokit-client-generator generate -a ALGO.FUN\AlgofunShares\contract\contract_files\AlgofunSharesSystem.arc56.json -o ALGO.FUN\AlgofunShares\contract\contract_files\AlgofunSharesSystemClient.ts 
 
-'''
 class SharesAssetDetails(Struct):
     asset_name: arc4.String
     asset_un: arc4.String
