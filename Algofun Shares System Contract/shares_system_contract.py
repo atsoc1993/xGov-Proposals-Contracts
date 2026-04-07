@@ -1,4 +1,14 @@
-from algopy import ARC4Contract, arc4, UInt64, subroutine, Txn, Global, BoxMap, itxn, Asset, Account, gtxn, ensure_budget, OpUpFeeSource, Bytes, urange, op, BigUInt
+from algopy import (
+    ARC4Contract, arc4, 
+    UInt64, subroutine,
+    Txn, Global,
+    BoxMap, itxn,
+    Asset, Account,
+    gtxn, ensure_budget,
+    OpUpFeeSource, Bytes,
+    urange, op,
+    BigUInt
+)
 from algopy.arc4 import abimethod, Struct, Bool
 
 
@@ -115,7 +125,8 @@ class AlgofunSharesSystem(ARC4Contract):
     @subroutine
     def set_initial_platform_share_amount(self) -> None:
         '''Designate team shares'''
-        self.TEAM_SHARES = ((self.TOTAL_SHARES_UNITS * enter % amount allocated to team here) // 100)
+        self.TEAM_SHARES = ((self.TOTAL_SHARES_UNITS * 10) // 100)
+        # self.TEAM_SHARES = ((self.TOTAL_SHARES_UNITS * enter % amount allocated to team here as integer between 0 and 100) // 100)
         self.add_shares_for_user(
             user=Global.current_application_address,
             share_amount=self.TEAM_SHARES,            

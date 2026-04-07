@@ -1,23 +1,22 @@
 from algopy import (
-    ARC4Contract,
-    UInt64,
-    gtxn,
-    String,
-    Application,
-    Global,
-    Txn,
-    itxn,
-    Account,
-    subroutine,
-    op,
-    TransactionType,
-    BoxMap,
-    urange,
-    BigUInt,
-    ensure_budget,
+    ARC4Contract, UInt64,
+    gtxn, String,
+    Application, Global,
+    Txn, itxn,
+    Account, subroutine,
+    op, TransactionType,
+    BoxMap, urange,
+    BigUInt, ensure_budget,
     OpUpFeeSource
 )
-from algopy.arc4 import abimethod, Struct, Address, abi_call, DynamicArray, Bool
+from algopy.arc4 import (
+    abimethod,
+    Struct,
+    Address,
+    abi_call,
+    DynamicArray,
+    Bool
+)
 from algopy.arc4 import UInt64 as arc4UInt64
 
 
