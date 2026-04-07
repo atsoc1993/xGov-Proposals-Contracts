@@ -21,10 +21,10 @@ From the root folder, all of the contracts can be compiled with respective comma
 **Client**
 
 **Linux**  
-`algokitgen-py -a 'Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract/generated_contract_files/client.py'`
+`algokitgen-py -a 'Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract/generated_contract_files/shares_client.py'`
 
 **PowerShell**  
-`algokitgen-py -a 'Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract\generated_contract_files\client.py'`
+`algokitgen-py -a 'Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract\generated_contract_files\shares_client.py'`
 
 ### AVM Email Contracts
 
@@ -99,7 +99,7 @@ algokit compile py "Algofun Shares System Contract/shares_system_contract.py" --
 algokit compile py "AVM Email Contracts/avm_email_contracts.py" --output-arc56 --out-dir generated_contract_files;
 algokit compile py "Gainify Contracts/master.py" --output-arc56 --out-dir generated_contract_files;
 algokit compile py "Gainify Contracts/staking_pool.py" --output-arc56 --out-dir generated_contract_files;
-algokitgen-py -a "Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json" -o "Algofun Shares System Contract/generated_contract_files/client.py";
+algokitgen-py -a "Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json" -o "Algofun Shares System Contract/generated_contract_files/shares_client.py";
 algokitgen-py -a "AVM Email Contracts/generated_contract_files/EmailRegistry.arc56.json" -o "AVM Email Contracts/generated_contract_files/registry_client.py";
 algokitgen-py -a "AVM Email Contracts/generated_contract_files/ServerContract.arc56.json" -o "AVM Email Contracts/generated_contract_files/server_client.py";
 algokitgen-py -a "AVM Email Contracts/generated_contract_files/EmailContract.arc56.json" -o "AVM Email Contracts/generated_contract_files/email_client.py";
@@ -118,7 +118,7 @@ algokit compile py "Algofun Shares System Contract\shares_system_contract.py" --
 algokit compile py "AVM Email Contracts\avm_email_contracts.py" --output-arc56 --out-dir generated_contract_files;
 algokit compile py "Gainify Contracts\master.py" --output-arc56 --out-dir generated_contract_files;
 algokit compile py "Gainify Contracts\staking_pool.py" --output-arc56 --out-dir generated_contract_files;
-algokitgen-py -a "Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json" -o "Algofun Shares System Contract\generated_contract_files\client.py";
+algokitgen-py -a "Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json" -o "Algofun Shares System Contract\generated_contract_files\shares_client.py";
 algokitgen-py -a "AVM Email Contracts\generated_contract_files\EmailRegistry.arc56.json" -o "AVM Email Contracts\generated_contract_files\registry_client.py";
 algokitgen-py -a "AVM Email Contracts\generated_contract_files\ServerContract.arc56.json" -o "AVM Email Contracts\generated_contract_files\server_client.py";
 algokitgen-py -a "AVM Email Contracts\generated_contract_files\EmailContract.arc56.json" -o "AVM Email Contracts\generated_contract_files\email_client.py";
