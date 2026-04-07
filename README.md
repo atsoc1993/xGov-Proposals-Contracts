@@ -26,34 +26,28 @@ _Note: Ignore the Dropdown Below unless you want to compile the contracts & clie
 
 **TEAL, Mapping & ARC56 Json**
 
-**Linux**  
-`algokit compile py 'Algofun Shares System Contract/shares_system_contract.py' --output-arc56 --out-dir generated_contract_files`
+_Linux_
 
-**PowerShell**  
-`algokit compile py 'Algofun Shares System Contract\shares_system_contract.py' --output-arc56 --out-dir generated_contract_files`
+```
+algokit compile py 'Algofun Shares System Contract/shares_system_contract.py' --output-arc56 --out-dir generated_contract_files
+algokitgen-py -a 'Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract/generated_contract_files/shares_client.py'
+```
 
-**Client**
+_PowerShell_
 
-**Linux**  
-`algokitgen-py -a 'Algofun Shares System Contract/generated_contract_files/AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract/generated_contract_files/shares_client.py'`
-
-**PowerShell**  
-`algokitgen-py -a 'Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract\generated_contract_files\shares_client.py'`
+```
+algokit compile py 'Algofun Shares System Contract\shares_system_contract.py' --output-arc56 --out-dir generated_contract_files
+algokitgen-py -a 'Algofun Shares System Contract\generated_contract_files\AlgofunSharesSystem.arc56.json' -o 'Algofun Shares System Contract\generated_contract_files\shares_client.py'
+```
 
 ### AVM Email Contracts
 
 **TEAL, Mapping & ARC56 Json**
 
-**Linux**  
-`algokit compile py 'AVM Email Contracts/avm_email_contracts.py' --output-arc56 --out-dir generated_contract_files`
+_Linux_
 
-**PowerShell**  
-`algokit compile py 'AVM Email Contracts\avm_email_contracts.py' --output-arc56 --out-dir generated_contract_files`
-
-**Clients**
-
-**Linux**
-```bash
+```
+algokit compile py 'AVM Email Contracts/avm_email_contracts.py' --output-arc56 --out-dir generated_contract_files
 algokitgen-py -a 'AVM Email Contracts/generated_contract_files/EmailRegistry.arc56.json' -o 'AVM Email Contracts/generated_contract_files/registry_client.py'
 algokitgen-py -a 'AVM Email Contracts/generated_contract_files/ServerContract.arc56.json' -o 'AVM Email Contracts/generated_contract_files/server_client.py'
 algokitgen-py -a 'AVM Email Contracts/generated_contract_files/EmailContract.arc56.json' -o 'AVM Email Contracts/generated_contract_files/email_client.py'
@@ -63,8 +57,10 @@ algokitgen-py -a 'AVM Email Contracts/generated_contract_files/PrivateStakingPoo
 algokitgen-py -a 'AVM Email Contracts/generated_contract_files/StakingPool.arc56.json' -o 'AVM Email Contracts/generated_contract_files/staking_pool_client.py'
 ```
 
-**PowerShell**
-```powershell
+_PowerShell_
+
+```
+algokit compile py 'AVM Email Contracts\avm_email_contracts.py' --output-arc56 --out-dir generated_contract_files
 algokitgen-py -a 'AVM Email Contracts\generated_contract_files\EmailRegistry.arc56.json' -o 'AVM Email Contracts\generated_contract_files\registry_client.py'
 algokitgen-py -a 'AVM Email Contracts\generated_contract_files\ServerContract.arc56.json' -o 'AVM Email Contracts\generated_contract_files\server_client.py'
 algokitgen-py -a 'AVM Email Contracts\generated_contract_files\EmailContract.arc56.json' -o 'AVM Email Contracts\generated_contract_files\email_client.py'
@@ -78,28 +74,20 @@ algokitgen-py -a 'AVM Email Contracts\generated_contract_files\StakingPool.arc56
 
 **TEAL, Mapping & ARC56 Json**
 
-**Linux**
-```bash
+_Linux_
+
+```
 algokit compile py 'Gainify Contracts/master.py' --output-arc56 --out-dir generated_contract_files
 algokit compile py 'Gainify Contracts/staking_pool.py' --output-arc56 --out-dir generated_contract_files
-```
-
-**PowerShell**
-```powershell
-algokit compile py 'Gainify Contracts\master.py' --output-arc56 --out-dir generated_contract_files
-algokit compile py 'Gainify Contracts\staking_pool.py' --output-arc56 --out-dir generated_contract_files
-```
-
-**Clients**
-
-**Linux**
-```bash
 algokitgen-py -a 'Gainify Contracts/generated_contract_files/GainifyMasterApp.arc56.json' -o 'Gainify Contracts/generated_contract_files/master_client.py'
 algokitgen-py -a 'Gainify Contracts/generated_contract_files/GainifyStakingPool.arc56.json' -o 'Gainify Contracts/generated_contract_files/pool_client.py'
 ```
 
-**PowerShell**
-```powershell
+_PowerShell_
+
+```
+algokit compile py 'Gainify Contracts\master.py' --output-arc56 --out-dir generated_contract_files
+algokit compile py 'Gainify Contracts\staking_pool.py' --output-arc56 --out-dir generated_contract_files
 algokitgen-py -a 'Gainify Contracts\generated_contract_files\GainifyMasterApp.arc56.json' -o 'Gainify Contracts\generated_contract_files\master_client.py'
 algokitgen-py -a 'Gainify Contracts\generated_contract_files\GainifyStakingPool.arc56.json' -o 'Gainify Contracts\generated_contract_files\pool_client.py'
 ```
