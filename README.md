@@ -7,6 +7,7 @@ This repository contains the contracts that will be open-sourced to assist with 
 ## Proof of Compilation (Compile Commands)
 
 **Step 1:**
+- Create virtual environment and install dependencies needed for compilation & client generation or simply install `algokit`, `algokit-client-generator` & `puyapy`
 ```
 python -m venv venv
 pip install -r requirements.txt
